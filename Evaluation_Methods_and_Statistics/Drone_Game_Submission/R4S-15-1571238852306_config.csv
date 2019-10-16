@@ -1,0 +1,13 @@
+numberOfDrones,15
+dronePathsEnable,false
+dronePathsSeenLength,5
+areaOfRiskShape,poly
+decisionSpaceSelected,none
+decisionSpaceStepsFrontBack,3
+gameOverAfterTimeEnabled,false
+hideDrones,false
+participantID,R4S
+enemies,Red + Yellow
+dronesDestroy,false
+dronesRegen,true
+userDefinedThreat,false
