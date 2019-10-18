@@ -23,3 +23,5 @@ class Filter implements Lock {
         level[i] = 0;
     }
 }
+
+// Bakery: Mutual exclusion, no deadlock, starvation free, Fairness.

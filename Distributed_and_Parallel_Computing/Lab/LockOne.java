@@ -1,6 +1,6 @@
 class LockOne implements Lock {
     private boolean[] flag = new boolean[2];
-    
+
     public void lock() {
         int i = ThreadId.get();
         int j = 1 - i;
@@ -14,4 +14,4 @@ class LockOne implements Lock {
     }
 }
 
-// LockOne fails deadlock-freedom – Concurrent execution can deadlock.
+// LockOne: Mutual exclusion, concurrent deadlock (if possible), sequential non-deadlock.
