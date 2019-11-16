@@ -1,0 +1,257 @@
+/* Cassandra.org override styles
+-------------------------------------------------- */
+body {
+    background-color: #ffffff;
+}
+
+.well {
+    background-color: #fafafa;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+#footer {
+    background-color: #e0e0e0;
+    margin-top: 3px;
+    height: 50px;
+}
+
+#footer .container .text-muted {
+    padding-top: 8px;
+    margin: 0px;
+}
+
+.navbar-cassandra {
+  font-weight: bold;
+  background-color: #101060;
+  border-color: #080808;
+}
+
+.navbar-cassandra .navbar-brand {
+  color: #f8f8f8;
+  padding: 10px 15px 15px 20px;
+}
+
+.panel-cassandra {
+    border-color: #582781;
+}
+
+.panel-cassandra,
+.col-images-cassandra > .item {
+    -moz-box-shadow:   0 0 10px #b0b0b0;
+    -webkit-box-shadow: 0 0 10px #b0b0b0;
+    box-shadow: 0 0 10px #b0b0b0;
+}
+.navbar-cassandra .navbar-nav > li > a {
+    color: #aaaaaa;
+}
+
+.navbar-cassandra .navbar-nav > .active > a, 
+.navbar-cassandra .navbar-nav > .active > a:hover, 
+.navbar-cassandra .navbar-nav > .active > a:focus {
+    background-color: #3050b0;
+    color: #FFFFFF;
+}
+
+a.list-group-item .list-group-item-heading {
+    color: #505070;
+}
+
+.panel-cassandra > .panel-heading {
+  color: #e0e0e0e;
+  background-color: #202080;
+  border-color: #ddd;
+}
+
+.col-images-cassandra {
+    text-align: center;
+}
+.col-images-cassandra > .item {
+    background-color: rgb(255,255,255);
+    margin: 1px;
+    padding: 2px;
+    border: 1px solid #c0c0c0;
+}
+.col-images-cassandra .caption {
+    font-weight: bold;
+}
+.col-images-cassandra .date {
+    font-style: italic;
+}
+
+.blog-description {
+    margin-bottom: 0;
+}
+
+
+.list-group-item-heading > .glyphicon {
+    padding-right: 0.5em;
+}
+.title {
+}
+.description {
+}
+.authors {
+}
+.journal {
+}
+.data {
+}
+
+/* ======================================== */
+/* Project article pages */
+
+div.intro-image-section {
+    float:right;
+    position:relative;
+    left:-50%;
+    text-align:left;
+
+}
+div.intro-image {
+    float: left;
+    position: relative;
+    left: 50%;
+    padding: 10px;
+    text-align: center;
+}
+div.intro-image a {
+}
+div.intro-image img {
+    max-height: 200px;
+    max-width: 200px;
+}
+div.intro-image .caption {
+    font-size: 14px;
+    font-weight: bold;
+    max-width: 200px;
+}
+
+div.proj-heading {
+    font-size: 30px;
+    color: #333333;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 10px;
+    line-height: 1.1;
+}
+div.proj-subheading {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+div.proj-paragraph {
+    padding-top: 8px;
+}
+div.proj-paragraph div {
+    padding-bottom: 8px;
+}
+div.proj-paragraph-image {
+    float: right;
+    margin: 5px;
+}
+div.proj-paragraph-image img {
+    max-height: 200px;
+    max-width: 200px;
+}
+div.proj-paragraph-image .caption {
+    font-size: 12px;
+    font-weight: bold;
+    max-width: 200px;
+}
+
+div.image-block-heading {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom:12px;
+}
+div.image-block-wrapper {
+}
+div.image-block {
+    float:right;
+    position:relative;
+    left:-50%;
+    text-align:left;
+
+}
+div.proj-image {
+    float: left;
+    position: relative;
+    left: 50%;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 1px;
+    text-align: center;
+}
+div.proj-image a {
+}
+div.proj-image img {
+    max-height: 200px;
+    max-width: 200px;
+}
+div.proj-image .caption {
+    font-size: 14px;
+    font-weight: bold;
+    max-width: 200px;
+}
+
+table.priceList {
+    border-width: 2px 2px 2px 2px;
+    border-spacing: 2px;
+    border-style: outset outset outset outset;
+    border-color: #272d72 #272d72 #272d72 #272d72;
+    border-collapse: collapse;
+    background-color: white;
+    max-width: 800px;
+}
+table.priceList tr {
+    margin: 0;
+    border-bottom: 1px solid #a0a0a0;
+    border-left: 2px solid #a0a0a0;
+    border-right: 2px solid #a0a0a0;
+}
+table.priceList tr:first-child {
+    border-bottom: 2px solid #a0a0a0;
+}
+table.priceList th {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 4px 4px 4px;
+    border-width: 2px 1px 1px 1px;
+    border-style: inset inset inset inset;
+    border-color: gray gray gray gray;
+    background-color: #f3e8f0;
+    -moz-border-radius: 0px 0px 0px 0px;
+}
+table.priceList td {
+    font-size: 12px;
+    padding: 4px 4px 4px 4px;
+    border-width: 1px 1px 1px 1px;
+    border-style: inset inset inset inset;
+    border-color: gray gray gray gray;
+    background-color: white;
+    -moz-border-radius: 0px 0px 0px 0px;
+}
+table.priceList th.number,
+table.priceList td.number {
+    text-align: right;
+}
+table.priceList td a {
+    font-size: 12px;
+}
+
+div.multi-column {
+    float: left;
+}
+
+.im-centered { margin: auto; max-width: 800px;}
+hr.talk {
+    color: #888888;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
