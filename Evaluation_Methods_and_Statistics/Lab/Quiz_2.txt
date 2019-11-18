@@ -1,0 +1,167 @@
+Quiz instructions
+
+Using the 'DronesMetrics' file, answer the questions in this quiz using R.
+
+The tests that you need to perform can be found in the lab class notes (and, where appropriate, the questions in the quiz will direct you to specific tests or procedures).
+
+I have updated the lab class notes and these will help you answer the questions.
+
+I would advise that you make a copy of the questions in the quiz and spend time working with R to find the answers to each question. Then complete the quiz based on your notes.
+
+ Question 1 1 pts
+
+What is the mean value of the Dependent Variable ‘TPT’ for the Independent Variable level ‘auto’ (to 2 decimal places)?
+
+ 
+
+ 
+
+Group of answer choices
+1.16
+0.4
+0.33
+0.28
+ 
+Flag this question
+Question 2 1 pts
+
+What is the standard deviation of the Dependent Variable ‘beacon’ for the Independent Variable level ‘both’ (to 2 decimal places)?
+
+ 
+
+Group of answer choices
+140.6
+137.8
+110.3
+108.9
+ 
+Flag this question
+Question 3 1 pts
+
+What are the lowest and highest 2 values of the Dependent Variable ‘d.’ for the Independent Variable level “self”? (hint: use the ‘sort’ command)
+
+ 
+
+Group of answer choices
+40, 66, 78, 122
+-1.62, -0.83, 5.13, 6.36
+20, 20, 280, 280
+78, 87, 254, 80
+ 
+Flag this question
+Question 4 1 pts
+
+What would Winsorization (at 6%, assuming that this is 4 values in total) do with the highest and lowest values?
+
+ 
+Group of answer choices
+Replace the lowest values with 18 and the highest values with 368
+Replace the lowest values with 1 and the highest values with 100
+Replace the lowest values with the highest values
+Replace the lowest values with 12 and the highest values with 636
+ 
+Flag this question
+Question 5 5 pts
+
+What is the value of w for a Shapiro-Wilk test on normality of the Dependent Variable ‘tpt’? (hint: you first need to create a data.frame that includes the three levels of independent variable, and then you need to convert this to a data.matrix in order to perform the test)
+
+ 
+
+Group of answer choices
+0.22
+0.25
+0.68
+0.83
+ 
+Flag this question
+Question 6 5 pts
+
+Using Box-Cox transformation have on the tpt data matrix you created for 4, what value of box.y do you produce?
+
+ 
+
+Group of answer choices
+61
+-100
+-551.3
+5000
+ 
+Flag this question
+Question 7 5 pts
+
+If you normalize the data matrix for tpt using a log transform, what value of w for Shapiro-Wilk?
+
+ 
+
+Group of answer choices
+1
+0
+0.25
+0.99
+ 
+Flag this question
+Question 8 5 pts
+
+Convert the data.frame for the tpt data into Long format (hint: use the ‘reshape’ function). Then run a one-way ANOVA on the data.  What is the F-value you obtain?
+
+ 
+
+ 
+Group of answer choices
+0.8051
+115.68
+2.91
+3.98
+ 
+Flag this question
+Question 9 5 pts
+
+Run a Friedman ANOVA on the data for d (in the long format used previously).  What value of chi-squared do this produce?
+
+ 
+
+ 
+Group of answer choices
+3.12
+8.85
+6.44
+5.52
+ 
+Flag this question
+Question 10 2 pts
+
+What is the value of V from a Wilcoxon test of auto_d. x both_d.?
+
+ 
+Group of answer choices
+987.5
+1625
+883.6
+1010
+ 
+Flag this question
+Question 11 2 pts
+
+From the value of V in question 11, convert this to z. What is this value?
+
+ 
+Group of answer choices
+1010
+-0.94
+987.5
+-1.32
+ 
+Flag this question
+Question 12 2 pts
+
+What is the power of the Wilcoxon test in question 11?
+
+ 
+
+ 
+Group of answer choices
+0.5
+d
+0.11
+0.8
+
