@@ -1,0 +1,33 @@
+Command line
+Compile files by adding the modules
+javac --module-path PathToJavaFXLibrary
+      --add-modules=javafx.controls
+      --add-modules=javafx.swing
+      MyClass.java
+    
+Likewise for the java and javadoc commands.
+
+Eclipse
+First create a new project, e.g., lab08 (do not create a module).
+Right click on the new project and follow the descriptions: BuildPath --> Configure build path --> Libraries --> Add external JARs.
+Navigate to /bham/modules/roots/msc-sw/2019-20/lib/javafx-sdk-11.0.2/lib/ and add all the .jar files (or the corresponding file space on your own computer, where you have downloaded the jar files).
+Click on Apply.
+In order to run the class, change the Run configurations (right to the arrow to run the code):
+
+Arguments --> VMArguments add:
+--module-path /bham/modules/roots/msc-sw/2019-20/lib/javafx-sdk-11.0.2/lib/ --add-modules=javafx.controls
+Hints
+Use jdk-11 (see https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html for the licensed Oracle version or https://jdk.java.net/archive/ for the open version).
+In Run Configuration, under VM arguments, make sure that you untick the Use the XstartOnFirstThread ... option.
+Possible Problems when installing JavaFX on your own computer
+A directory name in the module path contains an empty space.
+Put the path name in double quotes. However, then any backslashes need to be doubled.
+E.g. --module-path \bham\my modules\roots\javafx-sdk-11.0.2\lib\ has a problem because of the empty space between "my" and "modules". Write instead --module-path "\\bham\\my modules\\roots\\javafx-sdk-11.0.2\\lib\\"
+You have a version of the .jar files that is not suited for the operating system of your computer.
+Delete the .jar files and download the correct version. See, e.g., https://gluonhq.com/products/javafx.
+It is still not working.
+With increasing effort:
+Try to restart Eclipse.
+Try a new project.
+Try a new workspace.
+(As a last resort, try to re-install Eclipse.)
