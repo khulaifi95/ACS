@@ -1,3 +1,24 @@
+// Name: Zhangda Xu
+// Student ID: 2088192
+//
+// Assignment goals achieved:
+//   - block scan
+//   - full scan for large vectors
+//   - bank conflict avoidance optimization
+//
+// Time to execute the different scans on a vector of 10,000,000 entries:
+//   - Block scan without BCAO: *TIME-1*
+//   - Block scan with BCAO: *TIME-2*
+//   - Full scan without BCAO: *TIME-3*
+//   - Full scan with BCAO: *TIME-4*
+//
+// CPU model:
+// GPU model:
+//
+// Description
+// A short description of any implementation details or performance improvement strategies that you successfully
+// implemented and which improve upon a base level implementation of the target goals.
+
 __global__ void prescan(float *g_odata, float *g_idata, int n)
 {
     extern __shared__ float temp[]; // allocated on invocation
