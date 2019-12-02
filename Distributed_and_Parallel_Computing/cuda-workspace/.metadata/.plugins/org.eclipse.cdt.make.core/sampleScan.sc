@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?scdStore version="2"?><scannerInfo id="org.eclipse.cdt.make.core.discoveredScannerInfo">
-<instance id="com.nvidia.cuda.ide.ten_two.configuration.debug.1916167560;com.nvidia.cuda.ide.ten_two.configuration.debug.1916167560.;nvcc.compiler.base.1830682774;nvcc.compiler.input.cpp.562031784">
+<instance id="com.nvidia.cuda.ide.ten_one.configuration.debug.361709584;com.nvidia.cuda.ide.ten_one.configuration.debug.361709584.;nvcc.compiler.base.2050903218;nvcc.compiler.input.cpp.54854444">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
-<includePath path="/usr/local/cuda-10.2/bin/../targets/x86_64-linux/include"/>
+<includePath path="/usr/local/cuda-10.1/bin/../targets/x86_64-linux/include"/>
 <includePath path="/usr/include/c++/7"/>
 <includePath path="/usr/include/x86_64-linux-gnu/c++/7"/>
 <includePath path="/usr/include/c++/7/backward"/>
@@ -14,11 +14,11 @@
 <definedSymbol symbol="__CUDA_RUNTIME_H__="/>
 <definedSymbol symbol="CUDA_DOUBLE_MATH_FUNCTIONS="/>
 <definedSymbol symbol="__CUDA_ARCH__=610"/>
-<definedSymbol symbol="__CUDACC_VER_MINOR__=2"/>
+<definedSymbol symbol="__CUDACC_VER_MINOR__=1"/>
 <definedSymbol symbol="__CUDACC__="/>
 <definedSymbol symbol="__NVCC__="/>
 <definedSymbol symbol="__NVCC__=1"/>
-<definedSymbol symbol="__CUDACC_VER_BUILD__=89"/>
+<definedSymbol symbol="__CUDACC_VER_BUILD__=243"/>
 <definedSymbol symbol="__DRIVER_TYPES_H__="/>
 <definedSymbol symbol="__CUDACC_DEBUG__="/>
 <definedSymbol symbol="__CUDACC_VER_MAJOR__=10"/>
@@ -414,9 +414,9 @@
 <definedSymbol symbol="__STDC_NO_THREADS__=1"/>
 </collector>
 </instance>
-<instance id="com.nvidia.cuda.ide.ten_two.configuration.debug.1916167560;com.nvidia.cuda.ide.ten_two.configuration.debug.1916167560.;nvcc.compiler.base.1830682774;nvcc.compiler.input.cu.1085494972">
+<instance id="com.nvidia.cuda.ide.ten_one.configuration.debug.361709584;com.nvidia.cuda.ide.ten_one.configuration.debug.361709584.;nvcc.compiler.base.2050903218;nvcc.compiler.input.cu.1078612128">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
-<includePath path="/usr/local/cuda-10.2/bin/../targets/x86_64-linux/include"/>
+<includePath path="/usr/local/cuda-10.1/bin/../targets/x86_64-linux/include"/>
 <includePath path="/usr/include/c++/7"/>
 <includePath path="/usr/include/x86_64-linux-gnu/c++/7"/>
 <includePath path="/usr/include/c++/7/backward"/>
@@ -428,11 +428,11 @@
 <definedSymbol symbol="__CUDA_RUNTIME_H__="/>
 <definedSymbol symbol="CUDA_DOUBLE_MATH_FUNCTIONS="/>
 <definedSymbol symbol="__CUDA_ARCH__=610"/>
-<definedSymbol symbol="__CUDACC_VER_MINOR__=2"/>
+<definedSymbol symbol="__CUDACC_VER_MINOR__=1"/>
 <definedSymbol symbol="__CUDACC__="/>
 <definedSymbol symbol="__NVCC__="/>
 <definedSymbol symbol="__NVCC__=1"/>
-<definedSymbol symbol="__CUDACC_VER_BUILD__=89"/>
+<definedSymbol symbol="__CUDACC_VER_BUILD__=243"/>
 <definedSymbol symbol="__DRIVER_TYPES_H__="/>
 <definedSymbol symbol="__CUDACC_DEBUG__="/>
 <definedSymbol symbol="__CUDACC_VER_MAJOR__=10"/>
@@ -828,9 +828,9 @@
 <definedSymbol symbol="__STDC_NO_THREADS__=1"/>
 </collector>
 </instance>
-<instance id="com.nvidia.cuda.ide.ten_two.configuration.debug.1916167560;com.nvidia.cuda.ide.ten_two.configuration.debug.1916167560.;nvcc.compiler.base.1830682774;nvcc.compiler.input.c.88603527">
+<instance id="com.nvidia.cuda.ide.ten_one.configuration.debug.361709584;com.nvidia.cuda.ide.ten_one.configuration.debug.361709584.;nvcc.compiler.base.2050903218;nvcc.compiler.input.c.538953264">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
-<includePath path="/usr/local/cuda-10.2/bin/../targets/x86_64-linux/include"/>
+<includePath path="/usr/local/cuda-10.1/bin/../targets/x86_64-linux/include"/>
 <includePath path="/usr/include/c++/7"/>
 <includePath path="/usr/include/x86_64-linux-gnu/c++/7"/>
 <includePath path="/usr/include/c++/7/backward"/>
@@ -842,11 +842,11 @@
 <definedSymbol symbol="__CUDA_RUNTIME_H__="/>
 <definedSymbol symbol="CUDA_DOUBLE_MATH_FUNCTIONS="/>
 <definedSymbol symbol="__CUDA_ARCH__=610"/>
-<definedSymbol symbol="__CUDACC_VER_MINOR__=2"/>
+<definedSymbol symbol="__CUDACC_VER_MINOR__=1"/>
 <definedSymbol symbol="__CUDACC__="/>
 <definedSymbol symbol="__NVCC__="/>
 <definedSymbol symbol="__NVCC__=1"/>
-<definedSymbol symbol="__CUDACC_VER_BUILD__=89"/>
+<definedSymbol symbol="__CUDACC_VER_BUILD__=243"/>
 <definedSymbol symbol="__DRIVER_TYPES_H__="/>
 <definedSymbol symbol="__CUDACC_DEBUG__="/>
 <definedSymbol symbol="__CUDACC_VER_MAJOR__=10"/>
@@ -1242,9 +1242,9 @@
 <definedSymbol symbol="__STDC_NO_THREADS__=1"/>
 </collector>
 </instance>
-<instance id="com.nvidia.cuda.ide.ten_two.configuration.release.1526682322;com.nvidia.cuda.ide.ten_two.configuration.release.1526682322.;nvcc.compiler.base.1370751506;nvcc.compiler.input.cu.1882473024">
+<instance id="com.nvidia.cuda.ide.ten_one.configuration.release.2131725788;com.nvidia.cuda.ide.ten_one.configuration.release.2131725788.;nvcc.compiler.base.1574825119;nvcc.compiler.input.cu.818684515">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
-<includePath path="/usr/local/cuda-10.2/bin/../targets/x86_64-linux/include"/>
+<includePath path="/usr/local/cuda-10.1/bin/../targets/x86_64-linux/include"/>
 <includePath path="/usr/include/c++/7"/>
 <includePath path="/usr/include/x86_64-linux-gnu/c++/7"/>
 <includePath path="/usr/include/c++/7/backward"/>
@@ -1256,11 +1256,11 @@
 <definedSymbol symbol="__CUDA_RUNTIME_H__="/>
 <definedSymbol symbol="CUDA_DOUBLE_MATH_FUNCTIONS="/>
 <definedSymbol symbol="__CUDA_ARCH__=300"/>
-<definedSymbol symbol="__CUDACC_VER_MINOR__=2"/>
+<definedSymbol symbol="__CUDACC_VER_MINOR__=1"/>
 <definedSymbol symbol="__CUDACC__="/>
 <definedSymbol symbol="__NVCC__="/>
 <definedSymbol symbol="__NVCC__=1"/>
-<definedSymbol symbol="__CUDACC_VER_BUILD__=89"/>
+<definedSymbol symbol="__CUDACC_VER_BUILD__=243"/>
 <definedSymbol symbol="__DRIVER_TYPES_H__="/>
 <definedSymbol symbol="__CUDACC_DEBUG__="/>
 <definedSymbol symbol="__CUDACC_VER_MAJOR__=10"/>
@@ -1656,9 +1656,9 @@
 <definedSymbol symbol="__STDC_NO_THREADS__=1"/>
 </collector>
 </instance>
-<instance id="com.nvidia.cuda.ide.ten_two.configuration.release.1526682322;com.nvidia.cuda.ide.ten_two.configuration.release.1526682322.;nvcc.compiler.base.1370751506;nvcc.compiler.input.cpp.1132429922">
+<instance id="com.nvidia.cuda.ide.ten_one.configuration.release.2131725788;com.nvidia.cuda.ide.ten_one.configuration.release.2131725788.;nvcc.compiler.base.1574825119;nvcc.compiler.input.cpp.1935522101">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
-<includePath path="/usr/local/cuda-10.2/bin/../targets/x86_64-linux/include"/>
+<includePath path="/usr/local/cuda-10.1/bin/../targets/x86_64-linux/include"/>
 <includePath path="/usr/include/c++/7"/>
 <includePath path="/usr/include/x86_64-linux-gnu/c++/7"/>
 <includePath path="/usr/include/c++/7/backward"/>
@@ -2055,8 +2055,8 @@
 <definedSymbol symbol="_GNU_SOURCE=1"/>
 <definedSymbol symbol="__NVCC__=1"/>
 <definedSymbol symbol="__CUDACC_VER_MAJOR__=10"/>
-<definedSymbol symbol="__CUDACC_VER_MINOR__=2"/>
-<definedSymbol symbol="__CUDACC_VER_BUILD__=89"/>
+<definedSymbol symbol="__CUDACC_VER_MINOR__=1"/>
+<definedSymbol symbol="__CUDACC_VER_BUILD__=243"/>
 <definedSymbol symbol="_STDC_PREDEF_H=1"/>
 <definedSymbol symbol="__STDC_IEC_559__=1"/>
 <definedSymbol symbol="__STDC_IEC_559_COMPLEX__=1"/>
@@ -2064,9 +2064,9 @@
 <definedSymbol symbol="__STDC_NO_THREADS__=1"/>
 </collector>
 </instance>
-<instance id="com.nvidia.cuda.ide.ten_two.configuration.release.1526682322;com.nvidia.cuda.ide.ten_two.configuration.release.1526682322.;nvcc.compiler.base.1370751506;nvcc.compiler.input.c.1662288883">
+<instance id="com.nvidia.cuda.ide.ten_one.configuration.release.2131725788;com.nvidia.cuda.ide.ten_one.configuration.release.2131725788.;nvcc.compiler.base.1574825119;nvcc.compiler.input.c.1965367470">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
-<includePath path="/usr/local/cuda-10.2/bin/../targets/x86_64-linux/include"/>
+<includePath path="/usr/local/cuda-10.1/bin/../targets/x86_64-linux/include"/>
 <includePath path="/usr/include/c++/7"/>
 <includePath path="/usr/include/x86_64-linux-gnu/c++/7"/>
 <includePath path="/usr/include/c++/7/backward"/>
@@ -2463,8 +2463,8 @@
 <definedSymbol symbol="_GNU_SOURCE=1"/>
 <definedSymbol symbol="__NVCC__=1"/>
 <definedSymbol symbol="__CUDACC_VER_MAJOR__=10"/>
-<definedSymbol symbol="__CUDACC_VER_MINOR__=2"/>
-<definedSymbol symbol="__CUDACC_VER_BUILD__=89"/>
+<definedSymbol symbol="__CUDACC_VER_MINOR__=1"/>
+<definedSymbol symbol="__CUDACC_VER_BUILD__=243"/>
 <definedSymbol symbol="_STDC_PREDEF_H=1"/>
 <definedSymbol symbol="__STDC_IEC_559__=1"/>
 <definedSymbol symbol="__STDC_IEC_559_COMPLEX__=1"/>

@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;Prescan/src/WorkEfficientScan.cu&apos; to &apos;preScan.cu&apos;" description="Rename resource &apos;WorkEfficientScan.cu&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/WorkEfficientScan.cu" name="preScan.cu" stamp="1575266383649" updateReferences="true"/>
-</session>
