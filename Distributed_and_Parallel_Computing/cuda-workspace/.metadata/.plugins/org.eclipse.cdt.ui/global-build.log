@@ -1,0 +1,11 @@
+05:48:37 **** Incremental Build of configuration Debug for project scanLargeArray ****
+make all 
+Building file: ../src/scanLargeArray.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.2/bin/nvcc -I/usr/local/cuda/samples/common/inc -I/usr/local/cuda-10.2/samples -G -g -O0 -gencode arch=compute_61,code=sm_61  -odir "src" -M -o "src/scanLargeArray.d" "../src/scanLargeArray.cu"
+../src/scanLargeArray.cu:20:10: fatal error: cutil_inline.h: No such file or directory
+ #include <cutil_inline.h>
+          ^~~~~~~~~~~~~~~~
+compilation terminated.
+src/subdir.mk:18: recipe for target 'src/scanLargeArray.o' failed
+make: *** [src/scanLargeArray.o] Error 1
