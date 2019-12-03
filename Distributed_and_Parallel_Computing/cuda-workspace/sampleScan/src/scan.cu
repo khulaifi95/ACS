@@ -12,27 +12,6 @@
 #endif
 
 __global__
-void gpu_sum_scan_naive(unsigned int* const d_out,
-	const unsigned int* const d_in,
-	const size_t numElems)
-{
-	// Using naive scan where each thread calculates a separate partial sum
-	// Step complexity is still O(n) as the last thread will calculate the global sum
-
-	unsigned int d_hist_idx = blockDim.x * blockIdx.x + threadIdx.x;
-	if (d_hist_idx == 0 || d_hist_idx >= numElems)
-	{
-		return;
-	}
-	unsigned int cdf_val = 0;
-	for (int i = 0; i < d_hist_idx; ++i)
-	{
-		cdf_val = cdf_val + d_in[i];
-	}
-	d_out[d_hist_idx] = cdf_val;
-}
-
-__global__
 void gpu_sum_scan_blelloch(unsigned int* const d_out,
 	const unsigned int* const d_in,
 	unsigned int* const d_block_sums,
@@ -311,17 +290,7 @@ void gpu_prescan(unsigned int* const d_out,
 	}
 }
 
-void sum_scan_naive(unsigned int* const d_out,
-	const unsigned int* const d_in,
-	const size_t numElems)
-{
-	unsigned int blockSz = MAX_BLOCK_SZ;
-	unsigned int gridSz = numElems / blockSz;
-	if (numElems % blockSz != 0)
-		gridSz += 1;
-	checkCudaErrors(cudaMemset(d_out, 0, numElems * sizeof(unsigned int)));
-	gpu_sum_scan_naive << <gridSz, blockSz >> >(d_out, d_in, numElems);
-}
+
  
 void sum_scan_blelloch(unsigned int* const d_out,
 	const unsigned int* const d_in,

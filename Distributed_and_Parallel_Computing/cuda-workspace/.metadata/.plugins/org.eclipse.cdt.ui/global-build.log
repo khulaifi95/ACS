@@ -1,0 +1,24 @@
+08:56:47 **** Incremental Build of configuration Debug for project Submission ****
+make all 
+Building file: ../src/Submission.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -I/usr/local/cuda-10.1/samples/common/inc -G -g -O0 -gencode arch=compute_61,code=sm_61  -odir "src" -M -o "src/Submission.d" "../src/Submission.cu"
+/usr/local/cuda-10.1/bin/nvcc -I/usr/local/cuda-10.1/samples/common/inc -G -g -O0 --compile --relocatable-device-code=false -gencode arch=compute_61,code=compute_61 -gencode arch=compute_61,code=sm_61  -x cu -o  "src/Submission.o" "../src/Submission.cu"
+../src/Submission.cu: In function ‘void printResult(const char*, int, long int)’:
+../src/Submission.cu:556:14: warning: format not a string literal and no format arguments [-Wformat-security]
+  printf(prefix);
+              ^
+../src/Submission.cu: In function ‘void printResult(const char*, int, float)’:
+../src/Submission.cu:562:14: warning: format not a string literal and no format arguments [-Wformat-security]
+  printf(prefix);
+              ^
+Finished building: ../src/Submission.cu
+ 
+Building target: Submission
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_61,code=compute_61 -gencode arch=compute_61,code=sm_61 -link -o  "Submission"  ./src/Submission.o   
+Finished building target: Submission
+ 
+08:57:13 **** Incremental Build of configuration Debug for project Submission ****
+make all 
+make: Nothing to be done for 'all'.

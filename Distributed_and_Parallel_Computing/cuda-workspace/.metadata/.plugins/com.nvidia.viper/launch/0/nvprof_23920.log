@@ -1,0 +1,3 @@
+==23920== NVPROF is profiling process 23920, command: /home/kevinxu/ACS/Distributed_and_Parallel_Computing/cuda-workspace/PreScan/Debug/PreScan
+==23920== Warning: Some profiling data are not recorded. Make sure cudaProfilerStop() or cuProfilerStop() is called before application exit to flush profile data.
+==23920== Generated result file: /home/kevinxu/ACS/Distributed_and_Parallel_Computing/cuda-workspace/.metadata/.plugins/com.nvidia.viper/launch/0/api_23920.log

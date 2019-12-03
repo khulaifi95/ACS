@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="threadIdx.x" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="threadID.x"/>
+			<item value="blockID.x"/>
+			<item value="thidx.x"/>
+			<item value="bidx.x"/>
+			<item value="preScan_large"/>
+			<item value="prescan_large"/>
+			<item value="preScan_large_BCAO"/>
+			<item value="sequential_scan"/>
+		</list>
+		<list key="replacehistory">
+			<item value="threadIdx.x"/>
+			<item value="blockIdx.x"/>
+			<item value="threadID.x"/>
+			<item value="blockID.x"/>
+			<item value="blockID"/>
+			<item value="preScan_large_ori"/>
+			<item value="preScan_lBCAO"/>
+			<item value="preScan_large_BCAO"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="503" key="DIALOG_WIDTH"/>
+		<item value="1|Ubuntu|12.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="717" key="DIALOG_HEIGHT"/>
+		<item value="2491" key="DIALOG_X_ORIGIN"/>
+		<item value="142" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

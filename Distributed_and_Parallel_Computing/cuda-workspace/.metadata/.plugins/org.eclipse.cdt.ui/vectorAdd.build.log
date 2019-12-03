@@ -1,0 +1,16 @@
+00:56:45 **** Build of configuration Debug for project vectorAdd ****
+make all 
+Building file: ../src/vectorAdd.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -I"/usr/local/cuda-10.1/samples/0_Simple" -I"/usr/local/cuda-10.1/samples/common/inc" -I"/home/kevinxu/ACS/Distributed_and_Parallel_Computing/cuda-workspace/vectorAdd" -G -g -O0 -gencode arch=compute_61,code=sm_61  -odir "src" -M -o "src/vectorAdd.d" "../src/vectorAdd.cu"
+/usr/local/cuda-10.1/bin/nvcc -I"/usr/local/cuda-10.1/samples/0_Simple" -I"/usr/local/cuda-10.1/samples/common/inc" -I"/home/kevinxu/ACS/Distributed_and_Parallel_Computing/cuda-workspace/vectorAdd" -G -g -O0 --compile --relocatable-device-code=false -gencode arch=compute_61,code=compute_61 -gencode arch=compute_61,code=sm_61  -x cu -o  "src/vectorAdd.o" "../src/vectorAdd.cu"
+Finished building: ../src/vectorAdd.cu
+ 
+Building target: vectorAdd
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_61,code=compute_61 -gencode arch=compute_61,code=sm_61 -link -o  "vectorAdd"  ./src/vectorAdd.o   
+Finished building target: vectorAdd
+ 
+
+00:56:47 Build Finished (took 1s.815ms)
+

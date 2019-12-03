@@ -1,0 +1,81 @@
+20000000 Elements 
+  host     : 89995811 in 51008 ms 
+  gpu      : 89995811 in 78.666878 ms 
+  gpu bcao : 89995811 in 70.374146 ms 
+
+10000000 Elements 
+  host     : 45000050 in 24690 ms 
+  gpu      : 45000050 in 33.314304 ms 
+  gpu bcao : 45000050 in 31.285120 ms 
+
+1000000 Elements 
+  host     : 4499040 in 2337 ms 
+  gpu      : 4499040 in 3.536448 ms 
+  gpu bcao : 4499040 in 3.331328 ms 
+
+10000 Elements 
+  host     : 45043 in 22 ms 
+  gpu      : 45043 in 0.136192 ms 
+  gpu bcao : 45043 in 0.135168 ms 
+
+5000 Elements 
+  host     : 22773 in 11 ms 
+  gpu      : 22773 in 0.117760 ms 
+  gpu bcao : 22773 in 0.119808 ms 
+
+4096 Elements 
+  host     : 18802 in 27 ms 
+  gpu      : 18802 in 0.073024 ms 
+  gpu bcao : 18802 in 0.072832 ms 
+
+2048 Elements 
+  host     : 9433 in 4 ms 
+  gpu      : 9433 in 0.089088 ms 
+  gpu bcao : 9433 in 0.071168 ms 
+
+2000 Elements 
+  host     : 9244 in 4 ms 
+  gpu      : 9244 in 0.129024 ms 
+  gpu bcao : 9244 in 0.128000 ms 
+
+1000 Elements 
+  host     : 4706 in 2 ms 
+  gpu      : 4706 in 0.101120 ms 
+  gpu bcao : 4706 in 0.047104 ms 
+  level 1  : 4706 in 0.044736 ms 
+  l1 bcao  : 4706 in 0.045056 ms 
+
+500 Elements 
+  host     : 2378 in 1 ms 
+  gpu      : 2378 in 0.036608 ms 
+  gpu bcao : 2378 in 0.037888 ms 
+  level 1  : 2378 in 0.035840 ms 
+  l1 bcao  : 2378 in 0.037920 ms 
+
+100 Elements 
+  host     : 484 in 0 ms 
+  gpu      : 484 in 0.028608 ms 
+  gpu bcao : 484 in 0.029472 ms 
+  level 1  : 484 in 0.028512 ms 
+  l1 bcao  : 484 in 0.028672 ms 
+
+64 Elements 
+  host     : 315 in 0 ms 
+  gpu      : 315 in 0.024448 ms 
+  gpu bcao : 315 in 0.025216 ms 
+  level 1  : 315 in 0.025536 ms 
+  l1 bcao  : 315 in 0.028480 ms 
+
+8 Elements 
+  host     : 25 in 0 ms 
+  gpu      : 25 in 0.017408 ms 
+  gpu bcao : 25 in 0.017408 ms 
+  level 1  : 25 in 0.016352 ms 
+  l1 bcao  : 25 in 0.017312 ms 
+
+5 Elements 
+  host     : 16 in 0 ms 
+  gpu      : 16 in 0.016384 ms 
+  gpu bcao : 16 in 0.017408 ms 
+  level 1  : 16 in 0.016352 ms 
+  l1 bcao  : 16 in 0.016384 ms d
