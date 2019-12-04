@@ -1,4 +1,8 @@
 eclipse.preferences.version=1
+markOccurrences=false
+semanticHighlighting.cudaDeviceFunctionBackground.color=54,65,76
+semanticHighlighting.cudaHostDeviceFunctionBackground.color=127,127,127
+semanticHighlighting.kernelInvocationBkground.color=127,127,127
 spelling_locale=en_GB
 spelling_locale_initialized=true
 useAnnotationsPrefPage=true

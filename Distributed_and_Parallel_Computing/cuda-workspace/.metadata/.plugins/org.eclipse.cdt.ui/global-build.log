@@ -22,3 +22,6 @@ Finished building target: Submission
 08:57:13 **** Incremental Build of configuration Debug for project Submission ****
 make all 
 make: Nothing to be done for 'all'.
+21:39:22 **** Incremental Build of configuration Debug for project Submission ****
+make all 
+make: Nothing to be done for 'all'.
