@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The fxml file defines the version of xml and the encoding used, -->
+<!-- that is, the type of characters.                                -->
+
+<!-- The classes that are to be imported need to be mentioned here.  -->
+<?import java.net.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.beans.property.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.Color?>
+
+<!-- The root that is added to the scene is defined. It is here a    -->
+<!-- VBox, that is, a vertical box.                                  -->
+<fx:root type="javafx.scene.layout.VBox" xmlns:fx="http://javafx.com/fxml">
+  <VBox spacing="10" alignment="center">
+
+    <!-- First in the VBox we display the celciusField               -->
+    <Label fx:id="celsiusField">
+      <!-- We select a font and a big size to display the CelsiusField -->
+      <font>
+        <Font name="verdana" size="40.0"/>
+      </font>
+    </Label>
+
+    <!-- We define the temperatureSlider with a minimum of -200, a       -->
+    <!-- maximum of 200, and initial value 0.                            -->
+    <Slider fx:id="temperatureSlider"
+            max="200.0" 
+            min="-200.0" 
+            minorTickCount="5"
+            showTickLabels="true" 
+            showTickMarks="true" 
+            value="0.0"
+            >
+    </Slider>
+
+    <!-- Last in the VBox we display the fahrenheitField              -->
+    <Label fx:id="fahrenheitField">
+      <!--Font family="verdana" size="12.0" style="regular"/-->
+      <font>
+        <Font name="verdana" size="40.0"/>
+      </font>
+    </Label>
+    
+  </VBox>
+
+  <!-- We include a stylesheet that defines properties such as the   -->
+  <!-- colour and border sizes.                                      -->
+  <stylesheets>
+    <URL value="@temperatureConverter.css" />
+  </stylesheets>
+</fx:root>

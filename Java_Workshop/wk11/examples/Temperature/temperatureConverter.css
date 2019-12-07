@@ -1,0 +1,19 @@
+/* We give the celsius Field a background colour and a padding */
+
+#celsiusField {
+    -fx-background-color: #BBFF00;
+    -fx-padding: 5px;
+}
+
+/* We give the fahrenheit Field a background colour and a padding */
+#fahrenheitField {
+    -fx-background-color: #BBFFFF;
+    -fx-padding: 5px;
+}
+
+/* We give the slider a background colour a border width and a padding */
+#temperatureSlider {
+    -fx-background-color: #BBBBBB;
+    -fx-border-width: 1px 1px 1px 1px;
+    -fx-padding: 10px;
+}

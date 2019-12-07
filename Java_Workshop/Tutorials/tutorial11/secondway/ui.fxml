@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Scene ?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<GridPane fx:controller="Controller" xmlns:fx="http://javafx.com/fxml"
+    alignment="center" hgap="10" vgap="10">
+
+ <!-- Add label for the account number -->
+    <Label fx:id="accountNumberLabel" GridPane.columnIndex="0" GridPane.rowIndex="0">
+    </Label>
+
+ <!-- Add  label for the customer name -->
+    <Label fx:id="customerNameLabel" GridPane.columnIndex="1" GridPane.rowIndex="0" >
+    </Label>
+
+ <!-- Add the balance button to HBox -->
+    <HBox spacing="10" alignment="center"
+     GridPane.columnIndex="0" GridPane.rowIndex="1">
+        <Button fx:id="balanceButton" text="Balance"
+        onAction="#handleBalanceButtonAction"/>
+    </HBox>
+ 
+  <!-- Add  text field for the balance -->
+    <TextField fx:id="balanceTextField"
+        GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+ <!-- Add the interest button to HBox -->
+    <HBox spacing="10" alignment="center"
+     GridPane.columnIndex="0" GridPane.rowIndex="2">
+        <Button fx:id="interestButton" text="Interest"
+        onAction="#handleInterestButtonAction"/>
+    </HBox>
+ 
+   <!-- Add text field for the interest -->
+     <TextField fx:id="interestTextField"
+        GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+</GridPane>
