@@ -1,0 +1,16 @@
+/* We set in the following the font size for Label in general to 50px,
+ * for Button and Labels in ChoiceBoxes to 30px, and the font size for
+ * the CheckBox called checkBoxFont to 20 px.  
+ */
+
+.label {
+    -fx-font-size: 40px;
+}
+
+.button, .choice-box .label, .check-box {
+    -fx-font-size: 30px;
+}
+
+#checkBoxText {
+    -fx-font-size: 20px;
+}

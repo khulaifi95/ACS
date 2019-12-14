@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The fxml file defines the version of xml and the encoding used, -->
+<!-- that is, the type of characters.                                -->
+
+<!-- The classes that are to be imported need to be mentioned here.  -->
+<?import java.net.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<!-- The root that is added to the scene is defined. It is here a    -->
+<!-- GridPane with horizontal gap between elements of 50 pixels and  -->
+<!-- vertical gap of 30 pixels.                                      -->
+<fx:root type="javafx.scene.layout.GridPane" xmlns:fx="http://javafx.com/fxml">
+  <GridPane hgap="50" vgap="30">
+    <!-- The first column should be exactl 300 pixels wide,          -->
+    <!-- the seconc 530 pixels.                                      -->
+    <columnConstraints>
+      <ColumnConstraints minWidth="300" maxWidth="300" hgrow="NEVER"/>
+      <ColumnConstraints minWidth="530" maxWidth="530" hgrow="NEVER"/>
+    </columnConstraints>
+    <!-- Around the box there are 20 pixels free in each direction.  -->
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <!-- The priceText has initially the text TOTAL:.                 -->
+    <!-- It is positioned at 0,0 in the Gridpane.                     -->
+    <Label fx:id="priceText" text="TOTAL:"
+           GridPane.columnIndex="0" GridPane.rowIndex="0">
+    </Label>
+
+    <!-- The glassesText has initially empty.                         -->
+    <!-- It is positioned at 1,0 in the Gridpane.                     -->
+    <Label fx:id="glassesText" text=""
+           GridPane.columnIndex="1" GridPane.rowIndex="0">
+    </Label>
+
+    <!-- The ChoiceBox for the screen selection has an associated     -->
+    <!-- action defined by updateOnSelection in the Controller class. -->
+    <!-- It is positioned at 0,1 in the Gridpane.                     -->
+    <ChoiceBox fx:id="choiceBoxScreen" onAction="#updateOnSelection"
+               GridPane.columnIndex="0" GridPane.rowIndex="1">
+      
+    </ChoiceBox>
+
+    <!-- The CheckBox for the 3D glasses selection has some text with -->
+    <!-- it, they are paired in an HBox. The CheckBox itself is       -->
+    <!-- associated with the method glassesBoxChecked in the          -->
+    <!-- Controller class.                                            -->
+    <!-- The HBox is positioned at 1,1 in the Gridpane.               -->
+    <HBox GridPane.columnIndex="1" GridPane.rowIndex="1" spacing = "20">
+      <Label fx:id="checkBoxText" text=""/>
+      <CheckBox fx:id="glassesCheckBox" onAction="#glassesBoxChecked"/>
+    </HBox>
+
+    <!-- The Button Clear is linked to the method clearApplication in -->
+    <!-- the Controller class.                                        -->
+    <!-- The Button is positioned at 0,2 in the GridPane              -->
+    <Button onAction="#clearApplication" text="Clear"
+       GridPane.columnIndex="0" GridPane.rowIndex="2">
+    </Button>
+
+    <!-- The Button Print is linked to the method printApplication in -->
+    <!-- the Controller class.                                        -->
+    <!-- The Button is positioned at 1,2 in the GridPane              -->
+    <Button onAction="#printApplication" text="Print"
+       GridPane.columnIndex="1" GridPane.rowIndex="2">
+    </Button>
+  </GridPane>
+
+  <!-- We include a stylesheet that defines font sizes, but that can  -->
+  <!-- also be used to define colours, border sizes, etc.             -->
+  <stylesheets>
+    <URL value="@tickets.css" />
+  </stylesheets>
+</fx:root>
