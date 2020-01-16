@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//SQ//DTD HTML 2.0 HoTMetaL + extensions//EN">
+<HTML><HEAD><TITLE>delve comp-activ database</TITLE></HEAD>
+<BODY><H2>comp-activ Database</H2>
+<P>The comp-activ databases is a collection of a computer systems activity
+measures . The data was collected from a  Sun Sparcstation  20/712 with 128
+Mbytes of memory running in a multi-user university department.  Users would
+typically be doing a large variety of tasks ranging from accessing the internet,
+editing files or running very cpu-bound  programs. The data was collected 
+continuously  on two separate occasions. On both occassions, system activity was
+gathered every 5 seconds. The final dataset
+is taken from both occasions with equal numbers of observations coming from 
+each collection epoch in random order.</P>
+<H3>System measures used:</H3>
+<OL><LI>lread -  Reads (transfers per second ) between system memory and user
+memory </LI>
+<LI>lwrite - writes (transfers per second)  between system memory and user
+memory</LI>
+<LI>scall - Number of system calls of all types per second</LI>
+<LI>sread - Number of system <EM>read</EM> calls per second .</LI>
+<LI>swrite - Number of system  <EM>write</EM> calls per second .</LI>
+<LI>fork - Number of system  <EM>fork</EM> calls  per second.</LI>
+<LI>exec - Number of system <EM>exec</EM> calls per second.</LI>
+<LI>rchar - Number of characters transferred per second by system  read calls</LI>
+<LI>wchar - Number of characters transfreed per second by system write calls</LI>
+<LI>pgout -  Number of  page out requests per second</LI>
+<LI>ppgout - Number of pages, paged out per second</LI>
+<LI>pgfree - Number of pages per second placed on the free list.</LI>
+<LI>pgscan - Number of pages checked if they can be freed per second</LI>
+<LI>atch - Number of page attaches  (satisfying a page fault by reclaiming a
+page in memory) per second</LI>
+<LI>pgin - Number of <EM>page-in</EM> requests per second</LI>
+<LI>ppgin -  Number of  pages paged in per second</LI>
+<LI>pflt - Number of page faults caused by protection errors <EM>(copy-on-writes)</EM>.</LI>
+<LI>vflt - Number of  page faults caused by address translation .</LI>
+<LI>runqsz  - Process run queue size</LI>
+<LI>freemem - Number of memory pages available to user processes</LI>
+<LI>freeswap - Number of disk blocks available for  page swapping.</LI>
+<LI>usr -  Portion of time (%) that cpus run in user mode</LI>
+<LI>sys - Portion  of time (%) that cpus run in system mode</LI>
+<LI>wio - Portion of time (%) that cpus are idle waiting for block IO</LI>
+<LI>idle - Portion of time (%) that cpus are otherwise idle </LI></OL>
+<H3>Prototasks</H3>
+<DL><DT>cpu</DT>
+<DD>Predict <EM>usr</EM>, portion of time,  that cpus run in  user mode
+from all attributes 1-21.</DD>
+<DT>cpuSmall</DT>
+<DD>Predict <EM>usr</EM> using a restricted number  (excluding the paging
+information 10-18) of attributes.</DD></DL></BODY></HTML>
+
+<TABLE WIDTH="100%"><TR>
+<TD COLSTART="3" ALIGN="LEFT" WIDTH="60%">
+<ADDRESS>Last Updated 9 October 1996 <BR> Comments and questions to: <A
+HREF="mailto:delve@cs.toronto.edu">delve@cs.toronto.edu</A></ADDRESS>
+</TD>
+<TD COLSTART="3" ALIGN="RIGHT" WIDTH="40%"><A
+HREF="../../copyright.html"><IMG
+ALIGN="BOTTOM" SRC="../../images/copybtn.gif" ALT="Copyright" BORDER="0" HSPACE="5"></A></TD>
+</TR>
+<HR SIZE="4">
+</TABLE> </BODY></HTML>

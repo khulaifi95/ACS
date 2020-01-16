@@ -1,0 +1,259 @@
+
+The "boston" dataset contains information collected by the U.S Census Service 
+concerning housing in the area of Boston Mass. 
+It was obtained from the StatLib archive 
+(http://lib.stat.cmu.edu/datasets/boston).
+The dataset is small in size with only 506 cases.
+
+There are two prototasks associated with this data set: 
+1. nox - in which the nitrous oxide level is to be predicted; 
+2. price - in which the median value of a home is to be predicted
+
+There are 14 attributes in each case of the dataset:
+
+       1. CRIM - per capita crime rate by town
+       2. ZN - proportion of residential land zoned for lots over 25,000 sq.ft.
+       3. INDUS - proportion of non-retail business acres per town.
+       4. CHAS - Charles River dummy variable (1 if tract bounds river; 0 otherwise)
+       5. NOX - nitric oxides concentration (parts per 10 million)
+       6. RM - average number of rooms per dwelling
+       7. AGE - proportion of owner-occupied units built prior to 1940
+       8. DIS - weighted distances to five Boston employment centres
+       9. RAD - index of accessibility to radial highways
+      10. TAX - full-value property-tax rate per $10,000
+      11. PTRATIO - pupil-teacher ratio by town
+      12. B - 1000(Bk - 0.63)^2 where Bk is the proportion of blacks by town
+      13. LSTAT - % lower status of the population
+      14. MEDV - Median value of owner-occupied homes in $1000's
+
+
+We would like to gain more insight about this data set.
+One may ask, for example, how well-posed is the task No. 2
+of predicting the median value of a home based on the
+remaining 13 attributes (features) that vaguely characterise the
+neighborhood.
+
+
+
+-------------------------------------------------------------------------
+DATA PREPROCESSING
+-------------------------------------------------------------------------
+
+So we take the original data set
+"Prototask.data" in the directory "price"
+and (using script.select.price)
+construct two data sets:
+"price.dat" - only column No. 14 (house prices) of Prototask.data
+"data.no_price.dat" -  only the remaining columns No. 1-13 of Prototask.data.
+
+Next we can view the histogram of possible prices,
+to see what the price distribution is.
+The histogram is in 
+FIGURES/price.hist.eps (gif).
+It makes sense to discretise the house prices into:
+"Low",  - 1
+"Medium",  - 2
+"High"  - 3
+and 
+"Very High" - 4.
+Most prices are in the Medium range,
+there are few extremely expensive houses.
+
+We need now to label the 13-dimensional data points
+(original data without the price attribute) based on where
+the corresponding house price falls.
+For example the first point of "data.no_price.dat"
+ 
+0.10574 0.00 27.740 0 0.6090 5.9830 98.80 1.8681 4 711.0 20.10 390.11 18.07
+
+has the corresponding price (the first value in "price.dat") 
+13.60. 
+That means that the
+label of the first 13-dimensional data point will be
+1 ("Low").
+We label all the remaining points of "data.no_price.dat"
+in the same manner and collect the labels in 
+"labels.price".
+We will use the label information to set markers 
+for data projections on the visualization plots.
+
+
+
+
+-------------------------------------------------------------------------
+PCA PLOTS
+-------------------------------------------------------------------------
+
+First we try PCA projections.
+The eigenvalues of the covariance matrix 
+are shown in descending order in
+FIGURES/boston.eigenvalues.eps (gif).
+
+One can immediately see that most data variance is explained
+by the first eigenvector of the covariance matrix.
+The first 2 eigenvectors explain pretty much all of the variance
+that is in the data. So the PCA projection onto the space
+of (spanned by) 
+those two eigenvectors will not lead to losing much information.
+
+You can view the PCA plot in
+FIGURES/boston.pca.eps (gif).
+
+The markers are assigned to the data projections as follows:
+"Low" - black *
+"Medium" - blue o
+"High" - green +
+"Extreme High" - red square
+
+The plot doesn't look nice. It is highly clustered and the
+classes of house prices strongly overlap. Looks like
+the 13 features describing the neighborhood
+are not well-correlated with
+the actual house prices.
+
+
+
+-------------------------------------------------------------------------
+SOM PLOTS
+-------------------------------------------------------------------------
+
+Next let's try to see if introducing non-linearity
+(more flexibility in making projections) helps.
+The map obtained by SOM (20x20 grid)
+can be seen in
+FIGURES/boston.som_map.eps (gif).
+
+The situation is much better now. We can see
+hints of structure of the point layout in the
+13-dimensional space. Low-priced houses are clustered 
+within lower parts of the plot.
+There are islands of high-priced houses
+on the plot predominantly occupied by the medium-priced houses.
+
+
+
+
+-------------------------------------------------------------------------
+COORDINATE PROJECTIONS
+-------------------------------------------------------------------------
+
+A simple method of obtaining 2-dimensional plots
+of high-dimensional data i
+s to pick two coordinates (features),
+for example X1=1, X2=5,
+and make a 2-dimensional plot of the data set by
+plotting for each point only the coordinates X1 and X2.
+Coordinate projection of the 13-dimensional data set
+onto coordinates X1=1 and X2=2,
+can be seen in
+FIGURES/boston.coord.proj.1.2.eps (gif).
+
+Not a very informative plot.
+On the other hand, after enough time spent on trying
+to find "good" pairs of coordinates (X1,X2),
+we can find a projection like this (X1=3,X2=6):
+FIGURES/boston.coord.proj.3.6.eps (gif).
+
+Even though there is a highly overlapping band
+of points of different house prices,
+co-ordinates X1=3 and X2=6 are alone
+highly predictive/indicative of the
+overall house price.
+
+
+
+
+
+-------------------------------------------------------------------------
+FURTHER DATA PREPROCESSING
+-------------------------------------------------------------------------
+
+Major problem with the plots presented so far
+is that the 13 features of the data in
+"data.no_price.dat" live at very different scales.
+Some vary by a small amount, some have quite a large variation.
+
+One simple (not necessarily the best)
+option of dealing with this problem
+is to center the data
+around the origin 
+(simply subtract the mean value from the coordinates)
+and then rescale the coordinates so that each coordinate varies
+in the same range. I rescaled the points so that
+each coordinate had standard deviation 1,
+but you can can use any other rescaling technique.
+The important thing is that we no longer will
+have large disproportions in coordinate variation.
+
+
+The PCA plots now give a much better picture.
+Obviously, the eigenvalues of the covariance matrix
+now decrease more slowly, since we made the data
+cloud more ball-like, but the eigenvalue plot in
+FIGURES/boston.norm.eigenvalues.eps (gif)
+still allow us to be pretty confident in 
+projecting 13-dimensional points onto the first two
+leading eigenvectors.
+
+The PCA projection in
+FIGURES/boston.norm.pca.eps (fig)
+now shows a nice clear structure of 
+data clustering according to the house price.
+
+This is confirmed by the SOM map in 
+FIGURES/boston.norm.som_map.eps (gif).
+
+The coordinate projection plots are now just scaled versions
+of the previous ones:
+FIGURES/boston.norm.coord.proj.1.2.eps (gif).
+FIGURES/boston.norm.coord.proj.3.6.eps (gif).
+
+
+
+
+
+-------------------------------------------------------------------------
+LESSONS LEARNT
+-------------------------------------------------------------------------
+
+When predicting the house price from
+the 13-dimensional data points 
+(coordinates coding information about "quality" of the neighborhood)
+it is desirable to first pre-process the data
+by unifying the coordinate range. Linear predictive models
+then will not be bad at all (see the PCA plot!),
+but non-linear predictive models (like neural networks)
+can lead to further improvements (see the SOM map).
+
+Some pairs of coordinates (features)
+are alone quite predictive of the house price,
+e.g. features 
+X1=3, INDUS - proportion of non-retail business acres per town
+and
+X=6, RM - average number of rooms per dwelling
+
+This is really not surprising...
+I am sure you can find much better coordinate pairs!
+
+
+
+
+
+-------------------------------------------------------------------------
+FURTHER INVESTIGATION
+-------------------------------------------------------------------------
+
+Obviously, the investigation can go further by
+identifying which points are the "difficult" ones
+(e.g. Extremely High house price lying close to a Low priced house).
+
+
+
+
+
+-------------------------------------------------------------------------
+CODES
+-------------------------------------------------------------------------
+
+All the preprocessing codes I have used are available in the folder
+BOSTON.EX. Most of them are small MATLAB routines *.m.

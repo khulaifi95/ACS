@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC - Conversion from abalone.names>
+<HTML><HEAD><TITLE>  delve image-seg dataset detail  </TITLE></HEAD>
+<BODY><H2 ALIGN=> The Image-seg dataset </H2>
+
+<P> The information is a replica of the notes for the segmentation dataset
+from the <A HREF=" http://www.ics.uci.edu/~mlearn/MLRepository.html"> UCI </A>
+repository. 
+
+<H3>1. Title: Image Segmentation data </H3>
+
+<H3>2. Source Information </H3>
+<UL>
+<LI>   Creators: Vision Group, University of Massachusetts </LI>
+<LI>   Donor: Vision Group (Carla Brodley, brodley@cs.umass.edu) </LI>
+<LI>   Date: November, 1990 </LI>
+</UL>
+
+<H3>3. Past Usage: None yet published </H3>
+
+<H3>4. Relevant Information: </H3>
+<P>
+   The instances were drawn randomly from a database of 7 outdoor 
+   images.  The images were handsegmented to create a classification
+   for every pixel.  
+<P>
+   Each instance is a 3x3 region.
+
+<H3>5. Number of Instances: Training data: 210  Test data: 2100 </H3>
+
+<H3>6. Number of Attributes: 19 continuous attributes </H3>
+
+<H3>7. Attribute Information: </H3>
+<OL>
+<LI>   region-centroid-col:  the column of the center pixel of the region. </LI>
+<LI>  region-centroid-row:  the row of the center pixel of the region.</LI>
+<LI>  region-pixel-count:  the number of pixels in a region = 9. </LI>
+<LI>  short-line-density-5:  the results of a line extraction algorithm that 
+         counts how many lines of length 5 (any orientation) with
+         low contrast, less than or equal to 5, go through the region. </LI>
+<LI>  short-line-density-2:  same as short-line-density-5 but counts lines
+         of high contrast, greater than 5. </LI>
+<LI>  vedge-mean:  measure the contrast of horizontally
+         adjacent pixels in the region.  There are 6, the mean and 
+         standard deviation are given.  This attribute is used as
+        a vertical edge detector. </LI>
+<LI>  vegde-sd:  (see 6) </LI>
+<LI>  hedge-mean:  measures the contrast of vertically adjacent
+          pixels. Used for horizontal line detection. </LI>
+<LI>  hedge-sd: (see 8).
+<LI> intensity-mean:  the average over the region of (R + G + B)/3 </LI>
+<LI> rawred-mean: the average over the region of the R value. </LI>
+<LI> rawblue-mean: the average over the region of the B value. </LI>
+<LI> rawgreen-mean: the average over the region of the G value. </LI>
+<LI> exred-mean: measure the excess red:  (2R - (G + B)) </LI>
+<LI> exblue-mean: measure the excess blue:  (2B - (G + R)) </LI>
+<LI> exgreen-mean: measure the excess green:  (2G - (R + B)) </LI>
+<LI>    17. value-mean:  3-d nonlinear transformation
+         of RGB. (Algorithm can be found in Foley and VanDam, Fundamentals
+         of Interactive Computer Graphics) </LI>
+<LI> saturation-mean:  (see 17) </LI>
+<LI> hue-mean:  (see 17) </LI>
+</OL>
+
+<H3> 8. Missing Attribute Values: None </H3>
+
+<H3> 9. Class Distribution: </H3>
+<UL>
+<LI>   Classes:  brickface, sky, foliage, cement, window, path, grass. </LI>
+
+<LI>   30 instances per class for training data. </LI>
+<LI>   300 instances per class for test data. </LI>
+</UL>
+
+<H3>10. Modifications for Delve</H3>
+<OL>
+<LI> The <EM>data</EM> and <EM>test</EM> files were combined and then
+stratified to ensure equal representation of the output classes in each of the
+Delve task-instance training sets. </LI>
+<LI> Attribute 3 (region-pixel-count) was deleted since it is a constant for
+this dataset.</LI>
+</OL>
+
+
+</TABLE>
+<P><BR></P>
+<TABLE WIDTH="100%"><TR>
+<TD COLSTART="3" ALIGN="LEFT" WIDTH="60%">
+<ADDRESS>Last Updated 11 October 1996  <BR> Comments and questions to: <A
+HREF="mailto:delve@cs.toronto.edu">delve@cs.toronto.edu</A></ADDRESS>
+</TD>
+<TD COLSTART="3" ALIGN="RIGHT" WIDTH="40%"><A
+HREF="../../copyright.html"><IMG
+ALIGN="BOTTOM" SRC="../../images/copybtn.gif" ALT="Copyright" BORDER="0" HSPACE="5"></A></TD>
+</TR>
+<HR SIZE="4">
+</TABLE></BODY></HTML>

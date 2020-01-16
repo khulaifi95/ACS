@@ -1,0 +1,3 @@
+#!/bin/sh 
+
+som 506 13 data.no_price.norm.dat boston.som.config

@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "Delve dataset Description template">
+<HTML><HEAD><TITLE> delve letter dataset detail </TITLE></HEAD> 
+<BODY><H2 ALIGN="CENTER">Letter dataset</H2>
+<P> The information is a replica of the notes for the <EM>letter</EM> dataset
+from the 
+<A HREF="http://www.ics.uci.edu/~mlearn/MLRepository.html">
+UCI</A> repository of machine learning databases.
+
+<H3>1. Title: Letter Image Recognition Data </H3>
+
+<H3>2. Source Information </H3>
+<UL>
+<LI> Creator: David J. Slate <BR>
+Odesta Corporation; 1890 Maple Ave; Suite 115; Evanston, IL 60201 </LI>
+<LI>   Donor: David J. Slate (dave@math.nwu.edu) (708) 491-3867   </LI>
+<LI>   Date: January, 1991 </LI>
+</UL>
+
+<H3>3. Past Usage: </H3>
+<P>
+P. W. Frey and D. J. Slate (Machine Learning Vol 6 #2 March 91):
+	<EM>Letter Recognition Using Holland-style Adaptive Classifiers.</EM>
+<P>
+   	The research for this article investigated the ability of several
+	variations of Holland-style adaptive classifier systems to learn to
+	correctly guess the letter categories associated with vectors of 16
+	integer attributes extracted from raster scan images of the letters.
+	The best accuracy obtained was a little over 80%.  It would be
+	interesting to see how well other methods do with the same data.
+
+<H3>4. Relevant Information: </H3>
+
+<P>
+   The objective is to identify each of a large number of black-and-white
+   rectangular pixel displays as one of the 26 capital letters in the English
+   alphabet.  The character images were based on 20 different fonts and each
+   letter within these 20 fonts was randomly distorted to produce a file of
+   20,000 unique stimuli.  Each stimulus was converted into 16 primitive
+   numerical attributes (statistical moments and edge counts) which were then
+   scaled to fit into a range of integer values from 0 through 15.  We
+   typically train on the first 16000 items and then use the resulting model
+   to predict the letter category for the remaining 4000.  See the article
+   cited above for more details.
+
+<H3>5. Number of Instances: 20,000 </H3>
+
+<H3>6. Number of Attributes: 17</H3>
+<UL> 
+<LI> Letter category </LI>
+<LI> 16 numeric features </LI>
+</UL>
+
+<H3>7. Attribute Information:</H3>
+<OL>
+<LI>	lettr -	capital letter	(26 values from A to Z) </LI>
+<LI>	x-box -	horizontal position of box	(integer) </LI>
+<LI>	y-box -	vertical position of box	(integer) </LI>
+<LI>	width -	width of box			(integer) </LI>
+<LI>	high  -	height of box			(integer) </LI>
+<LI>	onpix -	total # on pixels		(integer) </LI>
+<LI>	x-bar -	mean x of on pixels in box	(integer) </LI>
+<LI>	y-bar -	mean y of on pixels in box	(integer) </LI>
+<LI>	x2bar -	mean x variance			(integer) </LI>
+<LI>	y2bar -	mean y variance			(integer) </LI>
+<LI>	xybar -	mean x y correlation		(integer) </LI>
+<LI>	x2ybr -	mean of x * x * y		(integer) </LI>
+<LI>	xy2br -	mean of x * y * y		(integer) </LI>
+<LI>	x-ege -	mean edge count left to right	(integer) </LI>
+<LI>	xegvy -	correlation of x-ege with y	(integer) </LI>
+<LI>	y-ege -	mean edge count bottom to top	(integer) </LI>
+<LI>	yegvx -	correlation of y-ege with x	(integer) </LI>
+</OL>
+
+<H3>8. Missing Attribute Values: None </H3>
+
+<H3>9. Class Distribution: </H3>
+<TABLE WIDTH="100% BORDER="0">
+<TR>
+<TD> 	789 A </TD><TD>   766 B </TD><TD>    736 C </TD><TD>    805 D</TD><TD>
+768 E</TD><TD>   775 F </TD><TD>    773 G </TD></TR>
+
+<TD> 734 H</TD><TD> 755 I</TD><TD> 747 J</TD><TD> 739 K</TD><TD> 761 L</TD><TD> 792 M</TD><TD> 783 N </TD></TR>
+<TD> 753 O</TD><TD> 803 P</TD><TD> 783 Q</TD><TD> 758 R</TD><TD> 748 S</TD><TD> 796 T</TD><TD> 813 U </TD></TR>
+<TD> 764 V</TD><TD> 752 W</TD><TD> 787 X</TD><TD> 786 Y</TD><TD> 734 Z </TD></TR>
+</TABLE>
+
+<H3>10. Modifications for Delve</H3>
+Cases were re-ordered to ensure
+equal representation of the output classes in all task-instance training
+sets. The test sets were not stratified, so the base rate class-distributions
+may not be the same between training and test sets.
+
+
+<P><BR></P>
+<TABLE WIDTH="100%"><TR>
+<TD COLSTART="3" ALIGN="LEFT" WIDTH="60%">
+<ADDRESS>Last Updated 15 November 1996  <BR> Comments and questions to: <A
+HREF="mailto:delve@cs.toronto.edu">delve@cs.toronto.edu</A></ADDRESS>
+</TD>
+<TD COLSTART="3" ALIGN="RIGHT" WIDTH="40%"><A
+HREF="../../copyright.html"><IMG
+ALIGN="BOTTOM" SRC="../../images/copybtn.gif" ALT="Copyright" BORDER="0" HSPACE="5"></A></TD>
+</TR>
+<HR SIZE="4">
+</TABLE></BODY></HTML>
+
+
