@@ -84,8 +84,6 @@
 
 - Different grammatical **parses** of same word sequence
 
-  * <u>**Parsing** is the process of analysing a string of symbols, either in natural language, computer languages or data structures, conforming to the rules of a formal grammar.</u>
-
   - *the man on the hill* vs *hill with the telescope*
 
 - Identical parses but different **interpretations** of words
@@ -93,6 +91,10 @@
   - *saw the man with the telescope*
 
 - Move towards **Machine Learning**
+
+  
+
+[^Parsing]:  Parsing is the process of analysing a string of symbols, either in natural language, computer languages or data structures, conforming to the rules of a formal grammar.
 
 
 
