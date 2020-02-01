@@ -35,9 +35,9 @@
 
     
 
-<img src="C:\Users\just4\AppData\Roaming\Typora\typora-user-images\image-20200131102655967.png" alt="image-20200131102655967" style="zoom: 50%;" />
+<img src="IDA_Lecture03.assets/image-20200131102655967.png" alt="image-20200131102655967" style="zoom: 50%;" />
 
-​													*Fig 1. 'Resolving power' of the word*
+​																*Fig 1. 'Resolving power' of the word*
 
 
 
@@ -57,7 +57,7 @@
   - Implements a set of about 60 rules
   - Typically reduces vocabulary size by 10% to 50%
 
-<img src="C:\Users\just4\AppData\Roaming\Typora\typora-user-images\image-20200131104656705.png" alt="image-20200131104656705" style="zoom:33%;" />
+<img src="IDA_Lecture03.assets/image-20200131104656705.png" alt="image-20200131104656705" style="zoom:33%;" />
 
 ​				*Fig 2. Example of applying stemmer to the first paragraph from 'Alice in Wonderland'*
 

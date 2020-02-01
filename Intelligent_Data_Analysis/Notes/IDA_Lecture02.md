@@ -46,7 +46,7 @@
     
     
 
-<img src="C:\Users\just4\AppData\Roaming\Typora\typora-user-images\image-20200130122732152.png" alt="image-20200130122732152" style="zoom:50%;" />
+<img src="IDA_Lecture02.assets/image-20200130122732152.png" alt="image-20200130122732152" style="zoom: 50%;" />
 
 ​																	*Fig 1. Decomposition of the word structure*
 
@@ -167,7 +167,7 @@ $$
 
   
 
-<img src="C:\Users\just4\AppData\Roaming\Typora\typora-user-images\image-20200130144347354.png" alt="image-20200130144347354" style="zoom:67%;" />
+<img src="IDA_Lecture02.assets/image-20200130144347354.png" alt="image-20200130144347354" style="zoom:67%;" />
 
 ​																*Fig 2. Log-log plot – Alice in Wonderland*
 

@@ -108,7 +108,7 @@
 
 - Patterns and structure may be hidden
 
-<img src="C:\Users\just4\AppData\Roaming\Typora\typora-user-images\image-20200130121819369.png" alt="image-20200130121819369" style="zoom:67%;" />
+<img src="IDA_Lecture01.assets/image-20200130121819369.png" alt="image-20200130121819369"  />
 
 ​													*Fig 1. Single, spherical cluster centred at origin*
 
