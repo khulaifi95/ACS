@@ -117,7 +117,7 @@
 
 ### 7. Similarity
 
-- The **similarity** between $q$ and $d$ will depend on the **number of terms** which are common to $q$ and $d$
+- ==The **similarity** between $q$ and $d$ will depend on the **number of terms** which are common to $q$ and $d$==
 - We also need to know how **useful** each common term is for discriminating between different documents.
 - For example,
   - it is not significant if $q$ and $d$ share *"the"*
@@ -127,7 +127,7 @@
 
 ### 8. IDF Weighting
 
-- Popular measure of the **significance** of a term for **discriminating** between documents - **Inverse Document Frequency**
+- ==Popular measure of the **significance** of a term for **discriminating** between documents== - **Inverse Document Frequency**
 
 - For a token $t$ define:
   $$
@@ -165,16 +165,18 @@
 
 - TF-IDF &rarr; Term Frequency - Inverse Document Frequency
 
-- The TF-IDF **weight** $W_{td}$ of term $t$ for document $d$ is:
+- ==The TF-IDF **weight** $W_{td}$ of term $t$ for document $d$ is:==
   $$
   W_{td} = f_{td}.IDF(t)
   $$
-  where $f_{td}$ is the **term frequency** - the number of times $t$ occurs in $d$
+  where $f_{td}$ is the **term frequency** - ==the number of times $t$ occurs in $d$==
 
 - For $W_{td}$ &uarr;: 
   - $f_{td}$ &uarr; - $t$ must occur often in $d$
   - $IDF(t)$ &uarr; :
     - $ND_t$ &darr; - $t$ must only occur in relatively few documents
+
+[^IDF(t)]: A higher IDF in a fixed corpus means the term $t$ is more unique for document $d$.
 
 
 
@@ -184,11 +186,13 @@
 
 - If $q$ is a **long** query, can treat $q$ as a document:
   $$
-  W_{tq} = F_{tq}.IDF(t)
+  W_{tq} = f_{tq}.IDF(t)
   $$
 
-	where $f_{tq}$ is the *query term frequency*
+	where $f_{tq}$ is the *query term frequency*.
 
+  
+  
 - If $q$ is a **short** query, define the TF-IDF weight as:
   $$
   W_{tq} = IDF(t)
@@ -205,3 +209,72 @@
   Sim(q,d) = \frac {\sum\limits_{t \in qd} {W_{td}\cdot W_{tq}} }{{||d||}\cdot{||q||}}
   $$
   
+  which **sums over all terms in both $q$ and $d$**, divided by the 'lengths' of document $d$ and query $y$.
+
+
+
+### 13. Document Length
+
+- Suppose $d$ is a document
+
+- For each term $t$ in $d$, we can define the TF-IDF weight $W_{td}$
+
+- The length of document $d$ is defined by:
+  $$
+  Len(d) = ||d|| = \sqrt {\sum\limits_{t\in d} {W^2_{td}}}
+  $$
+  which sums over all terms in $d$ of the weights.
+
+- It will be more intuitive when studying Latent Semantic Indexing
+
+- For now, just remember if $x$ = ($x_1, x_2,x_3$) is a vector in 3-dimensional space, then the length of $x$ is given by:
+  $$
+  ||x|| = \sqrt {x_1^2+x_2^2+x_3^2}
+  $$
+
+
+
+### 14. Practical Considerations
+
+- Given a query $q$:
+  - Calculate $\Vert q\Vert$ and $W_{tq}$ for each term $t$ in $q$ - not much computation
+- For each document $d$:
+  - $\Vert q\Vert $ can be computed in advance
+  - $W_{td}$ can be computed in advance for each term $t$ and $d$
+- Potential time to compute $Sim(q,d)$ for all documents is huge
+
+
+
+### 15. Document Index
+
+- Suppose the query $q$ contains a term $t$
+  - If $t$ didn't occur in the corpus - no use
+  - Need to identify all documents $d$ which include $t$
+
+- This will take too long if the number of documents is very large
+
+- To speed up, we compute a data structure - **Document Index **in advance
+
+
+
+<img src="IDA_Lecture03.assets/image-20200201161517017.png" alt="image-20200201161517017" style="zoom: 33%;" />
+
+​															*Fig 3. Data structure of Document Index*
+
+### 16. IR Processes
+
+1. Order **terms** according to decreasing IDF &darr;
+
+2. For each term, order **documents** according to decreasing weight &darr;
+
+3. For each term in the query:
+
+   ​	1) Identify term in index
+
+   ​	2) **Increment** similarity scores for documents in the list for this term &uarr;
+
+   ​	3) **Stop** when weight falls below some **threshold**	
+
+   <img src="IDA_Lecture03.assets/Screenshot from 2020-02-01 16-25-03.png" alt="Screenshot from 2020-02-01 16-25-03" style="zoom: 50%;" />
+
+   ​																*Fig 4. Summary of IR process*
