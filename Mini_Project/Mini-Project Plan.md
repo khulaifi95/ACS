@@ -43,3 +43,5 @@ PCA for binary data - dimension reduction
 or
 
 customised similarity? size and proportion - mutual distances between destinations
+
+- integers &rarr; randomised floating numbers with distribution
