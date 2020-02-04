@@ -2,7 +2,7 @@
 
 ---
 
-## Lecture 4. Vector Representation of Documents
+## Lecture 4 : Vector Representation of Documents
 
 
 
