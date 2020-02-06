@@ -1,4 +1,4 @@
-# Mini-Project Plan
+# Week 3 : Mini-Project Plan
 
 This project is aimed to apply a novel clustering analysis technique to solve a real-world recycle-and-distribute logistic problem. By definition, the clustering in this scenario is to first analyse 
 
@@ -13,6 +13,8 @@ This project is aimed to apply a novel clustering analysis technique to solve a 
 2. Hypothesis
 
    After analysing the problem, I propose a cluster analysis on the orders to determine the assignment. To meet the specific requirement in the scenario, it is also constrained by the pre-set proportion of elements in each cluster. A heuristic algorithm is required to solve this problem because the existing clustering methods do not return in designated quantities.
+
+   
 
 3. Dataset
 
