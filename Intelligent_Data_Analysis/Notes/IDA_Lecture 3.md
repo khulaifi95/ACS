@@ -206,7 +206,7 @@
 
 - Define the similarity between query $q$ and document $d$ as:
   $$
-  Sim(q,d) = \frac {\sum\limits_{t \in qd} {W_{td}\cdot W_{tq}} }{{||d||}\cdot{||q||}}
+  Sim(q,d) = \frac {\sum\limits_{t \in q,d} {W_{td}\cdot W_{tq}} }{{||d||}\cdot{||q||}}
   $$
   
   which **sums over all terms in both $q$ and $d$**, divided by the 'lengths' of document $d$ and query $y$.

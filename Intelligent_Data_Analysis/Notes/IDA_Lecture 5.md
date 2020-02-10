@@ -10,7 +10,7 @@
 
 ​	The **sample covariance** for X between the $i^{th}$ and $j^{th}$ coordinates is given by
 $$
-\sigma^{ij}=\frac {1}{N-1}\sum_{n=1}^{N} (\mu^i-x_n^i)(\mu^i-x_n^i)
+\sigma^{ij}=\frac {1}{N-1}\sum_{n=1}^{N} (\mu^i-x_n^i)(\mu^j-x_n^j)
 $$
 ​	The sample covariance is represented as a $D \times D$ **real symmetric** matrix $\Sigma$
 $$

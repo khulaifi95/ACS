@@ -17,8 +17,6 @@ l1 = sum(H(1:3));
 l2 = l1 + sum(H(4:6));
 l3 = l2 + sum(H(7:10));
 
-
-
 # Normalise the columns
 m = mean(X,1);
 v = var(X,1);
