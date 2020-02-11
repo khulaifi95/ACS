@@ -1,3 +1,7 @@
+# Nature-inspired Search & Optimisation
+
+---
+
 ## Lecture 2 : Randomised Algorithms
 
 

@@ -1,6 +1,10 @@
-## Lecture 7 : Real-valued Coded Evolutionary Algorithms
+# Nature-inspired Search & Optimisation
 
 ---
+
+## Lecture 7 : Real-valued Coded Evolutionary Algorithms
+
+
 
 ### 1. Advantages of Using Binary Coding
 
