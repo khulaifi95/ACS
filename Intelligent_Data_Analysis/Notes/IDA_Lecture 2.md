@@ -14,7 +14,7 @@
 
 ​																							-- Charlotte Brontë, “Jane Eyre”, first paragraph
 
-0
+
 
 ### 1. Jane Eyre Extract
 
@@ -46,9 +46,9 @@
     
     
 
-<img src="IDA_Lecture 2.assets/image-20200130122732152.png" alt="image-20200130122732152" style="zoom: 50%;" />
-
-​																	*Fig 1. Decomposition of the word structure*
+| <img src="IDA_Lecture 2.assets/image-20200130122732152.png" alt="image-20200130122732152" style="zoom: 50%;" /> |
+| :----------------------------------------------------------: |
+|         *Fig 1. Decomposition of the word structure*         |
 
 
 
@@ -72,7 +72,7 @@
 
 - Grammar / syntax - grammatical rules
 
-- **Parsers**
+- **Parser**
 
   - Apply grammatical rules to a word sequence to determine 
 
@@ -167,9 +167,9 @@ $$
 
   
 
-<img src="IDA_Lecture 2.assets/image-20200130144347354.png" alt="image-20200130144347354" style="zoom:67%;" />
-
-​																*Fig 2. Log-log plot – Alice in Wonderland*
+| <img src="IDA_Lecture 2.assets/image-20200130144347354.png" alt="image-20200130144347354" style="zoom:67%;" /> |
+| :----------------------------------------------------------: |
+|         *Fig 2. Log-log plot – Alice in Wonderland*          |
 
 
 

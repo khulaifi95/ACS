@@ -12,7 +12,7 @@
 - Dimension Reduction
   
   - PCA
-- Visualization of High-dimensional Data
+- Visualisation of High-dimensional Data
   
 - PCA, Topographic maps, t-SNE
   
@@ -108,9 +108,9 @@
 
 - Patterns and structure may be hidden
 
-<img src="IDA_Lecture 1.assets/image-20200130121819369.png" alt="image-20200130121819369"  />
-
-​													*Fig 1. Single, spherical cluster centred at origin*
+| <img src="IDA_Lecture 1.assets/image-20200130121819369.png" alt="image-20200130121819369"  /> |
+| :----------------------------------------------------------: |
+|     *Fig 1. Single, spherical cluster centred at origin*     |
 
 
 
@@ -144,4 +144,4 @@
   - No prior assumptions
   - Less specific 'natural language' queries
   - Source information up-to-date
-  - Less focussed replies
+  - Less focused replies

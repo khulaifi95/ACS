@@ -95,7 +95,7 @@ optimal solution by some brute force algorithms search is 10628.
 
   
 
-#### Generic local search algorithm:
+#### Generic Local Search Algorithm:
 
 ```pseudocode
 x0 := generate initial solution
@@ -126,14 +126,14 @@ Output x
 
 
 
-#### Simple hill climbing algorithm:
+#### Simple Hill Climbing Algorithm:
 
 ```pseudocode
 x0 := generate initial solution
 terminationflag := False
 x := x0
 while (terminationflag != True)
-	Modify the current solution to a **immediate** beighbour one v in A
+	Modify the current solution to a IMMEDIATE beighbour one v in A
 	if f(v) < f(x) then x := v
 	if a termination criterion is met
 		terminationflag := True

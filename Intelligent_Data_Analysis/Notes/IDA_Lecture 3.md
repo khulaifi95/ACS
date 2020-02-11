@@ -35,9 +35,9 @@
 
     
 
-<img src="IDA_Lecture 3.assets/image-20200131102655967.png" alt="image-20200131102655967" style="zoom: 50%;" />
-
-​																*Fig 1. 'Resolving power' of the word*
+| <img src="IDA_Lecture 3.assets/image-20200131102655967.png" alt="image-20200131102655967" style="zoom: 50%;" /> |
+| :----------------------------------------------------------: |
+|            *Fig 1. 'Resolving power' of the word*            |
 
 
 
@@ -55,11 +55,14 @@
 - A *stemmer* is a piece of software which implements a stemming algorithm
 - **Porter stemmer**: a standard stemmer as a free download
   - Implements a set of about 60 rules
+  
   - Typically reduces vocabulary size by 10% to 50%
+  
+    
 
-<img src="IDA_Lecture 3.assets/image-20200131104656705.png" alt="image-20200131104656705" style="zoom:33%;" />
-
-​				*Fig 2. Example of applying stemmer to the first paragraph from 'Alice in Wonderland'*
+| <img src="IDA_Lecture 3.assets/image-20200131104656705.png" alt="image-20200131104656705" style="zoom:33%;" /> |
+| :----------------------------------------------------------: |
+| *Fig 2. Example of applying stemmer to the first paragraph from 'Alice in Wonderland'* |
 
 
 
@@ -257,9 +260,11 @@
 
 
 
-<img src="IDA_Lecture 3.assets/image-20200201161517017.png" alt="image-20200201161517017" style="zoom: 33%;" />
+| <img src="IDA_Lecture 3.assets/image-20200201161517017.png" alt="image-20200201161517017" style="zoom: 33%;" /> |
+| :----------------------------------------------------------: |
+|          *Fig 3. Data structure of Document Index*           |
 
-​															*Fig 3. Data structure of Document Index*
+
 
 ### 16. IR Processes
 
@@ -275,6 +280,8 @@
 
    ​	3) **Stop** when weight falls below some **threshold**	
 
-   <img src="IDA_Lecture 3.assets/Screenshot from 2020-02-01 16-25-03.png" alt="Screenshot from 2020-02-01 16-25-03" style="zoom: 50%;" />
-
-   ​																*Fig 4. Summary of IR process*
+   | <img src="IDA_Lecture 3.assets/Screenshot from 2020-02-01 16-25-03.png" alt="Screenshot from 2020-02-01 16-25-03" style="zoom: 50%;" /> |
+| :----------------------------------------------------------: |
+   |                *Fig 4. Summary of IR process*                |
+   
+   

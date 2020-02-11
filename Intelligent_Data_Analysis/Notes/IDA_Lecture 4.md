@@ -92,7 +92,11 @@ $$
   $$
   This result holds for vectors in any $\mathbf N$ dimensional space.
 
-<img src="IDA_Lecture 4.assets/Screenshot from 2020-02-06 14-40-15.png" alt="Screenshot from 2020-02-06 14-40-15" style="zoom: 50%;" />
+| <img src="IDA_Lecture 4.assets/Screenshot from 2020-02-06 14-40-15.png" alt="Screenshot from 2020-02-06 14-40-15" style="zoom: 67%;" /> |
+| :----------------------------------------------------------: |
+|            *Fig 1. The angle between two vectors*            |
+
+
 
 - Hence, if $q$ is a query, $d$ is a document, and $\theta$ is the angle between $vec(q)$ and $vec(d)$, then:
   $$

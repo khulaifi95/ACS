@@ -28,7 +28,11 @@ $$
 
 ### 2. Motivation
 
-<img src="/home/kevinxu95/Pictures/Screenshot from 2020-02-06 15-03-38.png" alt="Screenshot from 2020-02-06 15-03-38" style="zoom:50%;" />
+| <img src="/home/kevinxu95/Pictures/Screenshot from 2020-02-06 15-03-38.png" alt="Screenshot from 2020-02-06 15-03-38" style="zoom:50%;" /> |
+| :----------------------------------------------------------: |
+|          *Fig 1. Finding the red coordinate system*          |
+
+
 
 - Positive covariance with respect to standard coordinates
 - No covariance with respect to "red" coordinate system
@@ -137,4 +141,7 @@ $$
 
   
 
-<img src="IDA_Lecture 5.assets/Screenshot from 2020-02-06 16-27-47.png" alt="Screenshot from 2020-02-06 16-27-47" style="zoom: 50%;" />
+| <img src="IDA_Lecture 5.assets/Screenshot from 2020-02-06 16-27-47.png" alt="Screenshot from 2020-02-06 16-27-47" style="zoom: 50%;" /> |
+| :----------------------------------------------------------: |
+|                 *Fig 2. 2-D Example of PCA*                  |
+

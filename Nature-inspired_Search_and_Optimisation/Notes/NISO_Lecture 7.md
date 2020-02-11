@@ -12,11 +12,13 @@
 
 - **Schema** - a template that identifies a subset of strings with **similarities** at certain **string positions**
 
-  <img src="NISO_Lecture 7.assets/Screenshot from 2020-02-04 11-10-43.png" alt="Screenshot from 2020-02-04 11-10-43" style="zoom: 50%;" />
-
-  The '*' symbol is a *wildcard* that represent either a $0$ or $1$.
-
-
+  | <img src="NISO_Lecture 7.assets/Screenshot from 2020-02-04 11-10-43.png" alt="Screenshot from 2020-02-04 11-10-43" style="zoom: 50%;" /> |
+| :----------------------------------------------------------: |
+  |             *Fig 1. Schema for Chromosome 1 & 2*             |
+  
+  [^]: The '*' symbol is a *wildcard* that represent either a $0$ or $1$.
+  
+  
 
 ### 2. Implicit Parallelism
 
@@ -185,4 +187,8 @@
 
      
 
-     <img src="NISO_Lecture 7.assets/Screenshot from 2020-02-04 16-40-28.png" alt="Screenshot from 2020-02-04 16-40-28" style="zoom:50%;" />
+     | <img src="NISO_Lecture 7.assets/Screenshot from 2020-02-04 16-40-28.png" alt="Screenshot from 2020-02-04 16-40-28" style="zoom:50%;" /> |
+     | :----------------------------------------------------------: |
+     |           *Fig 2. Real valued crossover examples*            |
+     
+     
