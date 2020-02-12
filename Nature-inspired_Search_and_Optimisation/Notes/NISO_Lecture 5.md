@@ -2,7 +2,7 @@
 
 ---
 
-## Lecture 5: Evolutionary Algorithms
+## Lecture 5: Evolutionary Algorithms I
 
 
 
@@ -135,9 +135,42 @@ $$
 
 ### 6. Mutation
 
-​	Flip each bit with a probability $p_m$, a mutation rate.
+​	**Flip** each bit with a probability $p_m$, a mutation rate.
 
-- Standard mutation rate: $p_m = \frac 1{L}$
+- Standard mutation rate: $p_m = \frac 1{L}$, but can be $\in [\frac 1 L, \frac 1 2]$.
+- **Example**:
+
+| Parent   | Mutation                       |
+| -------- | ------------------------------ |
+| 00101011 | 0**<u>1</u>**1010**<u>0</u>**1 |
+| 10110010 | 1011**<u>1</u>**0**<u>01</u>** |
+
+- If mutation rate $p_m$ is **small**, mutation can be seen as creating a small *random perturbation* on the parent genotype.
+  - Mutated offspring is very similar to its parent, i.e., it stays close to the parent in the genotype search space.(Hamming distance)
+  - Together with selection, mutation actually is **stochastic local search**.
+    - Exploit current good solutions.
+    - Explore the search space around them.
+
+
 
 ### 7. Crossover
+
+​	Randomly select two parents with probability $p_c \in [0,1]$ for crossover.
+
+- One-point crossover:
+
+  Select a single crossover point on two strings, swap the data beyond that point in both strings.
+
+- N-point crossover:
+  - Select multiple crossover points.
+  - Split strings into parts using these points.
+  - Alternate between the two parents then glue the parts.
+- Uniform crossover:
+  - For each $i \in \{1,...,L\}$: toss a coin (50%:50%)
+    - if 'head': copy bit $i$ from parent 1 to offspring 1, parent 2 to offspring 2.
+    - if 'tail': copy bit $i$ from parent 2 to offspring 2, parent 1 to offspring 2.
+
+| <img src="NISO_Lecture 5.assets/Screenshot from 2020-02-11 22-16-59.png" alt="Screenshot from 2020-02-11 22-16-59" style="zoom: 50%;" /> |
+| :----------------------------------------------------------: |
+|               *Fig 3. Crossover illustration*                |
 
