@@ -1,4 +1,4 @@
-function [best_distance best_tour] = simple_hill_climbing_two_opt(inputcities)
+function [best_distance best_tour] = simulated_annealing(inputcities)
 % randomsearch
 
 % Hill climbing search algorithm
@@ -10,7 +10,6 @@ function [best_distance best_tour] = simple_hill_climbing_two_opt(inputcities)
 
 num_cities = length(inputcities);
 
-% Generate an initial solution
 % You can generate a random solution as the inital solution. 
 % If you execute your algorithm several times, you have the hill climbing
 % algorithm with random restart. 
@@ -18,8 +17,11 @@ best_tour = randperm(num_cities);
 best_cities_coordinates = inputcities(:,best_tour);
 best_distance = distance(best_cities_coordinates);
 
+initial_temp = 0.01;
+temp_index = 1;
 stuck = false;
 while (stuck==false)
+
     for i = 2 : num_cities-1
         for k = i+1 : num_cities - 1
             stuck = true;
@@ -27,16 +29,15 @@ while (stuck==false)
             new_tour = twoopt(best_tour, i, k);
             new_cities_coordinates = inputcities(:,new_tour);
             new_distance = distance(new_cities_coordinates);
-            if new_distance < best_distance
+            
+            % Calculate the current temperature
+            temp = temperature(temp_index+1, initial_temp);
+            temp_index += 1;
+            if acceptance(new_distance, best_distance, temp) > rand
                 best_distance = new_distance;
                 best_tour = new_tour;
                 stuck = false;
-                %plotcities(new_cities_coordinates);
-                % Since it is a simple hill climbing algorihtm,
-                % accept the first better solution and then terminate (break) 
-                % the search of other immediate neighbours
-                % Question: how can you get a steepest ascent (descent)
-                % hill climbing algorithm?
+                #plotcities(new_cities_coordinates);
             end
         end
     end
