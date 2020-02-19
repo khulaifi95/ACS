@@ -1,0 +1,10 @@
+@article{article,
+author = {Montazeri, Allahyar and Poshtan, Javad},
+year = {2009},
+month = {01},
+pages = {241-260},
+title = {Optimizing a Multi-Channel ANC System for Broadband Noise Cancellation in a Telephone Kiosk Using Genetic Algorithms},
+volume = {16},
+journal = {Shock and Vibration},
+doi = {10.1155/2009/943240}
+}

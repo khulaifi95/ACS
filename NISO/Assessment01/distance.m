@@ -1,10 +1,10 @@
-function d = distance(inputcities)
+function d = distance(coordinates)
 
 d = 0;
-for n = 1 : length(inputcities)
-    if n == length(inputcities)
-        d = d + ceil(sqrt(sum((inputcities(:,n) - inputcities(:,1)).^2)/10));
+for n = 1 : length(coordinates)
+    if n == length(coordinates)
+        d = d + ceil(sqrt(sum((coordinates(:,n) - coordinates(:,1)).^2)/10));
     else    
-        d = d + ceil(sqrt(sum((inputcities(:,n) - inputcities(:,n+1)).^2)/10));
+        d = d + ceil(sqrt(sum((coordinates(:,n) - coordinates(:,n+1)).^2)/10));
     end
 end

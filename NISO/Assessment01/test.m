@@ -1,23 +1,24 @@
-function [sa_mean, sa_std, ts_mean, ts_std, sp_mean, sp_std] = test(run, iteration)
+function [sa_mean, sa_std, ts_mean, ts_std, ga_mean, ga_std] = test(run, iteration)
   
 cities = transpose(dlmread('att48.tsp', '', [6, 1, 53, 3]));
-sa_mean = zeros(p);
-sa_std = zeros(q);
-  
+
+sa = zeros(run);
+ts = zeros(run);
+#ga = zeros(run);
+
+[sa_mean, sa_std, ts_mean, ts_std] = deal(0, 0, 0, 0);
+
   for p = 1:run
-    sa = zeros(q);
-    ts = zeros(q);
-    sp = zeros(q);
-    for q = 1:iteration
-      sa(q) = simulated_annealing(cities);
-      ts(q) = tabu_search(cities);
-      sp(q) = simple_hill_climbing_two_opt(cities);
-    end
-    sa_mean(p) = mean(sa);
-    sa_std(p) = std(sa);
-    ts_mean(p) = mean(ts);
-    ts_std(p) = std(ts);
-    sp_mean(p) = mean(sp);
-    sp_std(p) = std(sp);
+    sa(p) = simulated_annealing(cities, iteration);
+    ts(p) = tabu_search(cities, iteration);
+    #ga(p) = genetic_algorithm(cities, iteration);
   end
+  
+  sa_mean = mean(sa)(:, 1);
+  sa_std = std(sa)(:, 1);
+  ts_mean = mean(ts)(:, 1);
+  ts_std = std(ts)(:, 1);
+  #ga_mean = mean(ga)(:, 1);
+  #ga_std = std(ga)(:, 1);
+
 end
