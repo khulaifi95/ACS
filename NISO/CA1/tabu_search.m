@@ -1,3 +1,5 @@
+% Run first_import before this!
+
 function [best_distance best_tour] = tabu_search(inputcities, iter)
   
 num_cities = length(inputcities);
@@ -6,7 +8,7 @@ best_tour = randperm(num_cities);
 best_cities_coordinates = inputcities(:,best_tour);
 best_distance = distance(best_cities_coordinates);
 
-num_tabu = 15; # 30, 
+num_tabu = 15; # 10, 15, 30, 50, 200
 tabu_list = zeros(num_tabu, 2);
 
 num_iteration = iter; # 3000

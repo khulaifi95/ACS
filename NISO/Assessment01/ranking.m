@@ -1,1 +1,0 @@
-function ranked_solution = ranking(children)

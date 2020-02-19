@@ -1,3 +1,5 @@
+% Run first_import before this!
+
 function [best_distance best_tour] = simulated_annealing(inputcities, iter)
 
 num_cities = length(inputcities);
