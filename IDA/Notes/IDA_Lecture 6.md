@@ -45,6 +45,10 @@ $$
 
 - Notice, with LDA, the number of non-zero eigenvalues will be no greater than $c-1$. (Rank of covariance matrix)
 
+| ![lda](IDA_Lecture 6.assets/lda-1582560534864.png) |
+| :------------------------------------------------: |
+|           *Fig 1. LDA on Boston Dataset*           |
+
 
 
 ### 3. Data Visualisation
@@ -59,25 +63,42 @@ $$
 
 - t-SNE
 
-  - Represent high dimensional data with Gaussian distribution
+  - Given a set of $N$ high-dimensional objects $\mathbf x_1, ..., \mathbf x_N$, the similarity of data point $x_j$ to data point $x_i$ is the conditional probability $p_{j|i}$, that $x_i$ would pick $x_j$ as its neighbour if neighbours were picked in proportion to their probability density under a Gaussian centred at $x_i$:
 
   $$
-  PDF_G = \frac {1}{\sigma \sqrt{2\pi}}exp(-\frac {(x-\mu)^2}{2\sigma^2})
+  p_{j|i} = \frac {exp{(-\Vert x_i-x_j\Vert^2)}/{2\sigma^2}}{\Sigma_{k\ne i} {exp(-\Vert x_k - x_l \Vert^2)}/{2\sigma^2}}
   $$
 
-  ​		  Each point in the dataset can be represented as 
+  
+  
+  - The probabilities $p_{ij}$ for high-dimensional data
+  
   $$
-  p_{ij} = \frac {exp\frac{(-\Vert x_i-x_j\Vert^2)}{2\sigma^2}}{\Sigma \frac {exp(-\Vert x_k - x_l \Vert^2)}{2\sigma^2}}
+p_{ij} = \frac {p_{j|i} + p_{i|j}}{2N}
   $$
   
-
-  - Approximate low dimensional data with t-distribution as
-
-$$
-PDF_t = \frac {\Gamma(\frac {v+1}{2})}{\sqrt {v\pi}\Gamma(\frac v 2)}(1+\frac {t^2} {v})^{\frac{-(v+1)}{2}}
-$$
-
-​					Each point in the dataset can be represented as
-$$
-q_{ij} = \frac {(1+\Vert y_i - y_i \Vert^2)^{-1}}{\Sigma(1+ \Vert y_k - y_l \Vert ^2)^{-1}}
-$$
+  
+  
+  
+  - Given a $d$-dimensional map $\mathbf y_1, ..., \mathbf y_N$ that reflects the similarities $p_{ij}$ as well as possible, it measures similarities $q_{ij}$ between two points in the map:
+  
+  $$
+  q_{ij} = \frac {(1+\Vert y_i - y_i \Vert^2)^{-1}}{\Sigma(1+ \Vert y_k - y_l \Vert ^2)^{-1}}
+  $$
+  
+  
+  
+  
+  - The similarities between low-dimensional points are measured by t-distribution in order to allow dissimilar objects to be modelled far apart in the map
+  
+  $$
+  PDF_t = \frac {\Gamma(\frac {v+1}{2})}{\sqrt {v\pi}\Gamma(\frac v 2)}(1+\frac {t^2} {v})^{\frac{-(v+1)}{2}}
+  $$
+  
+  - The locations of the points $\mathbf y_i$ are determined by minimising the *Kullback-Leibler divergence* of the distribution $Q$ from the distribution $P$:
+  
+  $$
+  Min:KL(P\Vert Q) = \Sigma_{i\ne j}p_{ij}log\frac{p_{ij}}{q_{ij}}
+  $$
+  
+  - The minimisation is performed using gradient descent. 
