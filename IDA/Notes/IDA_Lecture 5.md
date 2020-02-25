@@ -106,7 +106,7 @@ $$
 
 ### 6. 2-D Example
 
-- $X = \big\{ \begin{bmatrix}1 \\\ 1\end{bmatrix}, \begin{bmatrix}0 \\\ 0\end{bmatrix}, \begin{bmatrix}-1 \\\ -1\end{bmatrix}\big\}$
+- $X = \big\{ \begin{bmatrix}1 \\ 1\end{bmatrix}, \begin{bmatrix}0 \\ 0\end{bmatrix}, \begin{bmatrix}-1 \\ -1\end{bmatrix}\big\}$
 
 - $\mu = \begin{bmatrix}0 \\\ 0\end{bmatrix}, C = cov(X) = \begin{bmatrix}1 &1 \\\ 1 & 1\end{bmatrix}$
 
