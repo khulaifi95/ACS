@@ -27,7 +27,7 @@ while (count < max_gens)
     children(:, end+1) = child;
     selected += 1;
   end  
-  population = next_gen(pop_size, parents, children, elite_size);
+  population = next_gen(pop_size, parents, children, elite_size, inputcities);
   count += 1;
 
 end

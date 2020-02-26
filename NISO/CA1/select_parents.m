@@ -2,14 +2,14 @@ function parents = select_parents(ranked_tour, ranked_distance, pop_size)
 
 parents = [];
 
-sum = sum(ranked_distance);
-cum_sum = cumsum(ranked_distance);
-cum_pct = 100 * cum_sum / sum;
+while (columns(parents) < pop_size)
+  i = randi(pop_size,1);
+  j = randi(pop_size,1);
 
-  for (i = (1 : pop_size))
-    if (cum_pct(i) > rand)
-        parents(:, end+1) = ranked_tour(:, i);
-    end
-  end    
-    
+  if (ranked_distance(:, i) < ranked_distance(:, j))
+    parents(:, end+1) = ranked_tour(:, i);
+  else
+    parents(:, end+1) = ranked_tour(:, j);  
+  end
+end
 end
