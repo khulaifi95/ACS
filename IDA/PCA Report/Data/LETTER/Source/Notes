@@ -1,0 +1,9 @@
+Conversion to Delve format
+
+1) Convert "," to white space
+2) Stratify to ensure equal representaion of classes
+3) Randomly reshuffle the ordering of the first 10,560 to be
+used as a test set. Leave the remaining as stratified. This has the effect
+that the base rate class-distributions in the train and test sets
+may be different.
+

@@ -1,0 +1,10 @@
+Conversion notes for delve
+
+1) Combine the training data (210) and test data (2100) . Replace , separator
+with white space
+
+2) Stratify by class (ie make instances of each class follow one
+another)
+
+4) Remove attribute 3 (region pixel count - by definition it is a constant
+
