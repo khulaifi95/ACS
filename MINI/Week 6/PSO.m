@@ -26,7 +26,7 @@ end
 % Resize the dataset with current "dimensions" variable. the standard iris
 % dataset in matlab is 150x4, in this tutorial we need 150x2 or 150x3 for
 % visualization purposes
-load fisheriris.mat
+load /data/fisheriris.mat
 meas = meas(:,1+dataset_subset:dimensions+dataset_subset);
 dataset_size = size (meas);
 % Execute k-means if enabled the hybrid_pso approach. If enabled, the
