@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="installedFeatures">
-		<item value="com.nvidia.cuda.ide.feature:10.2.0.201910240304"/>
+		<item value="com.nvidia.cuda.ide.feature:10.1.0.201907290258"/>
 		<item value="org.eclipse.cdt.build.crossgcc:8.4.0.201406111759"/>
 		<item value="org.eclipse.cdt.gdb:8.5.0.201409172108"/>
 		<item value="org.eclipse.cdt.launch.remote:8.5.0.201409172108"/>
