@@ -1,6 +1,6 @@
 #### **Submission deadline:**
 
-The submission deadline for this assignment is 5pm on Friday 6th March 2020 (wk8).
+The submission deadline for this assignment is 5pm on Friday **6th March** 2020 (week 8).
 
 #### **Format**
 
@@ -8,7 +8,7 @@ Your report should be in the form of an academic paper. If you use latex please 
 
 Your report should be no more than 15 pages in length, A4, 12pt characters with single spacing. The 15 page limit includes any figures and bibliography.
 
-#### Assignment details:**
+#### **Assignment details:**
 
 Your task is to investigate a data set using Principal Components Analysis (PCA), and other techniques from the IDA course.
 
@@ -22,7 +22,7 @@ Depending on the software that you use you may need to pre-process the data, for
 
 To make the plots informative, you need to devise a labelling scheme for data points.
 
-If the data can be classified into several classes (you can find this out from the data and feature description), use that information as the basis for your labelling scheme. In that case exclude the class information from the data dimensions that you analyse. Alternatively, you can make labels out of any dimension, e.g. by quantising it into several intervals. For example, if the data dimension represents age of a person, you can quantise it into 5 labels (classes) [child, teenager, young adult, middle age, old]. Associate the data labels with different markers and use the markers to show what kind of data points get projected to different regions of the visualisation plot.
+If the data can be classified into several classes (you can find this out from the data and feature description), use that information as the basis for your labelling scheme. In that case exclude the class information from the data dimensions that you analyse. Alternatively, you can make labels out of any dimension, e.g. by **quantising it into several intervals**. For example, if the data dimension represents age of a person, you can quantise it into 5 labels (classes) [child, teenager, young adult, middle age, old]. Associate the data labels with different markers and use the markers to show what kind of data points get projected to different regions of the visualisation plot.
 
 You need to justify your choice of classes in the labelling scheme. What do you expect PCA to tell you about the relationship between these classes and the other dimensions in the data set? Are these relationships evident from projecting the data onto existing pairs of dimensions? What additional insights do you get from applying PCA?
 
@@ -31,14 +31,6 @@ You should:
 - Learn as much as you can about your chosen data set(s) using the visualisation and clustering methods developed in the module.
 - Use different data labelling schemes.
 - In the case of visualisation, compare projections onto the principal components from PCA with straightforward projections onto the existing coordinates/dimensions.
-
-#### **Data sets:**
-
-- [abalone](https://canvas.bham.ac.uk/courses/38472/files/8496304/download?wrap=1)
-- [comp.activ](https://canvas.bham.ac.uk/courses/38472/files/8496309/download?wrap=1)
-- [ image](https://canvas.bham.ac.uk/courses/38472/files/8496312/download?wrap=1)
-- [iris](https://canvas.bham.ac.uk/courses/38472/files/8496313/download?wrap=1)
-- [letter](https://canvas.bham.ac.uk/courses/38472/files/8496315/download?wrap=1)
 
 #### **Example**
 
