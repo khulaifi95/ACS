@@ -2,183 +2,168 @@
 
 ---
 
-## Lecture 16 : Genetic Programming
+## Lecture 16 : Co-Evolution
 
 
 
-### 1.  Genetic Programming
+### 1. What is co-evolution?
 
-- Content view:
-  - Automatic programming
-  - Creation of programs by artificial evolution
-  - Different representations
-- Representation view:
-  - Anything using tree representation
-  - May be programs, may be other things
+- Fitness of an individual **depends** on other individuals.
+  - Fitness **landscape** changes.
+  - Fitness of an individual may be different in different runs
+- Change in one individual will **change** the fitness **landscape** in others.
+- Iterated Prisoner's Dilemma experiment:
+  - Evolving strategies played against each other.
 
 
 
-### 2. Representing Programs in EC
+### 2. Types of Co-Evolution
 
-- Tree representation
-  - LISP-like expression
-  - Local data storage
-  - Tree **genotypes**
-  - Tree genetic operators
-  - **Stack** for data storage
-- Linear representation
-  - Series of instructions
-  - **Registers** for data storage
-- Graph representation
-  - Nodes contain instructions
-  - Edges control program flow
-  - **Stack** for data storage
+- By evaluation:
+  - Competitive
+  - Cooperative
+- By population-organisation:
+  - Inter-population - between group
+  - Intra-population - within group
 
 
 
-#### Example: Symbolic Regression
+### 3. Example 1: Sorting Algorithm
 
-- Given: a set of function points
+- Goal: Place the elements in a data structure (list or tree) in some specified **order**.
 
-- Problem: find a function that fits the points as **closely** as possible
+- Sorting network: Knuth
 
-  
+  - Horizontal lines $\rightarrow$ elements in the list
+  - Vertical arrows $\rightarrow$ **comparisons** to be made (in parallel)
+  - **Swap** if elements in wrong order.
 
-| <img src="NISO_Lecture 16.assets/0309202001.png" alt="0309202001"  /> |
-| :----------------------------------------------------------: |
-|     *Fig 1. Tree representation for symbolic regression*     |
+- For 16 elements:
 
+  - Make them **correct** and **efficient**.
 
+  - Reduce the No. of comparisons necessary for correct sorting.
+    - Hot Q around the '60s.
 
-### 3. The Terminal Set
+1. Encoding the sorting net:
 
-Anything with **arity** of 0 and only 1 output.
+   - Ordered list of pairs to be compared $\rightarrow$ phenotype
 
-[^Arity]: Number of inputs.
+   - Diploid chromosomes (DNA structure) $\rightarrow$ genotype
+     - 1 individual = 15 pairs of 32 bit chromosomes, each for 4 comparisons.
 
-- Inputs
-  - Sensors
-  - Function variables
-- Constants
-  - Numbers
+2. **Fitness** measure: **Percentage** of cases sorted correctly.
 
+3. Problem: How to compute fitness?
 
+   - All possible inputs - slow
 
-### 4. The Function Set
+   - Fixed set of inputs - which?
 
-- n-ary functions:
-  - Arithmetic functions - +, -, *, /, log, sum,...
-  - Boolean functions - and, or, not, xor,...
-  - Memory functions - store, read
-  - Control structures - if..then..else, for, ...
-  - Side-effect functions - move, pen up, turn, ...
-- Sufficiency
-  - Need a set of functions sufficiently complex for the task.
-  - But not too rich.
-- Coverage
-  - Functions need to be defined over **all inputs**.
-  - e.g. division needs to be defined for input 0.
 
 
+### 4. GA Solution of Sorting Algorithm
 
-### 5. Crossover
+- Method:
+  - To foster speciation, individuals placed on a **2D** grid (i.e. spatial distance).
+  - Fitness computed from random **subsamples**.
+  - Half of population with lower fitness deleted and **replaced** with a copy of a surviving neighbor.
+  - Pairing in the local neighborhoods.
+  - Special crossover for diploids, followed by mutation with p_m = 0.001.
+  - Population size between 512—1million.
+  - 5000 generation.
 
-- Branch swap
+- Result: 65 comparisons
+- Why didn't GA do better?
+  - After early generations, with randomly generated test cases used to compute fitness, the **difficulty** of test cases stayed roughly the **same**.
 
-  1. Pick random branch at each parent.
+- Solution: Co-Evolution - 61 comparisons
+  - Evolve both **algorithms** and **test cases**.
+    - Algorithms try to sort.
+    - Test cases try to fail algorithms.
+  - Predator/ prey relationship inspired from nature.
+  - As the algorithms got better, the test cases got harder.
 
-  2. Swap branches.
+| <img src="NISO_Lecture 16.assets/0312202001.png" alt="0312202001" style="zoom: 67%;" /> | <img src="NISO_Lecture 16.assets/0312202002-1584030831737.png" alt="0312202002" style="zoom:67%;" /> |
+| -----------------------------------------------------------: | :----------------------------------------------------------- |
+|                                    *Fig 1. Inter-population* | *competitive co-evolution*                                   |
 
-- Matched 1-point tree crossover
 
-  1. From root to branches.
-  2. As long as node have same arity.
-  3. Same crossover point for both parents, within matched branches.
-  4. N-point crossover is possible.
 
+### 5. Example 2: Game Playing
 
+- Type: 
 
-### 6. Mutation
+  - Intra-population competitive co-evolution.
 
-- Branch replacement
-  1. Pick random branch from parent.
-  2. Delete branch.
-  3. Replace with random new branch.
-  4. New branch created as in initial population creation.
+- Task: 
 
+  - Evolve a Backgammon player.
 
+- Problem: Evaluation
 
-### 7. Creation of Initial Population
+  - Against human players
+  - Against 'conventional' program
+  - Against internet players
 
-- Full method
+- Solution: Co-Evolution
 
-  - With fixed tree **depth** *treeDepth*:
+  - Evolve and evaluate by playing against other evolving programs.
 
-  1. DO add random function nodes UNTIL all branches have (*treeDepth* -1) depth.
-  2.  Add random **terminal** nodes to all branches.
+- Intra-population
 
-- Growth method
+  - All genotypes are of the same type.
+  - Only one population.
 
-  - With fixed **maximum** tree depth *maxDepth*:
+- Simple Backgammon learner:
 
-  1. DO add random function or terminal nodes UNTIL all branches have terminals or are at (*maxDepth* - 1) depth.
-  2. Add random terminal **nodes** to all branches without terminals.
+  Evolve a NN that plays Backgammon.
 
-- Ramped half-and-half
+  1. Initiate $NN$ as $NN(k); k=0$.
 
-  - With fixed **maximum** tree depth *maxDepth* and **population size** *popSize*:
+  2. Generate a mutant challenger $NN'(k)$ of $NN(k)$.
 
-  - FOR n=2 to *maxDepth* **create**:
-    1. (*popSize*/2*(*maxDepth* -1)) individuals using growth method with *maxDepth*=n.
-    2. (*popSize*/2*(*maxDepth* - 1)) individuals using full method with *treeDepth*=n.
+  3. If $NN'(k)$ is beaten by $NN(k)$:
 
+     ​				$NN(k+1) = NN(k)$
 
+     else
 
-### 8. Bloat
+     ​				$NN(k+1) = 0.95 \times NN(k) + 0.05 \times NN'(k)$
 
-- Program size grows:
-  - As a result of uneven crossover and unused code.
-  - Mutation, crossover of unused code - identical offspring behaviour.
-  - Slows down runs. More space, CPU time required.
-- Countermeasures
-  - Incorporate program size into fitness.
-  - Use special crossover, e.g. matched one-point crossover.
+  4. $k=k+1$, iterate back to step 2 unless finished.
 
+- Settings:
+  - 197-20-1 FC NN.
+  - No training for NN.
+  - EA with population size 1.
+  - Simple mutation: add Gaussian noise to weights.
+  - No recombination.
 
 
-### 9. Other Representations
 
-- Linear representation - Register machine:
-  - Van-Neuman architecture
-  - **String** of instructions and data
-  - Functions get **arguments** from registers
-  - String representation
-  - Usually **variable-length**
-  - Crossover: Variable-length versions of one-point, two-point.
-  - Mutation: 'Usual' random gene replacement, add, delete operations.
-- Graph representation - **Nodes** define operations:
-  - Operands come from stack.
-  - Result will be put onto the stack.
-  - Edges define control flow.
-  - Control mechanism controls which edge to follow.
-  - Loops and recursion are common.
-  - Specialised crossover and mutation operators.
+### 6. When and Why co-evolution?
 
-| ![0309202002](NISO_Lecture 16.assets/0309202002.png) |
-| :--------------------------------------------------: |
-|            *Fig 2. Graph representation*             |
+- No fitness function known.
+  - Bootstrapping by co-evolution.
+- Too many fitness cases.
+  - Co-evolve fitness and cases.
+- Modularisable problem.
+  - Divide and conquer.
 
 
 
-### 10. Genetic Programming == Automatic Programming?
+### 7. Other Examples
 
-- Does it start from a **high level** specification?
-- Does it produce an **executable** program?
-- Does it **automatically** determine the number of steps a program should take?
-- Does it produce results that are **competitive** with human?
-
-- Applications:
-  - Regression - Data Mining
-  - Control - Robots
-  - Design - NN
-
+- Robot behaviour
+  - Coupling cooperative co-evolution.
+- Pattern recognition
+  - Different Individuals specialize on different letters.
+- Creative design systems
+  - Evolve design and design specifications.
+- Games
+  - Tic-Tac-Toe.
+  - Prisoner's dilemma.
+  - Checkers.
+- Artificial life
+  - Complex simulated ecosystems.

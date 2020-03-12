@@ -2,9 +2,7 @@
 
 ---
 
-## Lecture 12 : Niching and Speciation II
-
-
+## Lecture 12 : Crowding and Mating Selection
 
 ### 1. Crowding
 
