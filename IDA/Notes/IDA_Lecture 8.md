@@ -2,7 +2,7 @@
 
 ---
 
-## Lecture 8. Clustering
+## Lecture 8 : Clustering
 
 
 

@@ -2,7 +2,7 @@
 
 ---
 
-## Lecture 7. Latent Semantic Analysis
+## Lecture 7 :  Latent Semantic Analysis
 
 
 
