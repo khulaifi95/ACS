@@ -28,7 +28,7 @@ class Eval:
 
     def calculate_expression(self):
         res = self.calculate_meta_expression(self.parsed)
-        return result
+        return res
 
     def calculate_meta_expression(self, me):
         """[summary]
@@ -108,13 +108,16 @@ class GPTree:
         else:
             estimate_equation = [self.node_label()]
 
-        if self.left: estimate_equation.append(self.left.translate_tree())
-        if self.right: estimate_equation.append(self.right.translate_tree())
+        if self.left:
+            estimate_equation.append(self.left.translate_tree())
+        if self.right:
+            estimate_equation.append(self.right.translate_tree())
         return estimate_equation
     ##########
+
     def random_tree(self, grow, max_depth, depth=0):
         if depth < MIN_DEPTH or (depth < max_depth and not gorw):
-            self.data = FUNCTIONS 
+            self.data = FUNCTIONS
 
     def mutation(self):
         if random() < PROB_MUTATION:
@@ -161,3 +164,81 @@ class GPTree:
     def crossover(self, other):
         if random() < XO_RATE:
             second = other.scan_tree([randint(1, other.size())], None)
+            self.scan_tree([randint(1, self.size())], second)
+
+
+def init_population(pop_size):
+    pop = []
+    for md in range(3, MAX_DEPTH + 1):
+        for i in range(int(pop_size / 6)):
+            t = GPTree()
+            t.random_tree(grow=True, max_depth=md)
+            pop.append(t)
+        for i in range(int(pop_size / 6)):
+            t = GPTree()
+            t.random_tree(grow=False, max_depth=md)
+            pop.append(t)
+    missing_num = pop_size - len(pop)
+    if missing_num > 0:
+        for i in range(missing_num):
+            t = GPTree()
+            t.random_tree(grow=False, max_depth=md)
+            pop.append(t)
+    return pop
+
+
+def fitness(expr, path):
+    data = load_data(path)
+    n = len(data[0].split()) - 1
+    m = len(data)
+    distance_sum = 0
+    for i in range(m):
+        res = Eval(n, data[i], expr)
+        e = float('%0.3f' % res.calculate_expression())
+        y = float('%0.3f' % float(data[i].split()[n]))
+        if abs(e) / abs(y) > 1e6 or abs(e) / abs(y) < 1e-6:
+            distance_sum += 99999
+        else:
+            distance_sum += float('%0.3f' % pow((y - e), 2))
+    fitness_value = distance_sum / m
+    return fitness_value
+
+
+def selection(population, fitnesses):
+    tournament = [randint(0, len(population) - 1) for i in range(TOURNAMENT_SIZE)]
+    tournament_fitnesses = [fitnesses[tournament[i]] for i in range(TOURNAMENT_SIZE)]
+    return deepcopy(population[tournament_fitnesses.index(max(tournament_fitnesses))])
+
+
+def load_data(path):
+    with open(path, 'r') as f:
+        line = f.readline()
+        data = []
+        while line:
+            data.append(line)
+            line = f.readline()
+    return data
+
+
+def gen_terminator(data_dimension):
+    TERMINALS.extend([":data_" + str(i) for i in range(data_dimension)])
+
+
+def translate_data_placeholder(individual, data_dimension):
+    for i in range(data_dimension):
+        individual = individual.replace(":data_{}".format(i), "(data {})".format(i))
+    return individual
+
+
+def question_1(n, x, expr):
+    eva = Eval(n, x, expr)
+    res = eva.calculate_expression()
+    print(res)
+
+
+def question_2(path, expr):
+    print(fitness(expr, path))
+
+
+def question_3(path, pop_size, time_budget):
+    
