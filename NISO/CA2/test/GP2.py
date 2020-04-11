@@ -9,9 +9,9 @@ from ParseTool import ParseTool
 MIN_DEPTH = 2  # minimal initial random tree depth
 MAX_DEPTH = 5  # maximal initial random tree depth
 GENERATIONS = 100  # maximal number of generations in evolution
-TOURNAMENT_SIZE = 5  # candidates in tournament selection
-XO_RATE = 0.8  # individuals crossover rate
-MUTATION_RATE = 0.2  # node mutation rate
+TOURNAMENT_SIZE = 2  # candidates in tournament selection 6, 5, 4, 3, 2
+XO_RATE = 0.9  # individuals crossover rate 0.8, 0.85, 0.9, 0.95, 0.98
+MUTATION_RATE = 0.2  # node mutation rate # 0.2, 0.1, 0.05, 0.03, 0.01
 
 FUNCTIONS = ["add", "sub", "mul", "div", "max"]  # original functions
 TERMINALS = [0, 1, 2]  # original operands
@@ -43,11 +43,11 @@ class Cal:
 
         # Operation
         if operator == "add":
-            return float(('%0.3f' % (me[1] + me[2])).rstrip('0').rstrip('.'))
+            return me[1] + me[2]
         elif operator == "sub":
-            return float(('%0.3f' % (me[1] - me[2])).rstrip('0').rstrip('.'))
+            return me[1] - me[2]
         elif operator == "mul":
-            return float(('%0.3f' % (me[1] * me[2])).rstrip('0').rstrip('.'))
+            return me[1] * me[2]
         elif operator == "div":
             if me[2] != 0:  # not divided by 0
                 return float(('%0.3f' % (me[1] / me[2])).rstrip('0').rstrip('.'))
@@ -60,24 +60,29 @@ class Cal:
                 return float(('%0.3f' % (pow(me[1], me[2]))).rstrip('0').rstrip('.'))
         elif operator == "sqrt":
             if me[1] >= 0:  # no square root on negatives
-                return float(('%0.3f' % (math.sqrt(me[1]))).rstrip('0').rstrip('.'))
+                return math.sqrt(me[1])
             else:
                 return 0
         elif operator == "log":
             if me[1] > 0:  # no log on negatives and 0
-                return float(('%0.3f' % (math.log(me[1], 2))).rstrip('0').rstrip('.'))
+                return math.log(me[1], 2)
             else:
                 return 0
         elif operator == "exp":
-            return float(('%0.3f' % (math.exp(me[1]))).rstrip('0').rstrip('.'))
+            try:
+                ans = math.exp(me[1])
+            except OverflowError:
+                ans = float('inf')
+            return ans
+            # return float(('%0.3f' % (math.exp(me[1]))).rstrip('0').rstrip('.'))
         elif operator == "max":
-            return float(('%0.3f' % (max(me[1], me[2]))).rstrip('0').rstrip('.'))
+            return max(me[1], me[2])
 
         elif operator == "ifleq":
             if me[1] <= me[2]:
-                return float(('%0.3f' % (me[3])).rstrip('0').rstrip('.'))
+                return me[3]
             else:
-                return float(('%0.3f' % (me[4])).rstrip('0').rstrip('.'))
+                return me[4]
 
         elif operator == "data":  # assign an index in the dataset
             return self.input[int(abs(math.floor(me[1])) % self.n)]
@@ -98,9 +103,9 @@ class Cal:
             elif k < l:
                 for i in range(k, l):
                     sum += self.input[i]
-                avg = sum / (l - k)
+                sum = sum / (l - k)
 
-            return avg
+            return sum
 
 
 # Tree structure
@@ -225,20 +230,20 @@ def init_population(pop_size):
     return pop
 
 
-def fitness(expr, path):
+def fitness(expr, path, n, m):
     data = load_data(path)
     # the dimension of the input vector
-    n = len(data[0].split()) - 1 !!!!!!!!!!!!!!!
+    n = len(data[0].split()) - 1
     # the size of the training data (X, Y)
-    m = len(data) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    m = len(data)
     distance_sum = 0
-    for i in range(0, m):
+    for i in range(0, m - 1):
         cal = Cal(n, data[i], expr)
         e = float(('%0.3f' % cal.calculate_expression()).rstrip('0').rstrip('.'))
         y = float(('%0.3f' % float(data[i].split()[n])).rstrip(
             '0').rstrip('.'))
         if abs(e) / (abs(y) + 1e-6) > 1000000 or abs(e) / (abs(y) + 1e-6) < 0.000001:
-            distance_sum += 99999  # mark large errors
+            distance_sum += 99999  # ignore large errors
         else:
             distance_sum += float(('%0.3f' %
                                    math.pow((y - e), 2)).rstrip('0').rstrip('.'))
@@ -265,15 +270,17 @@ def load_data(path):
             line = f.readline()
     return data
 
-# Generate new placeholder leaves
+
+# Add data() as new placeholder leaves
 def gen_terminators(data_dimension):
-    TERMINALS.extend([":data_" + str(i) for i in range(data_dimension)])
+    TERMINALS.extend([":data_" + str(i) + "_" for i in range(data_dimension)])
+
 
 # Transform placeholder afterwards
 def translate_data_placeholder(individual, data_dimension):
     for i in range(data_dimension):
         individual = individual.replace(
-            ":data_{}".format(i), '(data {})'.format(i))
+            ":data_{}_".format(i), '(data {})'.format(i))
     return individual
 
 
@@ -283,33 +290,33 @@ def question_1(n, x, expr):
     print(result)
 
 
-def question_2(path, expr):
-    print(fitness(expr, path))
+def question_2(path, expr, n, m):
+    print(fitness(expr, path, n, m))
 
 
-def question_3(path, pop_size, time_budget):
+def question_3(path, pop_size, n, m, time_budget):
     seed()  # set random state
     dataset = load_data(path)
-    data_dimension = len(dataset[0].split()) - 1
+    data_dimension = m
     gen_terminators(data_dimension)  # add data indices as leaf
     population = init_population(pop_size)
 
     # records
     best_of_run = None  # individual
     best_of_run_f = 0   # fitness
-    best_of_run_gen = 0 # generation
+    best_of_run_gen = 0  # generation
 
     fitnesses = [fitness(translate_data_placeholder(parse_tool.print_sexp(
-        population[i].translate_tree()), data_dimension), path) for i in range(pop_size)]
+        population[i].translate_tree()), data_dimension), path, n, m) for i in range(pop_size)]
     best_of_run_f = min(fitnesses)
     best_of_run = deepcopy(population[fitnesses.index(min(fitnesses))])
 
     # evolution
     start_time = time.time()  # start timer
     for gen in range(GENERATIONS):
-        if time.time()- start_time >= time_budget:
+        if time.time() - start_time >= time_budget:
             break
-        print("now process gen: ", gen)
+        # print("now process gen: ", gen)
         nextgen_population = []  # next generation
         for i in range(pop_size):
             parent1 = selection(population, fitnesses)
@@ -319,7 +326,7 @@ def question_3(path, pop_size, time_budget):
             nextgen_population.append(parent1)
         population = nextgen_population
         fitnesses = [fitness(translate_data_placeholder(parse_tool.print_sexp(
-            population[i].translate_tree()), data_dimension), path) for i in range(pop_size)]
+            population[i].translate_tree()), data_dimension), path, n, m) for i in range(pop_size)]
         if min(fitnesses) < best_of_run_f:
             best_of_run_f = min(fitnesses)
             best_of_run_gen = gen
@@ -327,11 +334,11 @@ def question_3(path, pop_size, time_budget):
             # print("generation:", gen, ", best fitness value:", min(fitnesses))
         if best_of_run_f == 1:  # if get the same population
             break
-
+    print(best_of_run_f)
     # print("\n\nEvolution End\nbest individual appears at generation " + str(best_of_run_gen) +
     #       " and has fitness value=" + str(best_of_run_f))
-    print(translate_data_placeholder(parse_tool.print_sexp(
-        best_of_run.translate_tree()), data_dimension))
+    # print(translate_data_placeholder(parse_tool.print_sexp(
+    #     best_of_run.translate_tree()), data_dimension))
 
 
 if __name__ == "__main__":
@@ -342,7 +349,6 @@ if __name__ == "__main__":
     parser.add_argument(
         "-n", type=int, help="the dimension of the input vector n")
     parser.add_argument("-x", type=str, help="the input vector")
-
     parser.add_argument(
         "-m", type=int, help="the size of the training data (X;Y)")
     parser.add_argument("-data", type=str, help="the name of a file")
@@ -354,11 +360,10 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-
     if args.question is 1:
         question_1(args.n, args.x, args.expr)
     elif args.question is 2:
-        question_2(args.data, args.expr)
+        question_2(args.data, args.expr, args.n, args.m)
     elif args.question is 3:
-        question_3(args.data, pop_size=args.pop_size,
-                   time_budget=args.time_budget)
+        question_3(args.data, pop_size=args.pop_size, n=args.n,
+                   m=args.m, time_budget=args.time_budget)

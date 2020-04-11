@@ -7,4 +7,7 @@
 
 # window = np.zeros([3, ])
 
-print(repr(5.0123)[1:-1])
+
+for i in range(80):
+    individual
+    rx = re.
