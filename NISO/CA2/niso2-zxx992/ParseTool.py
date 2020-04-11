@@ -47,14 +47,3 @@ class ParseTool:
         else:
             out += '%s' % exp
         return out
-
-# parsetool = ParseTool()
-# if __name__ == '__main__':
-#     sexp = ''' ( ( data "quoted data" 123 4.5)
-#          (data (123 (4.5) "(more" "data)")))'''
- 
-#     print('Input S-expression: %r' % (sexp, ))
-#     parsed = parsetool.parse_sexp(sexp)
-#     print("\nParsed to Python:", parsed)
- 
-#     print("\nThen back to: '%s'" % parsetool.print_sexp(parsed))

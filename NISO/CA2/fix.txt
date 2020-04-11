@@ -1,0 +1,26 @@
+Line11, Correct: 0.573896, Answer: 0.574000*
+Line27, Correct: -0.991758*, Answer: -0.350692**
+Line30, Correct: 6.347658*, Answer: 7.980703**
+Line35, Correct: -0.921484*, Answer: -0.921000*
+Line60, Correct: 2.256548*, Answer: 2.257000*
+Line61, Correct: 1.000000*, Answer: 0.963465*
+Line70, Correct: 3.265274**, Answer: -0.073126**
+Line85, Correct: 0.008390*, Answer: 0.024000**
+Line88, Correct: -0.353845*, Answer: -0.153108**
+[-12, -28, -31, -36, -61, -62, -71, -86, -89]
+
+['Testing expression: (div -2.82907174069 -4.92959377384)\n', 
+'Testing expression: (sub (ifleq (div (avg 0.558159865652 0.658885180106) 1.06947922908) 1.96735680438 (div (avg (div 0.719076864103 -0.231112351208) 1.41203471128) (div 1.06947922908 1.66685627294)) -0.243467713469) (mul (div -0.20006136719 -0.472799735849) -0.825786570432))\n', 
+'Testing expression: (add (sub (avg -1.09688653126 1.72955294407) (exp 0.105919181527)) (exp 2.18300417656))\n', 'Testing expression: (div (sub (log 0.90356674427) 1.86079025431) 2.17810380675)\n', 
+'Testing expression: (ifleq (log (log 0.767626659066)) 2.75792548411 (pow 1.35174778718 2.700201266) (div (sqrt 1.0273581615) (sqrt 0.178707595555)))\n', 
+'Testing expression: (exp (avg -0.782703556313 (diff (exp -2.21842601714) (exp 2.70561242135))))\n', 
+'Testing expression: (diff 0.874753712492 (log 0.118824411672))\n', 
+'Testing expression: (pow (mul (sub (sub -1.82966418705 1.56996836733) 3.29691595001) (mul (diff -1.69603539259 0.150440386028) 4.37360046163)) (sub 1.21558905693 2.42703018441))\n', 
+'Testing expression: (avg 1.06630784746 -2.97570254912)\n']
+
+-x \"-1.0550381293 -0.741562740604 -0.780872078425 0.753460600795 0.0633865486564 0.820301457387 0.673812465535 0.185197989839 -1.30000992464 -0.504415983579\
+
+
+-data the name of a file containing training data in the form of m lines, where each line
+contains n + 1 values separated by tab characters. The first n elements in a line represents
+an input vector x, and the last element in a line represents the output value y.
