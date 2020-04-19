@@ -1,0 +1,7 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2020-04-17T20:57:14+01:00
+
+====== Home ======
+Created Friday 17 April 2020
+

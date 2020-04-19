@@ -1,0 +1,7 @@
+*.c
+*.pyc
+*.pyd
+dist/
+test/
+build/
+pysparcl.egg-info/
