@@ -1,0 +1,8 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2020-04-21T22:07:31+01:00
+
+====== Autumn ======
+Created Tuesday 21 April 2020
+
+The first term of 11 weeks study from Sept 30^{th}, 2019 to Dec 13^{rd}, 2019.

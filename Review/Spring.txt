@@ -1,0 +1,8 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2020-04-22T01:01:12+01:00
+
+====== Spring ======
+Created Wednesday 22 April 2020
+
+The second term of 11 weeks study from Jan 13^{rd}, 2020 to Mar 27^{th}, 2020.
