@@ -6,3 +6,15 @@ Creation-Date: 2020-04-21T22:07:31+01:00
 Created Tuesday 21 April 2020
 
 The first term of 11 weeks study from Sept 30^{th}, 2019 to Dec 13^{rd}, 2019.
+
+This term introduces subjects as following:
+
+1. [[EMS|Evaluation Methods and Statistics]]
+
+2. [[ML|Maching Learning]]
+
+3. [[NC|Neural Computation]]
+
+4. [[IR|Intelligent Robotics]]
+
+5. [[DPC|Distributed and Parallel Computing]]

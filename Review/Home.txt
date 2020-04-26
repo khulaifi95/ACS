@@ -6,3 +6,15 @@ Creation-Date: 2020-04-17T20:57:14+01:00
 Created Friday 17 April 2020
 
 This is the home page of a collection of wiki pages that organise the knowledge network of mine.
+
+This knowledge system is based on the structure of courses taken in the MSc Advanced Computer Science programme at the University of Birmingham.
+
+In three folds:
+
+1. [[Autumn|Autumn term]].
+
+2. [[Spring|Spring term]].
+
+3. [[Project|Summer project]].
+
+Additional:
