@@ -1,0 +1,23 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2020-04-30T20:55:18+01:00
+
+====== Introduction ======
+Created Thursday 30 April 2020
+
+Lecture 1 of [[NC|Neural Computation]] course.
+
+===== Lecture note =====
+
+=== 1. Mitchell's definition of Machine Learning ===
+	Machine learning occurs when performance **P **of algorithm at task **T** improves with experience **E**.
+	
+	* Learning task: regression, classification, transcription, sampling, etc.
+	* Performance measure: accuracy, fitness, optimum, etc.
+	* Experience: supervised learning, unsupervised learning, reinforcement learning
+
+===== Example question =====
+
+1. Categorise a given list of machine learning problem as //supervised, unsupervised or reinforcement learning.//
+
+2. State Mitchell's definition of learning.
