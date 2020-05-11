@@ -334,11 +334,11 @@ $$
 For numerical and analytical reasons, a convenient reformulation is
 $$
 \Theta_{MLE} = \arg\max_\theta\mathcal L(\theta)
-\\= \arg\max_\theta \log\mathcal L(\theta)
+\\= \arg\max_\theta \log\mathcal L(\theta) \ \ \ \ \ \ \ \ \ 
 \\= \arg\max_\theta \log\prod_{i=1}^np_{model}(y^i|x^i;\theta)
 \\= \arg\max_\theta \sum_{i=1}^n\log p_{model}(y^i|x^i;\theta)
 \\= \arg\min_\theta \frac1n\sum-\log p_{model}(y^i|x^i;\theta)
-\\= \arg\min_\theta \mathbb E_{(x,y)\sim \mathcal {\hat D}}-\log p_{model} (y|x;\theta)
+\\= \arg\min_\theta \mathbb E_{(x,y)\sim \mathcal D^n}-\log p_{model} (y|x;\theta)
 $$
 
 #### 3.3.5 Learning via log-likelihood
@@ -424,7 +424,7 @@ The new length $\Vert u\Vert\cdot \cos\theta$ is exactly the projection of $u$ o
 
 The partial derivative of a function $f(x_1,...,x_m)$ in the direction of variable $x_i$ at the point $u=(u_1,...,u_m)$ is
 $$
-\frac{\part f}{\part x_i}(u_1,...,u_m) = \lim_{n\rightarrow0}\frac{f(u_1,...,u_i+ h, ..., u_m) - f(u_1,...,u_m)}{h}
+\frac{\part f}{\part x_i}(u_1,...,u_m) = \lim_{h\rightarrow0}\frac{f(u_1,...,u_i+ h, ..., u_m) - f(u_1,...,u_m)}{h}
 $$
 where intuitively all variables except $x_i$ are fixed as constraints.
 
@@ -665,7 +665,7 @@ where the partial derivative $\frac{\part c}{\part a_j^L}$ depends on the **cost
 
 In a regression problem of $m$ dimensions, one could define
 $$
-c(a_j^1, ..., a_j^L) = \frac12 \sum_{k=1}^m(y_k - a_k^L)^2
+c(a_1^L, ..., a_m^L) = \frac12 \sum_{k=1}^m(y_k - a_k^L)^2
 $$
 where the partial derivative is
 $$
@@ -731,12 +731,12 @@ $$
 The weighted inputs can be represented for all nodes
 $$
 z_l = (z_1^l,...,z_m^l) 
-\\ = (\sum_{k=1}^mw_{1k}^la_k^{l-1}+b_1^l,...,\sum_{k=1}^mw_{mk}^la_k^{l-1}+b_1^l)
+\\ = (\sum_{k=1}^mw_{1k}^la_k^{l-1}+b_1^l,...,\sum_{k=1}^mw_{mk}^la_k^{l-1}+b_m^l)
 \\ = w^la^{l-1} + b \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
 $$
 while the activations for all nodes in a layer are
 $$
-a^l = (a_1^,...,a_m^l)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+a^l = (a_1^l,...,a_m^l)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
 \\ = (\phi(z_1^l), ..., \phi(z_m^l)) 
 \\ = \phi(z^l) \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
 $$
@@ -816,7 +816,7 @@ C^i = \frac12(y^i-a^L)
 $$
 where $a^L$ is the output of the network when $a^1=x^i$.
 
-Backpropagation gives the graident of the overall cost function as follows
+Backpropagation gives the *average* graident of the overall cost function
 $$
 \frac{\part c}{\part w^l} = \frac1n \sum_{i=1}^n\frac{\part c^i}{\part w^l}
 \\ \frac{\part c}{\part b^l} = \frac1n\sum_{i=1}^n\frac{\part c^i}{\part b^l}
@@ -845,4 +845,57 @@ Common to use mini-batch with size $b\in(20,100)$.
 
 
 ## Lecture 6: Softmax
+
+### 6.1 Probabilistic model for classification
+
+The per-example cost function obtained in the last lecture using the maximum likelihood method
+$$
+C^i=\sum_{j=1}^m \frac12(y^i_j-a_j^i)^2
+$$
+made the assumption that the examples belong to a Gaussian distribution. This is acceptable for regression problems.
+
+However, for **classification** problems with $m$ **discrete** class labels $1,...,m$, better have one output unit $p_j$ per class $j$, where $p_j$ is interpreted as the probability of class $j$. These units should therefor satisfy
+$$
+\forall j \in \{1,...,m\}, \ \ P_j \geq 0, \ \ \sum_{j=1}^m P_j =1
+$$
+
+### 6.2 Softmax
+
+#### 6.2.1 Softmax layer
+
+We replace the last layer by a *softmax* layer:
+$$
+P_j = \frac {e^{z_j^L}}{\sum_{k=1}^me^{z_k^L}}
+$$
+
+
+| <img src="Neural_Computation.assets/Screenshot 2020-05-11 at 03.45.10.png" alt="Screenshot 2020-05-11 at 03.45.10" style="zoom:50%;" /> |
+| :----------------------------------------------------------: |
+|                  **Fig 6.1** Softmax layer                   |
+
+
+
+Since $P_k\geq 0$ and $\sum_{k=1}^mP_k=1$, we can interpret the output of the network as a probabilistic model
+$$
+P_y= P_{wb}(y|x)
+$$
+i.e. the probability of class $y$ given input $x$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
