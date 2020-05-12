@@ -881,21 +881,42 @@ P_y= P_{wb}(y|x)
 $$
 i.e. the probability of class $y$ given input $x$.
 
+The likelihood of weight and bias parameters $w, b$ is 
+$$
+\mathcal L(w,b|(x^1, y^1),...,(x^n,y^n)) = \prod_{i=1}^nP_{wb}(y^i|x^i) = \prod_{i=1}^nP_{y^i}
+$$
+
+#### 6.1.2 Cost function
+
+We can then define a cost function using maximum likelihood principle
+$$
+C=-\log\mathcal L(w,b|((x^1,y^1), ...,(x^n,y^n)) = \frac1n\sum_{i=1}^nC^i
+$$
+
+$$
+\text{where} \ C^i = -logP_{wb}(y^i|x^i)
+\\ \ \ \ \ \ = -\log P_{y^i}
+\\ \ \ \ \ \ \ \ \ \  =\log Q-z^L_{y^i}
+$$
+
+To apply gradient descent to minimise the cost function, we need to compute the gradients of $w, b$ by computing the **local gradient** for the softmax layer using backpropagation.
 
 
 
+#### 6.1.3 Theorem
 
+$$
+\delta_j^L =\frac{\part C^i}{\part z_j^L} = P_j - \delta_{y^ij}
+$$
 
-
-
-
-
-
-
-
-
-
-
-
-
+where $\delta_{ab}$ represents the Kronecker delta function ($\delta_{ij} = [i==j]$)
+$$
+\delta_{ab} = \cases {1 & a=b\\ 0 & otherwise}
+$$
+**Proof**:
+$$
+\frac {\part C^i}{\part z_j^L} = -\frac {\part \log P(y^i|x^i)}{\part z_j}
+\\ = - \frac {\part \log P_{y^i}}{\part z_j}, \  \ \text {substitute}\  P_{y^i}=\frac {e^{a_{y^i}}}
+\\ = - \frac {\part }{\part z_j}(z_{y^i}-\log Q)
+$$
 
