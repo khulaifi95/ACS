@@ -62,7 +62,7 @@ To improve the performance and tune the parameters, the algorithm is tested on a
 
 
 
-![Pop_size](Question_3.assets/Pop_size.png)
+<img src="Question_4_5.assets/Pop_size.png" alt="Pop_size" style="zoom:24%;" />
 
 
 
@@ -72,7 +72,7 @@ To improve the performance and tune the parameters, the algorithm is tested on a
 
 
 
-![Crossover_rate](Question_3.assets/Crossover_rate.png)
+<img src="Question_4_5.assets/Crossover_rate.png" alt="Crossover_rate" style="zoom:24%;" />
 
 
 
@@ -82,7 +82,7 @@ To improve the performance and tune the parameters, the algorithm is tested on a
 
 
 
-![Mutation_rate](Question_3.assets/Mutation_rate.png)
+<img src="Question_4_5.assets/Mutation_rate.png" alt="Mutation_rate" style="zoom:24%;" />
 
 
 
@@ -92,7 +92,7 @@ To improve the performance and tune the parameters, the algorithm is tested on a
 
 
 
-![Tournament_size](Question_3.assets/Tournament_size.png)
+<img src="Question_4_5.assets/Tournament_size.png" alt="Tournament_size" style="zoom:24%;" />
 
 
 
