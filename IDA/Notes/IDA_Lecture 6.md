@@ -1,6 +1,6 @@
 # Intelligent Data Analysis
 
----
+
 
 ## Lecture 6 : Linear Discriminant Analysis
 
@@ -15,7 +15,7 @@
 
 
 
-### 2. Linear Discriminant Analysis
+### 2. Linear discriminant analysis
 
 - Suppose we have a dataset $X$ where each data point belongs to one of $K$ classes $c_1, ..., c_K$
 - Let $X_k$ be the set of data points in $X$ that belong to class $c_k$
@@ -30,6 +30,8 @@ $$
 $$
 C_w = \frac {C_1+C_2+...+C_K}{K}
 $$
+
+
 
 - Let $X_b$ be the matrix with $K$ rows whose $k^{th}$ row is the average of vectors in $X_k$
 - The **between-class covariance matrix** is the *covariance* matrix $C_b$ of $X_b$
@@ -47,7 +49,7 @@ $$
 
 | ![lda](IDA_Lecture 6.assets/lda-1582560534864.png) |
 | :------------------------------------------------: |
-|           *Fig 1. LDA on Boston Dataset*           |
+|          **Fig 1.** LDA on Boston Dataset          |
 
 
 
@@ -71,7 +73,7 @@ $$
 
   
   
-  - The probabilities $p_{ij}$ for high-dimensional data
+  - The similarities $p_{ij}$ for high-dimensional data neighbours are:
   
   $$
 p_{ij} = \frac {p_{j|i} + p_{i|j}}{2N}
@@ -102,3 +104,4 @@ p_{ij} = \frac {p_{j|i} + p_{i|j}}{2N}
   $$
   
   - The minimisation is performed using gradient descent. 
+

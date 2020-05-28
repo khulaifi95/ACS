@@ -1,12 +1,12 @@
 # Intelligent Data Analysis
 
----
+
 
 ## Lecture 7 :  Latent Semantic Analysis
 
 
 
-### 1. Vector Notation for Documents
+### 1. Vector notation for documents
 
 - Suppose we have a set of documents $D = \{d_1, d_2, ... ,d_N\}$ as **corpus**
 - Suppose number of different words in the whole corpus is $\mathbf V$ as **vocabulary size**
@@ -23,7 +23,7 @@ $$
 
 
 
-### 2. Latent Semantic Analysis
+### 2. Latent semantic analysis
 
 - Suppose we have a corpus with a large number of documents
 - For each document vector $vec(d)$ the dimension is potentially several thousands.
@@ -32,7 +32,7 @@ $$
 
 | <img src="IDA_Lecture 7.assets/Screenshot from 2020-02-25 04-54-33.png" alt="Screenshot from 2020-02-25 04-54-33"  /> |
 | :----------------------------------------------------------: |
-|           *Fig 1. Pair of terms about the seaside*           |
+|          **Fig 1.** Pair of terms about the seaside          |
 
 
 
@@ -49,7 +49,7 @@ $$
 
 
 
-### 4. Singular Value Decomposition
+### 4. Singular value decomposition
 
 - Think of SVD as a more general version of eigenvector decomposition, which works not only for symmetric matrices but also **general** ones.
 - An eigenvector of a square matrix $A$ is a vector $e$ such that $Ae = \lambda_e e$, where $\lambda$ is scalar.
@@ -61,7 +61,7 @@ $$
 
 | <img src="IDA_Lecture 7.assets/Screenshot from 2020-02-25 04-54-42.png" alt="Screenshot from 2020-02-25 04-54-42" style="zoom: 80%;" /> |
 | :----------------------------------------------------------: |
-|                *Fig 2. Word-document matrix*                 |
+|               **Fig 2.** Word-document matrix                |
 
 - We apply SVD on the word-document matrix $W$ by
 
@@ -73,7 +73,7 @@ $$
 
 | <img src="IDA_Lecture 7.assets/Screenshot from 2020-02-25 05-02-31.png" alt="Screenshot from 2020-02-25 05-02-31"  /> |
 | :----------------------------------------------------------: |
-| *Fig 3. Singular Value Decomposition of Word-Document Matrix* |
+| **Fig 3.** Singular Value Decomposition of Word-Document Matrix |
 
 
 
@@ -137,7 +137,7 @@ $$
 - We can derive $C$ by the rule of matrices transpose
 
 $$
-= V^{TT}S^TU^TUSV^T = VSISV^T = VS^2V^T
+C= V^{TT}S^TU^TUSV^T = VSISV^T = VS^2V^T
 $$
 
 ​			which is the eigenvalue decomposition.
@@ -146,9 +146,9 @@ $$
 
 
 
-### 7. Topic-based Representation
+### 7. Topic-based representation
 
-- Since columns of $V$, $v_1, ..., v_V$ are an **orthonormal basis** for the document vector space, for a document $d$, $vec(d).v_n$ is the magnitue of the component of $vec(d)$ in the direction of $v_n$, e.g., the component of $vec(d)$ that are corresponding to topic $n$.
+- Since columns of $V$, $v_1, ..., v_V$ are an **orthonormal basis** for the document vector space, for a document $d$, $vec(d)\cdot v_n$ is the magnitude of the component of $vec(d)$ in the direction of $v_n$, i.e., the component of $vec(d)$ that are corresponding to **topic** $n$.
 
 - Hence, the vector
 
@@ -156,11 +156,11 @@ $$
 top(d) = \begin{bmatrix}vec(d).v_1 \\ vec(d).v_2 \\ . \\ . \\ vec(d).v_n\\ .\\ vec(d).v_V\end{bmatrix}
 $$
 
-​			is a **topic-based representation** of document $d$ in terms of topic $v_1,..., v_V$.
+​			is a **topic-based representation** of document $d$ in terms of  $v_1,..., v_V$.
 
 
 
-### 8. Topic-based Dimension Reduction
+### 8. Topic-based dimension reduction
 
 - Since the singluar value $s_n$ indicates the importance of topic $v_n$, we can choose to **truncate** the vector $top(d)$ when $s_n$ is too small
 
@@ -174,7 +174,7 @@ $$
 
   
 
-### 9. Topic-based Word Representation
+### 9. Topic-based word representation
 
 - Suppose $w$ is the $i$-th term in the vocabulary, the **one-hot vector** $h(w)$ is
 
@@ -200,10 +200,11 @@ $$
 
 
 
-### 10. Thoughts on Document Vectors
+### 10. Thoughts on document vectors
 
 - Once $d$ is replaced by $vec(d)$ it becomes a **point** in a vector space.
 - How does the **structure** of the vector space reflect properties of the documents in it?
 - Do clusters of vectors correspond to semantically related documents?
 - Can we **partition** the vector space into semantically different regions?
 - These ideas are a **link** between IR and Data Mining.
+

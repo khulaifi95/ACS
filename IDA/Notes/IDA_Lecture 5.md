@@ -1,6 +1,6 @@
 # Intelligent Data Analysis
 
----
+
 
 ## Lecture 5 : Principal Components Analysis
 
@@ -28,9 +28,9 @@ $$
 
 ### 2. Motivation
 
-| <img src="/home/kevinxu95/Pictures/Screenshot from 2020-02-06 15-03-38.png" alt="Screenshot from 2020-02-06 15-03-38" style="zoom:50%;" /> |
+| <img src="/Users/kevinxu95/ACS/IDA/Notes/IDA_Lecture 5.assets/Screenshot 2020-05-27 at 20.29.49.png" style="zoom:75%;" /> |
 | :----------------------------------------------------------: |
-|          *Fig 1. Finding the red coordinate system*          |
+|         **Fig 1.** Finding the red coordinate system         |
 
 
 
@@ -52,7 +52,7 @@ $$
 
 
 
-### 4. Principle Components Analysis
+### 4. Principle components analysis
 
 ​	PCA is a tool to reveal the structure of a data set $X \in \mathbb{R}^N$ .
 
@@ -68,15 +68,15 @@ $$
 
 
 
-### 5. PCA in Steps
+### 5. PCA in steps
 
-#### Step 1:
+**Step 1:**
 
 - Calculate the sample mean $\mu$
 
 - Subtract $\mu$ from each data sample
 
-#### Step 2:
+**Step 2:**
 
 - Calculate the covariance matrix $C$
 
@@ -90,13 +90,13 @@ $$
 D = \begin{bmatrix}0.25 & 0 \\ 0 & 8.67\end{bmatrix}, U = \begin{bmatrix}0.5 & -0.867 \\ -0.867 & -0.5\end{bmatrix}
 $$
 
-#### Step 3:
+**Step 3:**
 
 - Eigenvectors are new basis / coordinate system
 - Apply orthogonal matrix $U$ to **change coordinate** system
 - (Alternatively, project data onto new basis vectors)
 
-#### Step 4:
+**Step 4:**
 
 - Variance **normalisation** (if required)
 - **Divide** $i^{th}$ coordinate of each data point by $i^{th}$ eigenvalue
@@ -104,7 +104,7 @@ $$
 
 
 
-### 6. 2-D Example
+### 6. 2-D example
 
 - $X = \big\{ \begin{bmatrix}1 \\ 1\end{bmatrix}, \begin{bmatrix}0 \\ 0\end{bmatrix}, \begin{bmatrix}-1 \\ -1\end{bmatrix}\big\}$
 
@@ -143,5 +143,5 @@ $$
 
 | <img src="IDA_Lecture 5.assets/Screenshot from 2020-02-06 16-27-47.png" alt="Screenshot from 2020-02-06 16-27-47" style="zoom: 50%;" /> |
 | :----------------------------------------------------------: |
-|                 *Fig 2. 2-D Example of PCA*                  |
+|                **Fig 2.** 2-D Example of PCA                 |
 

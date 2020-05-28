@@ -1,21 +1,27 @@
 # Intelligent Data Analysis
 
----
+
 
 ## Lecture 4 : Vector Representation of Documents
 
 
 
-### 1. Vector Notation for Documents
+### 1. Vector notation for documents
 
-1. Suppose that we have a set of documents $D$ = {$\mathbf {d_1, d_2, ..., d_N}$} 
-   - As the **corpus** for IR
+- Suppose that we have a set of documents $D$ = {$\mathbf {d_1, d_2, ..., d_N}$} 
+  - As the **corpus** for IR
 
-2. Suppose that the number of different words in the **whole corpus** is $\mathbf V$
-   - As the **vocabulary size**
+- Suppose that the number of different words in the **whole corpus** is $\mathbf V$
+  - As the **vocabulary size**
 
-3. Suppose a document $d$ in $D$ contains $\mathbf M$ **different terms**: {$\mathbf {t_{i(1)}, t_{i(2)}, ..., t_{i(M)}}$}
-4. Finally, suppose term $\mathbf t_{i(m)}$ occurs $f_{i(m)}$ times
+- Suppose a document $d$ in $D$ contains $\mathbf M$ **different terms**: {$\mathbf {t_{i(1)}, t_{i(2)}, ..., t_{i(M)}}$}
+
+- Finally, suppose term $\mathbf t_{i(m)}$ occurs $f_{i(m)}$ times
+
+The **vector representation** $vec(d)$ of $d$ is the $V$ dimensional vector:
+$$
+(0,...,0,w_{i(1),d},0,...,0,w_{i(2),d},0,...,0,w_{i(M),d},0,...,0)
+$$
 
 
 
@@ -34,8 +40,6 @@
    
 
 ### 3. Example
-
-
 
 |           | d1   | d2   | d3   | #Doc | IDF  | **$W_{(t,d1)}$** | **$W_{(t,d2)}$** | **$W_{(t,d3)}$** |
 | --------- | ---- | ---- | ---- | ---- | ---- | ---------------- | ---------------- | ---------------- |
@@ -56,7 +60,8 @@ vec(d_3) = \begin{bmatrix} {0\\0\\0\\1.1\\0\\1.1\\0\\1.1}\end{bmatrix}
 $$
 
 
-### **4**. Document Length
+
+### **4**. Document length
 
 - The length **(norm)** of a vector $x = (x_1, ..., x_N)$ is given by:
 
@@ -68,7 +73,7 @@ $$
 
   
 
-### 5. Document Similarity
+### 5. Document similarity
 
 ​	Suppose $d$ is a document and $q$ is a query,
 
@@ -78,7 +83,7 @@ $$
 
 
 
-### 6. Cosine Similarity
+### 6. Cosine similarity
 
 - Define the **cosine similarity** between document $d$ and query $q$ by:
   $$
@@ -94,7 +99,7 @@ $$
 
 | <img src="IDA_Lecture 4.assets/Screenshot from 2020-02-06 14-40-15.png" alt="Screenshot from 2020-02-06 14-40-15" style="zoom: 67%;" /> |
 | :----------------------------------------------------------: |
-|            *Fig 1. The angle between two vectors*            |
+|           **Fig 1.** The angle between two vectors           |
 
 
 
@@ -105,3 +110,4 @@ $$
   $$
 
 - Cosine similarity is **equivalent** to TF-IDF similarity.
+

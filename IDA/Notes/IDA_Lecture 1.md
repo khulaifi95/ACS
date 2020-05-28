@@ -1,28 +1,35 @@
 # Intelligent Data Analysis
 
-------
+
 
 ## Lecture 1 : Introduction
 
 
 
-### 1. Course Structure 2020
+> ## Knowledge $\Leftrightarrow$ Data
+
+
+
+### 1. Course structure
 
 - Text Retrieval (1)
+
 - Dimension Reduction
   
   - PCA
+  
 - Visualisation of High-dimensional Data
   
 - PCA, Topographic maps, t-SNE
   
 - Clustering and Vector Quantization
+
 - Text Retrieval (2)
   
-- Synonym relationships, *Latent Semantic Analysis*, Page Rank
+- Synonym relationships, *Latent Semantic Analysis*
   
-- Classification
-
+- Page Rank
+  
   
 
 ### 2. Assessment
@@ -34,7 +41,7 @@
 
 
 
-### 3. Office Hours
+### 3. Office hours
 
  - Tuesday 2.30 - 3.30 pm
 
@@ -58,7 +65,7 @@
 
   
 
-### 5. Accessing Data - "Aboutness"
+### 5. Accessing data - "aboutness"
 
 - How to find the relevant items?
 - Need to know:
@@ -72,7 +79,9 @@
 
 
 
-### 6. Text Understanding
+### 6. Text understanding
+
+This is a question of how can a machine **understand** what this sentence is about. Involving:
 
 - Words have different **meanings** and **grammatical** roles
 - A word sequence may have **multiple interpretations**
@@ -98,7 +107,7 @@
 
 
 
-### 8. Data Mining
+### 8. Data mining
 
 - Analysis of large data corpora: biomedical, acoustic, video, text, 
 
@@ -110,11 +119,11 @@
 
 | <img src="IDA_Lecture 1.assets/image-20200130121819369.png" alt="image-20200130121819369"  /> |
 | :----------------------------------------------------------: |
-|     *Fig 1. Single, spherical cluster centred at origin*     |
+|    **Fig 1.** Single, spherical cluster centred at origin    |
 
 
 
-### 9. Information Retrieval (IR)
+### 9. Information retrieval (IR)
 
 - Underlying principles of Search Engine
 - *[Belew] <Finding out About>*
@@ -127,10 +136,10 @@
 
 
 
-### 10. IR vs Database Retrieval
+### 10. Information retrieval vs. database retrieval
 
 - IR is not 'database retrieval'.
-- Databases are characterised by:
+- Databases retrieval:
   - Strong **prior assumptions** of data
     - Format
     - Salient properties
@@ -140,7 +149,7 @@
   - Dedicated maintenance
   - **Specific replies** to specific queries
 
-- IR
+- Information retrieval:
   - No prior assumptions
   - Less specific 'natural language' queries
   - Source information up-to-date

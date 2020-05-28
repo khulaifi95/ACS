@@ -1,12 +1,12 @@
 # Intelligent Data Analysis
 
-------
+
 
 ## Lecture 2 : Statistical Analysis of Texts
 
 
 
-### 0. Example Text
+### 0. Example text
 
 
 
@@ -16,7 +16,7 @@
 
 
 
-### 1. Jane Eyre Extract
+### 1. Jane Eyre extract
 
 - What is it **about**
 - **Strategy** for understanding the text
@@ -27,7 +27,7 @@
 
 
 
-### 2. Structure in Text
+### 2. Structure in text
 
 - Words
 
@@ -48,11 +48,11 @@
 
 | <img src="IDA_Lecture 2.assets/image-20200130122732152.png" alt="image-20200130122732152" style="zoom: 50%;" /> |
 | :----------------------------------------------------------: |
-|         *Fig 1. Decomposition of the word structure*         |
+|        **Fig 1.** Decomposition of the word structure        |
 
 
 
-### 3. Knowledge (Rationalism)
+### 3. Knowledge (rationalism)
 
 - Try to copy human language processing - *emulation*
 - Two questions:
@@ -62,7 +62,7 @@
 
 
 
-### 4. Available Knowledge
+### 4. Available knowledge
 
 - Word inventories - dictionaries
 
@@ -91,7 +91,7 @@
 
 
 
-### 6. Data (Empiricism)
+### 6. Data (empiricism)
 
 - Use **large** corpora of text instead of human knowledge
 - Use **machine learning** to identify important structure and relationships
@@ -104,7 +104,7 @@
 
 
 
-### 7. Knowledge vs. Data
+### 7. Knowledge vs. data
 
 - Need sophisticated **computationally useful** models of language and semantics to infer meaning
 - *Rational* approaches accommodate complex structure but may be fragile and **hard to generalise**
@@ -115,7 +115,7 @@
 
 
 
-### 8. Bundles of Words
+### 8. Bundles of words
 
 - Tokens - things separated by white space
   - Hyphenation
@@ -129,7 +129,7 @@
 
 
 
-### 9. Analysis of Word Frequency
+### 9. Analysis of word frequency
 
 ​	`zipf.c` - ANSII C program for simple analysis of texts
 
@@ -143,7 +143,7 @@
 
 
 
-### 10. Zipf's Law
+### 10. Zipf's law
 
 ​		- George Kingsley Zipf (1902 -1950)
 
@@ -169,11 +169,11 @@ $$
 
 | <img src="IDA_Lecture 2.assets/image-20200130144347354.png" alt="image-20200130144347354" style="zoom:67%;" /> |
 | :----------------------------------------------------------: |
-|         *Fig 2. Log-log plot – Alice in Wonderland*          |
+|        **Fig 2.** Log-log plot – Alice in Wonderland         |
 
 
 
-### 11. Why does Zipf's Law work?
+### 11. Why does Zipf's law work?
 
 - Zipf's Law appears to reflect a number of factors:
 

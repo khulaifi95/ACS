@@ -1,12 +1,12 @@
 # Intelligent Data Analysis
 
----
+
 
 ## Lecture 3 : Stopping, Stemming & TF-IDF Similarity
 
 
 
-### 1. Text Pre-processing
+### 1. Text pre-processing
 
 - Stop word removal: Simple techniques to remove 'noise words' from texts
   - Remove common '**noise words**' which contribute no information to IR
@@ -35,9 +35,9 @@
 
     
 
-| <img src="IDA_Lecture 3.assets/image-20200131102655967.png" alt="image-20200131102655967" style="zoom: 50%;" /> |
+| <img src="IDA_Lecture 3.assets/image-20200131102655967.png" alt="image-20200131102655967" style="zoom: %;" /> |
 | :----------------------------------------------------------: |
-|            *Fig 1. 'Resolving power' of the word*            |
+|           **Fig 1.** 'Resolving power' of the word           |
 
 
 
@@ -62,11 +62,11 @@
 
 | <img src="IDA_Lecture 3.assets/image-20200131104656705.png" alt="image-20200131104656705" style="zoom:33%;" /> |
 | :----------------------------------------------------------: |
-| *Fig 2. Example of applying stemmer to the first paragraph from 'Alice in Wonderland'* |
+| **Fig 2.** Example of applying stemmer to the first paragraph from 'Alice in Wonderland' |
 
 
 
-### 4. Stop Lists
+### 4. Stop lists
 
 - In IR, 'noise words' are often referred to as **Stop Words**
 
@@ -90,7 +90,7 @@
 
 
 
-### 5. Simple Text Retrieval
+### 5. Simple text retrieval
 
 - Given two documents, $d1$ and $d2$, assume that:
   - All of the *stop words* have been removed
@@ -120,7 +120,7 @@
 
 ### 7. Similarity
 
-- ==The **similarity** between $q$ and $d$ will depend on the **number of terms** which are common to $q$ and $d$==
+- The **similarity** between $q$ and $d$ will depend on the **number of terms** which are common to $q$ and $d$
 - We also need to know how **useful** each common term is for discriminating between different documents.
 - For example,
   - it is not significant if $q$ and $d$ share *"the"*
@@ -128,9 +128,9 @@
 
 
 
-### 8. IDF Weighting
+### 8. IDF weighting
 
-- ==Popular measure of the **significance** of a term for **discriminating** between documents== - **Inverse Document Frequency**
+- Popular measure of the **significance** of a term for **discriminating** between documents - **Inverse Document Frequency**
 
 - For a token $t$ define:
   $$
@@ -150,7 +150,7 @@
 
 
 
-### 9. Effect of Document Length
+### 9. Effect of document length
 
 - Suppose query $q$ consists **only** of term $t$
 - Suppose document $d_1$ also consists **only** of $t$
@@ -162,17 +162,17 @@
 
 
 
-### 10. TF-IDF Weight
+### 10. TF-IDF weight
 
 - Let $t$ be a term and $d$ a document
 
 - TF-IDF &rarr; Term Frequency - Inverse Document Frequency
 
-- ==The TF-IDF **weight** $W_{td}$ of term $t$ for document $d$ is:==
+- The TF-IDF **weight** $W_{td}$ of term $t$ for document $d$ is:
   $$
   W_{td} = f_{td}.IDF(t)
   $$
-  where $f_{td}$ is the **term frequency** - ==the number of times $t$ occurs in $d$==
+  where $f_{td}$ is the **term frequency** - the number of times $t$ occurs in $d$
 
 - For $W_{td}$ &uarr;: 
   - $f_{td}$ &uarr; - $t$ must occur often in $d$
@@ -183,7 +183,7 @@
 
 
 
-### 11. Query Weights
+### 11. Query weights
 
 - Suppose $t$ is a term and $q$ is a query
 
@@ -205,7 +205,7 @@
 
 
 
-### 12. TF-IDF Similarity
+### 12. TF-IDF similarity
 
 - Define the similarity between query $q$ and document $d$ as:
   $$
@@ -216,7 +216,7 @@
 
 
 
-### 13. Document Length
+### 13. Document length
 
 - Suppose $d$ is a document
 
@@ -237,7 +237,7 @@
 
 
 
-### 14. Practical Considerations
+### 14. Practical considerations
 
 - Given a query $q$:
   - Calculate $\Vert q\Vert$ and $W_{tq}$ for each term $t$ in $q$ - not much computation
@@ -248,7 +248,7 @@
 
 
 
-### 15. Document Index
+### 15. Document index
 
 - Suppose the query $q$ contains a term $t$
   - If $t$ didn't occur in the corpus - no use
@@ -262,11 +262,11 @@
 
 | <img src="IDA_Lecture 3.assets/image-20200201161517017.png" alt="image-20200201161517017" style="zoom: 33%;" /> |
 | :----------------------------------------------------------: |
-|          *Fig 3. Data structure of Document Index*           |
+|         **Fig 3.** Data structure of Document Index          |
 
 
 
-### 16. IR Processes
+### 16. IR processes
 
 1. Order **terms** according to decreasing IDF &darr;
 
@@ -282,6 +282,7 @@
 
    | <img src="IDA_Lecture 3.assets/Screenshot from 2020-02-01 16-25-03.png" alt="Screenshot from 2020-02-01 16-25-03" style="zoom: 50%;" /> |
 | :----------------------------------------------------------: |
-   |                *Fig 4. Summary of IR process*                |
+   |               **Fig 4.** Summary of IR process               |
    
    
+

@@ -1,14 +1,14 @@
 # Intelligent Data Analysis
 
----
+
 
 ## Lecture 10 : Gaussian Mixture Models
 
 
 
-### 1. Discrete Random Variables
+### 1. Discrete random variables
 
-- Suppose that $Y$ is a **random variable** which can take any value in  a discrete set $X= \{x_1, x_2,..., x_M\}$.
+- Suppose that $Y$ is a **random variable** which can take any value in a discrete set $X= \{x_1, x_2,..., x_M\}$.
 - Suppose that $y_1, y_2,...,y_N$ are samples of the random variable $Y$.
 - If $c_m$ is the **number of times** that $y_n = x_m$ then an estimate of the probability that $y_n$ takes the value $x_m$ is given by:
 
@@ -18,7 +18,7 @@ $$
 
 
 
-### 2. Continuous Random Variables
+### 2. Continuous random variables
 
 - In most practical applications, the data can take any value in real $N$-dimensional space.
 - Counting the number of occurrences of each value is enviable.
@@ -54,7 +54,7 @@ $$
 - A multivariate Gaussian PDF is defined on a vector space:
 
   - **mean vector** $\mathbf m$
-  - **covariance matrix** $\sigma$
+  - **covariance matrix** $\Sigma$
 
   $$
   p(x)=\frac {1}{\sqrt{(2\pi)^N\vert\Sigma\vert}}\exp(\frac {-1}2(\mathbf m-x)^T\Sigma^{-1}(\mathbf m-x))
@@ -66,7 +66,7 @@ $$
 
 
 
-### 4. Fitting a Gaussian PDF to Data
+### 4. Fitting a Gaussian PDF to data
 
 - Suppose $y=y_1, ...,y_n,...,y_N$ is a set of $N$ data values.
 - For a Gaussian PDF $p$ with mean $\mu$ and variance $\sigma$, define:
@@ -79,7 +79,7 @@ $$
 
 
 
-### 5. Maximum Likelihood Estimation
+### 5. Maximum likelihood estimation
 
 - The *best fitting* Gaussian maximises  $p(y|\mu, \sigma)$.
 - Terminology:
@@ -103,7 +103,7 @@ $$
 
 
 
-### 6. Multi-modal Distributions
+### 6. Multi-modal distributions
 
 - In practice, the natural distributions do not follow the simple bell-shaped Gaussian curve.
 - Include several distinct peaks if the data rises from several different sources.
@@ -111,7 +111,7 @@ $$
 
 
 
-### 7. Gaussian Mixture Models
+### 7. Gaussian mixture models
 
 - Gaussian mixture models are used to model multi-modal and other non-Gaussian distributions.
 - A GMM is a **weighted** average of several Gaussian PDFs, the **component** PDFs.
@@ -122,7 +122,7 @@ $$
 
 | <img src="IDA_Lecture 10.assets/Screenshot from 2020-03-12 09-52-38.png" alt="Screenshot from 2020-03-12 09-52-38" style="zoom: 67%;" /> |
 | :----------------------------------------------------------: |
-|                *Fig 1. 2 components of a GMM*                |
+|               **Fig 1.** 2 components of a GMM               |
 
 - In general, an $M$ component Gaussian mixture PDF is defined by:
 
@@ -134,7 +134,7 @@ $$
 
 
 
-### 8. Relationship with Clustering
+### 8. Relationship with clustering
 
 - Both model data using a set of centroids and means.
 - In clustering there is no parameters specifying *spread* of a cluster, while in a GMM component this is done by the covariance matrix.
@@ -142,7 +142,7 @@ $$
 
 
 
-### 9. Parameter Estimation
+### 9. Parameter estimation
 
 - A Gaussian Mixture Model with $M$ components has:
   - $M$ means $\mu_1, ..., \mu_M$.
@@ -155,29 +155,28 @@ $$
 
 
 
-### 10. E-M Algorithm
+### 10. Expectation-maximisation algorithm
 
 1. Choose **number** of GMM components $M$ and **initial** GMM parameters: ($\mu, \sigma, w$).
-2. For each sample $x_t$ and each GMM component $m$ calculate $P(m|y_t)$ using **Bayes** theorem and **current** parameters.
+2. For each sample $x_t$ and each GMM component $m$ calculate $P(m|y_t)$ using **Bayes** theorem and **current** parameters
+
+$$
+P(m|y_t)=\frac {p(y_t|m)P(m)}{p(y)}= \frac {p_m(y_t)w_m}{\sum\limits_{k=1}^Mp_k(y_t)w_k}
+$$
+
 3. Define new **estimate** of $m_i$ as:
 
 $$
 \bar m_i=\frac {\sum\limits_{t=1}^TP(m|y_t)y_t}{\sum\limits_{t=1}^TP(m|y_t)}
 $$
 
-- From Bayes' theorem:
-
-$$
-P(m|y_t)=\frac {p(y_t|m)P(m)}{p(y)}= \frac {p_m(y_t)w_m}{\sum\limits_{k=1}^Mp_k(y_t)w_k}
-$$
-
 
 
 | <img src="IDA_Lecture 10.assets/Screenshot from 2020-03-12 14-04-32.png" alt="Screenshot from 2020-03-12 14-04-32" style="zoom:50%;" /> |
 | :----------------------------------------------------------: |
-|               *Fig 2. Fitting GMM parameters*                |
+|              **Fig 2.** Fitting GMM parameters               |
 
-- Example:
+- Estimation:
   - $g_1(x)\approx0$
   - $g_2(x) = 0.054$
   - $P(1|x) \approx \frac {0\times 0.3}{0\times 0.3+0.054\times 0.7}=0$
@@ -251,7 +250,7 @@ $$
 
 
 
-### 13. Universal Background Model
+### 13. Universal background model
 
 - For **speaker verification**, we first build a **single** GMM, called the universal background model from **all** of the data of all speakers.
   - Inventory of speech sounds.
