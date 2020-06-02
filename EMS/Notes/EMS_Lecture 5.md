@@ -127,3 +127,17 @@ In a two-event example, the experiment results are in a $2\times2$ matrix:
 | Pass | 6    | 32     |
 
 The odds ratio is given by $(17\times 32)/(6\times5)=18.13$.
+
+
+
+### 6. Non-parametric test
+
+If the data is non-parametric, we can test the difference of mean between groups by:
+
+- Friedman test:
+  - Rank rows together and consider the values of ranks by columns.
+  - Detect differences in treatments across multiple test attempts.
+  - Alternative to independent t-test.
+- Wilcoxon signed-rank test:
+  - Whether population mean ranks differ.
+  - Alternative to paired t-test.

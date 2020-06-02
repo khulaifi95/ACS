@@ -193,7 +193,7 @@ If we need to compare multiple conditions, we could conduct seperate t-tests for
 ANOVA is an omnibus analysis of variance that checks whether the explained variance by the model is significantly greater than the unexplained in the data.
 
 - We hypothesise that our experimental conditions will be sufficient to separate the sample data into distributions.
-- We report whether there is a **main effect** for data variance.
+- We report whether there is a **main effect** of condition for data variance.
 - We calculate the F-ratio to test the variance.
 
 $$
@@ -206,7 +206,7 @@ where $K$ is the number of groups, $n_i$ is the number of observations in the i-
 
 The power in ANOVA, aka **correlation ratio**, is a measure between the statistical dispersion within individual categories and the dispersion across the whole population or sample.
 
-We represent the power as the ratio as:
+We represent the **power** as the ratio as:
 $$
 \eta^2=\frac{\sigma_{\bar y}^2}{\sigma_y^2}
 $$
@@ -252,7 +252,7 @@ This concludes there is **main efffect** in the data.
    - The degree of interaction between any pair of levels in the independent variable.
    - There will be different variances between the levels.
 
-To validate the assumptions, we can do:
+To validate the assumptions, we can do tests including:
 
 - Tukey test: 
   - Comparison of means.
@@ -260,10 +260,8 @@ To validate the assumptions, we can do:
 - Bonferroni correction:
   - Adjust the $\alpha$ p-value by the number of tests.
   - Control Type I error.
-
 - Shapiro-Wilk test:
   - Test for normality.
-
 - Mauchly's test of sphericity:
   - $H_0$: variances of differences are equal.
   - Expect $p>0.05$.
@@ -271,7 +269,7 @@ To validate the assumptions, we can do:
 
 
 
-|           | Post-hoc                                              | ANOVA                                               | Test                                  |
+|           |                                                       | Post-hoc ANOVA Test                                 |                                       |
 | --------- | ----------------------------------------------------- | --------------------------------------------------- | ------------------------------------- |
 |           | Between                                               | Repeated measures                                   | Interaction                           |
 | >2 levels | Independent t-test/ Tukey test /Bonferroni correction | Dependent t-test/ Tukey test /Bonferroni correction | SPLIT one IV column                   |
