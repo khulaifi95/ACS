@@ -184,6 +184,12 @@ Practically, the F-statistic compares the variation in the data **explained** by
 
 ### 8. ANOVA
 
+If we need to compare multiple conditions, we could conduct seperate t-tests for all the levels of the variables. However, this will inflate the likelihood of Type I error.
+
+- We accumulate error through repeating the tests.
+- When $\alpha=95%$, the accumulated t-tests for 3 conditions will produce $0.95\times0.95\times0.95=0.857$.
+- We only test for $1-0.857=0.143$ while $p=0.05$.
+
 ANOVA is an omnibus analysis of variance that checks whether the explained variance by the model is significantly greater than the unexplained in the data.
 
 - We hypothesise that our experimental conditions will be sufficient to separate the sample data into distributions.
