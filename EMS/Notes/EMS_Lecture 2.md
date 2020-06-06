@@ -164,7 +164,7 @@ Sometimes unsystematic variation of dependent variables come from the difference
 
 We want to reduce the **confound of order** effects, by assigning participants to conditions. 
 
-- if every participant does the **same** tasks in the **same** order, how do we know that they are not simply getting better with practice?
+- But if every participant does the **same** tasks in the **same** order, how do we know that they are not simply getting better with practice?
 - We randomise the order in which people complete the tasks.
 
 For multiple conditions, we need to ensure that:

@@ -18,7 +18,7 @@ Correlation gives a measure of the degree to which two variables are related.
 $$
 cov(x,y)=\frac {\sum(x_i-\bar x)(y_i-\bar y)}{N-1}
 $$
-To acquire a measure of correlation without accounting for variance, we need to *standardise* the covariance against standard deviation.
+To acquire a measure of correlation without accounting for **variance**, we need to *standardise* the covariance against standard deviation.
 
 The **Pearson's Product-moment correlation** is thus given as:
 $$
@@ -94,7 +94,7 @@ $$
 Var(\hat\mu) = SE(\hat\mu)^2=\frac{\sigma^2}{n}
 $$
 
-The standard error tells the average amount that the estimator $\hat\mu$ differs from the   real mean. The more observations $n\uparrow$ we have, the smaller standard error of $\hat \mu\downarrow$.
+The standard error tells the average amount that the estimator $\hat\mu$ differs from the real mean. The more observations $n\uparrow$ we have, the smaller standard error of $\hat \mu\downarrow$.
 
 - Similarly, the standard errors of $\hat\beta_0, \hat\beta_1$ is given by:
 
@@ -167,7 +167,7 @@ We need to determine whether there is a relationship between the response and pr
 $$
 H_0:\beta_1=\beta_2=...=\beta_p=0
 $$
-while the alternative is $H_a$ that $\exist \ \beta_j$ for $j\in[1,p]$ that is non-zero.
+while the alternative is $H_a$ that $\exists \ \beta_j$ for $j\in[1,p]$ that is non-zero.
 
 The hypothesis test is performed by computing the **F-statistic**:
 $$
@@ -187,10 +187,10 @@ Practically, the F-statistic compares the variation in the data **explained** by
 If we need to compare multiple conditions, we could conduct seperate t-tests for all the levels of the variables. However, this will inflate the likelihood of Type I error.
 
 - We accumulate error through repeating the tests.
-- When $\alpha=95%$, the accumulated t-tests for 3 conditions will produce $0.95\times0.95\times0.95=0.857$.
+- When $\alpha=0.95$, the accumulated t-tests for 3 conditions will produce $0.95\times0.95\times0.95=0.857$.
 - We only test for $1-0.857=0.143$ while $p=0.05$.
 
-ANOVA is an omnibus analysis of variance that checks whether the explained variance by the model is significantly greater than the unexplained in the data.
+ANOVA is an omnibus **analysis of variance** that checks whether the explained variance by the model is significantly greater than the unexplained in the data.
 
 - We hypothesise that our experimental conditions will be sufficient to separate the sample data into distributions.
 - We report whether there is a **main effect** of condition for data variance.
@@ -206,17 +206,17 @@ where $K$ is the number of groups, $n_i$ is the number of observations in the i-
 
 The power in ANOVA, aka **correlation ratio**, is a measure between the statistical dispersion within individual categories and the dispersion across the whole population or sample.
 
-We represent the **power** as the ratio as:
+We represent the **power** as the ratio:
 $$
 \eta^2=\frac{\sigma_{\bar y}^2}{\sigma_y^2}
 $$
-where $\sigma_{\bar y}$ is the variance of the category means, $\sigma_y^2$  is the variance of all samples.
+where $\sigma_{\bar y}^2$ is the variance of the category means, $\sigma_y^2$  is the variance of all samples.
 
 
 
 ### 9. F critical value
 
-We define the value that F needs to be in order for our experiment to report an effect by looking up the **F critical value** according to the degrees of freedom.
+We define the value that F needs to be in order for our experiment to report an **main effect** by looking up the **F critical value** according to the degrees of freedom.
 
 - Between group *d.f.*: $K-1$
 
@@ -227,7 +227,8 @@ We use the number of *d.f.* to check for the critical value of F.
 
 - If $F>F_{crit}$, we reject the null hypothesis.
 
-We report the result as shown in example:
+- We report the result as shown in example:
+
 $$
 F(\text{between d.f.}=2,\text{within d.f.}=18) = 3.79, p<0.05
 $$

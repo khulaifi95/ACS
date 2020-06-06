@@ -47,11 +47,8 @@ Two-sample t-tests for a difference in mean involve two **types**:
 1. Paired samples
 
    - Repeated measures of one group.
-
-   - Each participant completes **all** conditions.
-
-   The t-statistic for 
-
+- Each participant completes **all** conditions.
+   
 2. Independent samples
 
    - Measure of two seperate groups.
@@ -93,7 +90,9 @@ $$
 $$
 where $\mu$ are the means of two populations, and $\sigma$ is the standard deviation.
 
-We use **Cohen's d** to formulae when the population is unknown.
+
+
+We use **Cohen's d** to formulae the **effect size** when the population is unknown.
 
 - For a **paired** t-test:
 
@@ -132,12 +131,12 @@ The odds ratio is given by $(17\times 32)/(6\times5)=18.13$.
 
 ### 6. Non-parametric test
 
-If the data is non-parametric, we can test the difference of mean between groups by:
+If the data is non-parametric, we can test the difference between groups by:
 
 - Friedman test:
   - Rank rows together and consider the values of ranks by columns.
   - Detect differences in treatments across multiple test attempts.
-  - Alternative to independent t-test.
+  - Alternative to **independent** t-test.
 - Wilcoxon signed-rank test:
   - Whether population mean ranks differ.
-  - Alternative to paired t-test.
+  - Alternative to **paired** t-test.

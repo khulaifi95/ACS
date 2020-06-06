@@ -51,10 +51,11 @@ $$
 
 4. **Standard deviation**
 
-The standard deviation is the square root of variance:
+The standard deviation is the square root of variance.
 $$
 \sigma = \sqrt{var(x)}
 $$
+
 
 
 ### 3. Standard score
@@ -171,11 +172,11 @@ If the data are not normally distributed, several tasks can be done to fix:
 
 2. Remove outliers
 
-Suppose many samples in the data are in the tails and lead to a **skewed** distribution. We can trim the tails and make the distribution normal.
+Suppose many samples in the data are in the **tails** and lead to a **skewed** distribution. We can trim the tails and make the distribution normal.
 
 - **Trimming**:
 
-  Remove a fixed percentage (5%) of samples. Number of samples down.
+  Remove a fixed percentage (5%) of samples. Number of samples decreased.
 
 - **Winsorization**:
 

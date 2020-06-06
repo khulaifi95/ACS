@@ -29,7 +29,7 @@
   - is based on *good* analysis
   - has sufficient data for generalisation
   - rest on a *good* theory
-  - Matches theory with data
+  - matches theory with data
 - Science is about **argument**.
 
 ```mermaid
@@ -97,7 +97,7 @@ Reliability measures consistency of a measurement.
 
 
 
-### 6. Data and analysis
+### 6. Experiment and data
 
 All of the statistical tests in this module rely on the following assumptions:
 
@@ -150,7 +150,7 @@ It describes that **large random** samples are representative of the population.
 
 In some situations, when independent random variables are added, their properly normalised sum tends toward a normal distribution, even if the original variables themselves are **not normally distributed**.
 
-The sample distribution will be normal if:
+The sample distribution will be normal if either:
 
 1. The population that is sampled is normal.
 
