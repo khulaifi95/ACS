@@ -2,7 +2,7 @@
 
 
 
-## Lecture 11: Regularisation
+## Lecture 9: Regularisation
 
 
 
@@ -26,7 +26,7 @@
 
 
 
-| <img src="/Users/kevinxu95/ACS/NC/Notes/Neural_Computation.assets/Screenshot 2020-05-23 at 14.39.46.png" style="zoom:80%;" /> |
+| <img src="/Users/kevinxu95/ACS/NC/Notes/NC_Lecture 9.assets/Screenshot 2020-05-23 at 14.39.46.png" style="zoom:67%;" /> |
 | :----------------------------------------------------------: |
 |    **Fig 11.1** Model capacity vs training and test error    |
 
@@ -131,7 +131,7 @@ Hence, choosing the factor $\frac 1{1-p}$ normalises the expected activation ide
 
 
 
-| <img src="/Users/kevinxu95/ACS/NC/Notes/Neural_Computation.assets/Screenshot 2020-05-23 at 15.22.35.png" style="zoom:50%;" /> | <img src="/Users/kevinxu95/ACS/NC/Notes/Neural_Computation.assets/Screenshot 2020-05-23 at 15.23.11.png" style="zoom:50%;" /> |
+| <img src="/Users/kevinxu95/ACS/NC/Notes/NC_Lecture 9.assets/Screenshot 2020-05-23 at 15.22.35.png" style="zoom:50%;" /> | <img src="/Users/kevinxu95/ACS/NC/Notes/NC_Lecture 9.assets/Screenshot 2020-05-23 at 15.23.11.png" style="zoom:50%;" /> |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
 |            **Fig 11.2** Implementation of dropout            |                 Backpropagation with dropout                 |
 
