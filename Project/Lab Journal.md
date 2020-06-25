@@ -14,7 +14,7 @@
 
 ### 23 Jun
 
-- [ ] Noting for Silver's RL lecture 4.
+- [x] Noting for Silver's RL lecture 4.
 
 
 
@@ -27,3 +27,6 @@
 ### 25 Jun
 
 - [ ] Paper: Answering visual what-if questions.
+- [ ] RL portfolio management.
+
+- [x] Noting for Silver's RL lecture 5.
