@@ -20,13 +20,32 @@
 
 ### 24 Jun
 
-- [ ] PyBullet tutorial.
+- [x] PyBullet tutorial.
+
+  - Not finished.
 
 
 
 ### 25 Jun
 
-- [ ] Paper: Answering visual what-if questions.
-- [ ] RL portfolio management.
-
+- [x] Paper: Answering visual what-if questions.
+  - Need more definition.
+- [x] Idea: RL portfolio management.
+  - Not applicable.
 - [x] Noting for Silver's RL lecture 5.
+  - MC/TD control.
+
+
+
+### 26 Jun
+
+- [x] Noting for Silver's RL lecture 6.
+  - Function approximation.
+
+
+
+### 27 Jun
+
+- [ ] Sutton book review.
+- [x] Literature review.
+  - Atari DQN.
