@@ -46,6 +46,17 @@
 
 ### 27 Jun
 
-- [ ] Sutton book review.
+- [x] Sutton book review.
+  - Chapter 1-3.
 - [x] Literature review.
   - Atari DQN.
+
+
+
+### 3 Jul - 5 Jul
+
+- [x] Noting for Silver's RL lecture 7.
+  - Policy gradient.
+- [ ] Sutton book review.
+  - Chapter 4-6.
+
