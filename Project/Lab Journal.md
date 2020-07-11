@@ -53,10 +53,49 @@
 
 
 
-### 3 Jul - 5 Jul
+### 3 Jul
 
 - [x] Noting for Silver's RL lecture 7.
   - Policy gradient.
 - [ ] Sutton book review.
   - Chapter 4-6.
 
+
+
+### 6 Jul
+
+- [x] Noting for Silver's RL lecture 8.
+  - Model-based RL.
+
+- [ ] Sutton book review.
+  - Chapter 7-8.
+
+
+
+### 8 Jul
+
+- [x] Noting for Silver's RL lecture 9.
+  - Exploration and exploitation.
+
+
+
+### 9 Jul
+
+- [x] Review Silver's RL lectures.
+  - Lecture 1-7.
+
+
+
+### 10 Jul
+
+- [ ] Reviw Silver's RL lectures.
+  - Lecture 8-10.
+
+- [x] Search strategy.
+
+
+
+### 11 Jul
+
+- [x] Deep RL paper portfolio.
+- [ ] Pipeline.
