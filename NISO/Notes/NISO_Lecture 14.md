@@ -1,3 +1,19 @@
+# Nature-inspired Search & Optimisation
+
+
+
+## Lecture 14 : Multi-Objective Optimisation II
+
+
+
+### 1.
+
+
+
+
+
+
+
 #### NSGA-II (One-generation)
 
 - Require: 
