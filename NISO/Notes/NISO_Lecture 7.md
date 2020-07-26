@@ -1,6 +1,6 @@
 # Nature-inspired Search & Optimisation
 
----
+
 
 ## Lecture 7 : Real-valued Coded Evolutionary Algorithms
 

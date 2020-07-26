@@ -1,6 +1,6 @@
 # Nature-inspired Search & Optimisation
 
----
+
 
 ## Lecture 11 : Niching and Speciation I
 

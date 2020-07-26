@@ -1,6 +1,6 @@
 # Nature-inspired Search & Optimisation
 
----
+
 
 ## Lecture 3 : Optimisation Problems and Local Search Algorithms
 

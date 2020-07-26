@@ -1,8 +1,10 @@
 # Nature-inspired Search & Optimisation
 
----
+
 
 ## Lecture 12 : Crowding and Mating Selection
+
+
 
 ### 1. Crowding
 
