@@ -31,7 +31,7 @@
 
 
 
-| <img src="/Users/kevinxu95/ACS/EMS/Notes/EMS_Lecture 2.assets/Screenshot 2020-05-30 at 14.48.48.png" style="zoom:33%;" /> |
+| <img src="EMS_Lecture 2.assets/Screenshot 2020-05-30 at 14.48.48.png" style="zoom:33%;" /> |
 | :----------------------------------------------------------: |
 |     **Fig 1.** Frequency plots of the Stroop experiment      |
 

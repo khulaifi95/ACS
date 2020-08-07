@@ -41,7 +41,7 @@ Reservation:counters--> Claim
 
 ```
 
-​											**Fig 1** Toulmin's model of argument
+​																	**Fig 1** Toulmin's model of argument
 
 
 
@@ -176,7 +176,7 @@ Statistical quantifiable variations of measurements of different members of the 
 
 
 
-| <img src="/Users/kevinxu95/ACS/EMS/Notes/EMS_Lecture 1.assets/Screenshot 2020-05-30 at 11.48.18.png" style="zoom:50%;" /> |
+| <img src="EMS_Lecture 1.assets/Screenshot 2020-05-30 at 11.48.18.png" style="zoom:50%;" /> |
 | :----------------------------------------------------------: |
 |                **Fig 2.** The empirical rule                 |
 
@@ -197,7 +197,7 @@ We can assume that signals and noise occur with defined (normal) distributions.
 
 
 
-| <img src="/Users/kevinxu95/ACS/EMS/Notes/EMS_Lecture 1.assets/nobias.png" style="zoom:80%;" /> |
+| <img src="EMS_Lecture 1.assets/nobias.png" style="zoom:80%;" /> |
 | :----------------------------------------------------------: |
 |                 **Fig 3.** Evidence strength                 |
 
@@ -230,7 +230,7 @@ $$
 
 
 
-| <img src="/Users/kevinxu95/ACS/EMS/Notes/EMS_Lecture 1.assets/Screenshot 2020-05-30 at 12.39.23.png" style="zoom:50%;" /> |
+| <img src="EMS_Lecture 1.assets/Screenshot 2020-05-30 at 12.39.23.png" style="zoom:50%;" /> |
 | :----------------------------------------------------------: |
 |          **Fig 4. ** Terms in the confusion matrix           |
 
@@ -254,7 +254,7 @@ $$
 
 
 
-| <img src="/Users/kevinxu95/ACS/EMS/Notes/EMS_Lecture 1.assets/53CF17C8-A46A-4B0B-BF36-B3758366CC90_1_201_a.jpeg" alt="53CF17C8-A46A-4B0B-BF36-B3758366CC90_1_201_a" style="zoom:50%;" /> | <img src="/Users/kevinxu95/ACS/EMS/Notes/EMS_Lecture 1.assets/5A9FBBCC-7709-42C4-932F-7C66838CDFA8_1_201_a-0838540.jpeg" alt="5A9FBBCC-7709-42C4-932F-7C66838CDFA8_1_201_a" style="zoom:50%;" /> |
+| <img src="EMS_Lecture 1.assets/53CF17C8-A46A-4B0B-BF36-B3758366CC90_1_201_a.jpeg" alt="53CF17C8-A46A-4B0B-BF36-B3758366CC90_1_201_a" style="zoom:50%;" /> | <img src="EMS_Lecture 1.assets/5A9FBBCC-7709-42C4-932F-7C66838CDFA8_1_201_a-0838540.jpeg" alt="5A9FBBCC-7709-42C4-932F-7C66838CDFA8_1_201_a" style="zoom:50%;" /> |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
 |            **Fig 5.** Sensitivity and Specificity            |                      Represented spaces                      |
 
@@ -266,7 +266,7 @@ A receiver operating characteristic curve, or **ROC curve**, is a graphical plot
 
 
 
-| <img src="/Users/kevinxu95/ACS/EMS/Notes/EMS_Lecture 1.assets/Screenshot 2020-05-30 at 12.43.35.png" style="zoom:50%;" /> |
+| <img src="EMS_Lecture 1.assets/Screenshot 2020-05-30 at 12.43.35.png" style="zoom:50%;" /> |
 | :----------------------------------------------------------: |
 |                     **Fig 6.** ROC plot                      |
 
