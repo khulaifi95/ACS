@@ -1,0 +1,55 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+
+
+\begin{document}
+
+
+\title{Hello world}
+\author{Tom Chothia}
+
+\maketitle
+
+
+
+\section{Introduction}
+
+Latex is a type setting system, you compile tex files into pdfs. This file has a few examples, it's easy to find anything else you need on google.
+
+\section{ Background}
+References are done using a bib file. e.g. this \cite{bhargavan2016practical}, this \cite{bantin2010} or this \cite{brualdi2010introductory}.
+
+
+\section{Figures and Tables}
+
+Tables can be very useful, see Figure \ref{fig:travel}.
+
+\begin{figure}[t]
+\begin{center}
+\begin{tabular}{c | c | c |  c}
+Travel Method & Time & Cost & Ease \\
+\hline
+Bus & 40mins & \pounds 2.40 & 3 \\
+Train & 20mins & \pounds 3.40 & 2 \\
+\end{tabular}
+\end{center}
+\caption{Methods of travel to work}
+\label{fig:travel}
+\end{figure}
+
+\section{Some maths}
+
+Math model makes type setting maths easy, e.g., $x = y^4$
+
+  \begin{align}
+    E_0 &= mc^2 \\
+    E &= \frac{mc^2}{\sqrt{1-\frac{v^2}{c^2}}}
+  \end{align}  
+  
+
+  
+  
+\bibliographystyle{plain}
+\bibliography{biblio}
+  
+\end{document}

@@ -1,0 +1,22 @@
+\begin{thebibliography}{1}
+
+\bibitem{bantin2010}
+C.~C. Bantin and J.~Siu.
+\newblock {Designing a secure data communications system for automatic train
+  control}.
+\newblock {\em Proceedings of the Institution of Mechanical Engineers, Part F:
+  Journal of Rail and Rapid Transit}, 255(4):395--402.
+
+\bibitem{bhargavan2016practical}
+Karthikeyan Bhargavan and Ga{\.e}tan Leurent.
+\newblock {On the Practical (In-) Security of 64-bit Block Ciphers: Collision
+  Attacks on HTTP over TLS and OpenVPN}.
+\newblock In {\em ACM Conference on Computer and Communications Security. ACM},
+  2016.
+
+\bibitem{brualdi2010introductory}
+Richard~A. Brualdi.
+\newblock {\em Introductory Combinatorics (5th ed.)}.
+\newblock Prentice–Hall, 2010.
+
+\end{thebibliography}

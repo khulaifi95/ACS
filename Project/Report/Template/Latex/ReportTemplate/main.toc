@@ -1,0 +1,8 @@
+\contentsline {chapter}{\numberline {1}One}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}This is a section}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}This is another section}{2}{section.1.2}
+\contentsline {chapter}{\numberline {2}Two}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}This is the first section of the second chapter}{5}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}And this is a subsection}{6}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Yet another subsection}{6}{subsection.2.1.2}
+\contentsline {section}{\numberline {2.2}This is the second section of the second chapter}{7}{section.2.2}

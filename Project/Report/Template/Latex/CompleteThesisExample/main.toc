@@ -1,0 +1,100 @@
+\contentsline {section}{Table of Abbreviations}{}{section*.1}
+\contentsline {section}{\numberline {1}Overview}{1}{section.1}
+\contentsline {subsection}{\numberline {1.1}Abstract}{1}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Acknowledgements}{1}{subsection.1.2}
+\contentsline {section}{\numberline {2}Introduction}{2}{section.2}
+\contentsline {section}{\numberline {3}The Current UK Rail Signalling Platform}{4}{section.3}
+\contentsline {subsection}{\numberline {3.1}Overview}{4}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Components}{4}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Line-side Signals}{4}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Occupancy Detection}{5}{subsubsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.3}Communications}{5}{subsubsection.3.2.3}
+\contentsline {subsubsection}{\numberline {3.2.4}Interlocking}{5}{subsubsection.3.2.4}
+\contentsline {subsection}{\numberline {3.3}Issues}{6}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Opportunity for Growth}{6}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.2}Infrastructure Failure}{6}{subsubsection.3.3.2}
+\contentsline {subsubsection}{\numberline {3.3.3}Maintenance}{6}{subsubsection.3.3.3}
+\contentsline {subsection}{\numberline {3.4}Solutions}{6}{subsection.3.4}
+\contentsline {section}{\numberline {4}The European Rail Traffic Management System (ERTMS)}{7}{section.4}
+\contentsline {subsection}{\numberline {4.1}Overview}{7}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}ERTMS Levels}{7}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Protocols and Applications}{8}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Components}{8}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}GSM-R}{8}{subsubsection.4.4.1}
+\contentsline {subsubsection}{\numberline {4.4.2}Eurobalise}{8}{subsubsection.4.4.2}
+\contentsline {subsubsection}{\numberline {4.4.3}Radio Block Centre (RBC)}{8}{subsubsection.4.4.3}
+\contentsline {subsubsection}{\numberline {4.4.4}Driver Machine Interface}{8}{subsubsection.4.4.4}
+\contentsline {subsubsection}{\numberline {4.4.5}ERTMS Systems Cab}{9}{subsubsection.4.4.5}
+\contentsline {subsection}{\numberline {4.5}Case Study: Cambrian Line}{10}{subsection.4.5}
+\contentsline {subsection}{\numberline {4.6}Vendor-specific Elements}{10}{subsection.4.6}
+\contentsline {section}{\numberline {5}GSM-R}{11}{section.5}
+\contentsline {subsection}{\numberline {5.1}Overview}{11}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Services Provided by GSM-R}{11}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Infrastructure}{11}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Contributions GSM-R has Made}{12}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.5}The Use of GSM-R as Part of ERTMS}{12}{subsection.5.5}
+\contentsline {subsection}{\numberline {5.6}Weaknesses and Threats}{12}{subsection.5.6}
+\contentsline {subsection}{\numberline {5.7}Looking to the Future of GSM-R}{13}{subsection.5.7}
+\contentsline {subsection}{\numberline {5.8}Research in the Future of GSM-R}{14}{subsection.5.8}
+\contentsline {section}{\numberline {6}EuroRadio}{15}{section.6}
+\contentsline {subsection}{\numberline {6.1}The EuroRadio Protocol}{15}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}EuroRadio Handshake Connection Protocol}{15}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}MAC Algorithm Protecting Messages}{16}{subsection.6.3}
+\contentsline {subsubsection}{\numberline {6.3.1}Importance of Proof of Knowledge}{17}{subsubsection.6.3.1}
+\contentsline {subsubsection}{\numberline {6.3.2}Threats to EuroRadio as a Protocol}{17}{subsubsection.6.3.2}
+\contentsline {subsection}{\numberline {6.4}Tools Used in Formal Analysis}{18}{subsection.6.4}
+\contentsline {subsection}{\numberline {6.5}Formally Modelling the EuroRadio Protocol}{18}{subsection.6.5}
+\contentsline {subsubsection}{\numberline {6.5.1}Processes in Proverif}{19}{subsubsection.6.5.1}
+\contentsline {subsection}{\numberline {6.6}Results}{19}{subsection.6.6}
+\contentsline {subsubsection}{\numberline {6.6.1}Secrecy of Secret Value}{20}{subsubsection.6.6.1}
+\contentsline {subsubsection}{\numberline {6.6.2}RBC Trust in the Train}{20}{subsubsection.6.6.2}
+\contentsline {subsubsection}{\numberline {6.6.3}Train Trust in the RBC Generated Key}{20}{subsubsection.6.6.3}
+\contentsline {subsubsection}{\numberline {6.6.4}RBC Accepting Data from a Train}{21}{subsubsection.6.6.4}
+\contentsline {subsubsection}{\numberline {6.6.5}RBC Accepting Replayed Messages}{21}{subsubsection.6.6.5}
+\contentsline {subsection}{\numberline {6.7}High-Priority Messages}{23}{subsection.6.7}
+\contentsline {subsubsection}{\numberline {6.7.1}Overview}{23}{subsubsection.6.7.1}
+\contentsline {subsubsection}{\numberline {6.7.2}High Priority SaPDU Flow}{23}{subsubsection.6.7.2}
+\contentsline {subsubsection}{\numberline {6.7.3}Permitted Messages and Format}{24}{subsubsection.6.7.3}
+\contentsline {subsubsection}{\numberline {6.7.4}Threats}{24}{subsubsection.6.7.4}
+\contentsline {subsubsection}{\numberline {6.7.5}Recommendations}{24}{subsubsection.6.7.5}
+\contentsline {subsection}{\numberline {6.8}Threats to the MAC Algorithm Cryptographically}{25}{subsection.6.8}
+\contentsline {subsubsection}{\numberline {6.8.1}Recommendations}{27}{subsubsection.6.8.1}
+\contentsline {subsubsection}{\numberline {6.8.2}Impact to Implement Security Improvements}{28}{subsubsection.6.8.2}
+\contentsline {subsection}{\numberline {6.9}Implementing Improvements to the EuroRadio Layer}{28}{subsection.6.9}
+\contentsline {subsection}{\numberline {6.10}Closing Remarks}{29}{subsection.6.10}
+\contentsline {section}{\numberline {7}Application Layer}{30}{section.7}
+\contentsline {subsection}{\numberline {7.1}Overview}{30}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Application Layer in Detail}{30}{subsection.7.2}
+\contentsline {subsubsection}{\numberline {7.2.1}Assumptions Placed on the Application Layer}{30}{subsubsection.7.2.1}
+\contentsline {subsubsection}{\numberline {7.2.2}Key Messages}{31}{subsubsection.7.2.2}
+\contentsline {subsection}{\numberline {7.3}Safe Application Interface (SAI) Sublayer}{32}{subsection.7.3}
+\contentsline {subsubsection}{\numberline {7.3.1}Defences Offered by the SAI Sublayer}{32}{subsubsection.7.3.1}
+\contentsline {section}{\numberline {8}Other Features of ERTMS Investigated}{34}{section.8}
+\contentsline {subsection}{\numberline {8.1}Key Management}{34}{subsection.8.1}
+\contentsline {subsubsection}{\numberline {8.1.1}Overview}{34}{subsubsection.8.1.1}
+\contentsline {subsubsection}{\numberline {8.1.2}ERTMS Key Management Hierarchy}{34}{subsubsection.8.1.2}
+\contentsline {subsubsection}{\numberline {8.1.3}Keys Used in ERTMS}{34}{subsubsection.8.1.3}
+\contentsline {subsubsection}{\numberline {8.1.4}Inserting Keys on ERTMS Entities}{35}{subsubsection.8.1.4}
+\contentsline {subsubsection}{\numberline {8.1.5}Key Derivation Used in EuroRadio}{35}{subsubsection.8.1.5}
+\contentsline {subsection}{\numberline {8.2}ERTMS Versioning}{35}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}ERTMS as an Industrial Control System}{36}{subsection.8.3}
+\contentsline {section}{\numberline {9}Other Research in this Domain}{37}{section.9}
+\contentsline {subsection}{\numberline {9.1}Research into ERTMS}{37}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}Key Management}{38}{subsection.9.2}
+\contentsline {subsection}{\numberline {9.3}Secure MAC Algorithms}{39}{subsection.9.3}
+\contentsline {section}{\numberline {10}Project Evaluation}{40}{section.10}
+\contentsline {subsection}{\numberline {10.1}Learning Opportunities}{40}{subsection.10.1}
+\contentsline {subsection}{\numberline {10.2}Project Management}{41}{subsection.10.2}
+\contentsline {subsubsection}{\numberline {10.2.1}Research Feedback}{42}{subsubsection.10.2.1}
+\contentsline {subsection}{\numberline {10.3}Future Work}{42}{subsection.10.3}
+\contentsline {subsubsection}{\numberline {10.3.1}RBC to RBC Communications}{42}{subsubsection.10.3.1}
+\contentsline {subsubsection}{\numberline {10.3.2}Key Management}{42}{subsubsection.10.3.2}
+\contentsline {subsubsection}{\numberline {10.3.3}CAN-BUS}{43}{subsubsection.10.3.3}
+\contentsline {subsubsection}{\numberline {10.3.4}Eurobalises}{43}{subsubsection.10.3.4}
+\contentsline {subsection}{\numberline {10.4}Legacy of the Project}{44}{subsection.10.4}
+\contentsline {subsection}{\numberline {10.5}Critical Analysis and Personal Development}{44}{subsection.10.5}
+\contentsline {section}{\numberline {11}Conclusion and Summary}{46}{section.11}
+\contentsline {section}{References}{48}{section*.2}
+\contentsline {section}{\numberline {12}Appendix One: Accompanying Archive and Instructions}{54}{section.12}
+\contentsline {subsection}{\numberline {12.1}Directory Structure}{54}{subsection.12.1}
+\contentsline {subsection}{\numberline {12.2}Running the Provided Code}{54}{subsection.12.2}
