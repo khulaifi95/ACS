@@ -140,20 +140,78 @@ Student ID: \bhamid\\
 \phantomsection
 
 \section{Abstract}
+% Paragraph
+Placeholder.
 
 \section{Introduction}
-\citep{RailExecutive14a}
+% Citation
+hello! \citep{RailExecutive14a}
+
 \section{Preliminaries}
+% Math
+$ d = p * g $
+\[ dql = - \frac{1}{2} \log n \]
 
 \section{Theory}
 % Image
+\begin{center}
+    \includegraphics[scale=.25]{Signals-eps-converted-to.pdf}\\
+    Figure 4.1: \textit{Reference Driver Machine Interface \citep{RailExecutive14a}}
+\end{center}
 
 \section{Implementation}
+% Algorithm
+\begin{algorithm}[H]
+    \floatname{algorithm}{EuroRadio Protocol}
+    \renewcommand{\thealgorithm}{}
+    \caption{Steps that an ERTMS Entity would undertake to establish a connection}
+    T: Train, R: Radio Block Centre, $K_{MAC}$: Train Key, $KS_{MAC}$: Session Key
+    \label{EuroRadio Protocol}
+    \begin{algorithmic}[1]
+        \STATE $T\rightarrow{R}$ : \{\texttt{ETY},\texttt{MTI}$\gets$AU1, \texttt{DF}$\gets$0, Sender ETCS ID, Safety Feature, R$_T$\}.
+        \texttt{DF}, Padding))\}
+    \end{algorithmic}
+\end{algorithm}
 
 \section{Experiment}
 % Tabular
+\begin{center}
+    \begin{longtable}{|c|c|}
+
+        \hline \multicolumn{1}{|c|}{\textbf{Threat}} & \multicolumn{1}{c|}{\textbf{EuroRadio}} \\ \hline \hline
+        \endfirsthead
+
+        \multicolumn{2}{c}%
+        {{\bfseries Threat/Defence Matrix -- continued from previous page}} \\
+        \hline \multicolumn{1}{|c|}{\textbf{Threat}} & \multicolumn{1}{c|}{\textbf{EuroRadio}} \\ \hline \hline
+        \endhead
+
+        \multicolumn{2}{|r|}{{Continued on next page}} \\ \hline
+        \endfoot
+
+        \hline \hline
+        \endlastfoot
+
+        Repetition & $\times$ \\ \hline
+        Deletion & $\times$ \\ \hline
+        Insertion & \checkmark \\ \hline
+        Re-sequencing & $\times$ \\ \hline
+        Corruption & \checkmark \\ \hline
+        Delay & $\times$ \\ \hline
+        Masquerade & \checkmark \\ \hline
+
+    \end{longtable}
+\end{center}
 
 \section{Discussion}
+% List
+\begin{itemize}[nolistsep]
+    \item 3DES -- Triple DES
+    \item 3G -- Third Generation
+    \item AES -- Advanced Encryption Standard
+    \item ALE -- Adaptation Layer Entity
+\end{itemize}
+
 
 \section{Conclusion}
 
