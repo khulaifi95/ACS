@@ -1,0 +1,173 @@
+%%%%%%%%%%%%%%%%%%%%% RJT TeX Template %%%%%%%%%%%%%%%%%%%%%
+\documentclass[twoside,12pt,a4paper]{article}
+
+%%%% BHAM PREAMBLE - SET THIS FIRST! %%%%
+\newcommand{\bhamstudentname}{Zhangda Xu}
+\newcommand{\bhamthesistitle}{Play Curling with Deep Reinforcement Learning}
+\newcommand{\bhamfronttitle}{Play Curling with \\ Deep Reinforcement Learning}
+\newcommand{\bhamschool}{School of Computer Science}
+\newcommand{\bhamcollege}{Engineering and Physical Sciences}
+\newcommand{\bhamdegree}{Advanced Computer Science}
+\newcommand{\bhamid}{2088192}
+\newcommand{\bhamsupervisor}{Mohan Sridharan}
+\newcommand{\bhamyear}{2020}
+%%%%           %%%%
+
+
+\usepackage[hyphens]{url}
+\usepackage[breaklinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[sort]{natbib}
+\usepackage{comment}
+\usepackage{dirtree}
+\usepackage{longtable}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\renewcommand{\algorithmiccomment}[1]{#1}
+
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+
+\lfoot{\bhamstudentname}
+\cfoot{}
+\rfoot{}
+\fancyhfoffset[L]{0cm}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\renewcommand{\headrulewidth}{0pt}
+\newcommand{\tab}{\hspace*{1.25em}}
+\newcommand{\minitab}{\hspace*{0.25em}}
+
+\usepackage{perpage}
+\MakePerPage{footnote}
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+
+\lhead{}\chead{}\rhead{}
+\setlength{\headheight}{28pt}
+\setlength{\headsep}{6pt}
+\pdfoutput=1
+\usepackage[left=2.55cm,right=1.6cm,top=1.8cm,bottom=1.8cm]{geometry}
+\usepackage{titling}
+\setlength{\droptitle}{-2.75cm}
+\usepackage{titlesec}
+\titleformat*{\section}{\normalsize	\bfseries}
+\titleformat*{\subsection}{\small \bfseries}
+\titleformat*{\subsubsection}{\footnotesize \bfseries}
+
+\titlespacing*{\section} {0pt}{3ex plus 1ex minus .2ex}{2ex plus .2ex}
+\titlespacing*{\subsection} {0pt}{2.25ex plus 1ex minus .2ex}{0.75ex plus .2ex}
+\titlespacing*{\subsubsection}{0pt}{2.ex plus 1ex minus .2ex}{0.5ex plus .2ex}
+
+\setlength{\intextsep}{0pt}
+
+\usepackage[pdftex]{graphicx}
+\usepackage{enumitem}
+\usepackage{pdfpages}
+\usepackage{lastpage}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\usepackage{epstopdf}
+
+\usepackage{listings}
+\lstset{
+ basicstyle=\ttfamily,
+  columns=fullflexible,
+  keepspaces=true,
+breaklines=true
+}
+
+\newcommand{\todo}[1]{\textcolor{red}{TODO: #1}\PackageWarning{TODO:}{TODO found: #1!}}
+
+\DeclareGraphicsExtensions{.jpg}
+
+%%%%%%%%%%%%%%%%%%%%%  END of TEMPLATE %%%%%%%%%%%%%%%%%%%%%
+
+
+\title{MSc. Project\\\bhamthesistitle}
+\author{\textsf{\bhamstudentname }}
+
+\date{}
+\begin{document}
+
+\pagenumbering{gobble}
+\begin{titlepage}
+\begin{center}
+\begin{minipage}{6in}
+  \centering
+  \raisebox{-0.5\height}{\includegraphics[width=1.25in]{crest}}
+  \hspace*{.2in}
+  \raisebox{-0.5\height}{\includegraphics[height=0.9375in]{uni}}
+  \end{minipage}
+  \\ [1.0cm]
+\textsc{{\LARGE \bhamschool\\}College of \bhamcollege}\\[3.5cm]
+
+\textsc{\Large MSc. Project}\\[0.5cm]
+
+% Title
+\HRule \\[0.4cm]
+\begin{center}\Huge
+\bhamfronttitle
+\end{center}
+\HRule \\[1.5cm]
+
+\begin{center}
+Submitted for the degree of MSc. \\ \textbf{{\large \bhamdegree}}\\
+\vspace{1.5cm}
+{\Large \textbf{\bhamstudentname}}\\
+Student ID: \bhamid\\
+\vspace{1.5cm}
+{\Large Supervisor: \bhamsupervisor}
+\end{center}
+\vfill
+
+% Bottom of the page
+{\large September \bhamyear}
+
+\end{center}
+\end{titlepage}
+
+% Table of Contents
+\clearpage
+\maketitle
+\vspace{-5.5em}
+\begingroup
+\fontsize{9pt}{11pt}\selectfont
+\tableofcontents
+\endgroup
+\clearpage
+\phantomsection
+
+\section{Abstract}
+
+\section{Introduction}
+\citep{RailExecutive14a}
+\section{Preliminaries}
+
+\section{Theory}
+% Image
+
+\section{Implementation}
+
+\section{Experiment}
+% Tabular
+
+\section{Discussion}
+
+\section{Conclusion}
+
+% Bibliography
+\clearpage
+\lhead{}\chead{MSc. Project Report :: \nouppercase{\leftmark}}\rhead{}
+\phantomsection
+\addcontentsline{toc}{section}{References}
+\bibliographystyle{agsm}
+\bibliography{mybib}
+
+\clearpage
+
+\section{Appendix}
+\subsection{Appendix I.}
+
+\end{document}
