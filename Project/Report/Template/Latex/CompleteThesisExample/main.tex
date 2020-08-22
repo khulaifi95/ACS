@@ -2,26 +2,26 @@
 \documentclass[twoside,11pt,a4paper]{article}
 
 %%%% BHAM PREAMBLE - SET THIS FIRST! %%%%
-\newcommand{\bhamstudentname}{Student Name}
+\newcommand{\bhamstudentname}{Zhangda Xu}
 \newcommand{\bhamthesistitle}{Thesis Title}
 \newcommand{\bhamfronttitle}{Thesis Title Spread\\Over Two Lines}
 \newcommand{\bhamschool}{School of Computer Science}
 \newcommand{\bhamcollege}{Engineering and Physical Sciences}
-\newcommand{\bhamdegree}{MSc. Cryptzoology}
-\newcommand{\bhamid}{1234567}
-\newcommand{\bhamsupervisor}{Dr A. Aaronson}
-\newcommand{\bhamyear}{2019}
+\newcommand{\bhamdegree}{MSc. Advanced Computer Science}
+\newcommand{\bhamid}{2088192}
+\newcommand{\bhamsupervisor}{Dr M. Sridharan}
+\newcommand{\bhamyear}{2020}
 %%%%           %%%%
 
 
 \usepackage[hyphens]{url}
 \usepackage[breaklinks]{hyperref}
 \usepackage{fancyhdr}
-\usepackage[sort]{natbib} 
+\usepackage[sort]{natbib}
 \usepackage{comment} % from http://www.latex-community.org/forum/viewtopic.php?f=5&t=4538
 \usepackage{dirtree} % from http://blog.plenz.com/2011-07/represent-directory-structures-in-latex.html
 \usepackage{longtable} % from http://stackoverflow.com/questions/2896833/how-to-stretch-a-table-over-multiple-pages
-\usepackage{algorithm}   
+\usepackage{algorithm}
 \usepackage{algorithmic}   %both algorithm* from http://hasini-gunasinghe.blogspot.co.uk/2014/02/presenting-algorithmsprotocols-in-neat.html
 
 \renewcommand{\algorithmiccomment}[1]{#1} %http://tex.stackexchange.com/q1uestions/61861/algorithmic-package-for-loop-and-comment-at-the-same-line
@@ -48,7 +48,7 @@
 \setlength{\headsep}{6pt}
 \pdfoutput=1 % we are running PDFLaTeX
 \usepackage[left=2.55cm,right=1.6cm,top=1.8cm,bottom=1.8cm]{geometry}
-\usepackage{titling}	
+\usepackage{titling}
 \setlength{\droptitle}{-2.75cm}   % This is your set screw\\
 \usepackage{titlesec}
 \titleformat*{\section}{\normalsize	\bfseries}
@@ -122,7 +122,7 @@ Submitted in conformity with the requirements\\ for the degree of \bhamdegree\\
 \vspace{2cm}
 \bhamstudentname, BSc. (Hons)\\
 Student ID: \bhamid\\
-Supervisor: \bhamsupervisor      
+Supervisor: \bhamsupervisor
 \end{center}
 \vfill
 
@@ -131,7 +131,7 @@ Supervisor: \bhamsupervisor
 
 \end{center}
 \end{titlepage}
-\cleardoublepage
+
 \section*{Declaration}
 % Taken from the MSc Thesis template, and edited for a PGT report
 The material contained within this report has not previously been
@@ -249,12 +249,12 @@ Signed .........................................................................
 \acf{ABC} will put in the full version of the acronym for ABC. If you want to
 refer to an acronym, but don't want to use it's full expansion, use \ac{ABC}.
 Plurals can be done, e.g. \acfp{ABC}. LaTeX isn't smart with plurals, so see the
-overrides given at 
+overrides given at
 http://anorien.csc.warwick.ac.uk/mirrors/CTAN/macros/latex/contrib/acronym/acronym.pdf
 
 \end{verbatim}
 
-\addcontentsline{toc}{section}{Table of Abbreviations} 
+\addcontentsline{toc}{section}{Table of Abbreviations}
 \clearpage
 % set up the page numbering and counter - Table of Abbreviations has no page number
 % also set up the footers and headers appropriately.
@@ -295,7 +295,7 @@ During my time at the University of Birmingham, I have experienced the frustrati
 
 ERTMS offers significant improvements for rail travel, providing a common infrastructure for rail vehicles to use and provide a real-time communication interface between the train and signalling centre. This, however, means that both the specification and implementation must be robust and fit for purpose. It is this area which inspired part of the project, where cyber-security relies on strong specifications and implementations to prevent any attacks taking place, which could have a number of impacts, from `minor' incidents such as train delays, to a scenario with potentially fatal consequences.
 
-Rail has been a way to drive industry and travel, with some goods travelling up to 11,000km at a speed twice of that compared to sea, whilst being ``one of the greenest means ... on the market"\citep{EuropeanCommission13a}. Trains are getting `smarter' with many manufacturers ``increasingly moving to manufacturer-specific ... platforms with proprietary train control systems, ..., thus the trend in recent years has been away from interoperability"\citep[pp. 13]{DfT15a}. This shift means that the underlying systems also cannot be scrutinised, given the closed nature of code and infrastructure. Even if the ERTMS platform could be  proven to be safe, secure and immune to a majority of threats, flaws in vendor-specific systems could still compromise this foundation. 
+Rail has been a way to drive industry and travel, with some goods travelling up to 11,000km at a speed twice of that compared to sea, whilst being ``one of the greenest means ... on the market"\citep{EuropeanCommission13a}. Trains are getting `smarter' with many manufacturers ``increasingly moving to manufacturer-specific ... platforms with proprietary train control systems, ..., thus the trend in recent years has been away from interoperability"\citep[pp. 13]{DfT15a}. This shift means that the underlying systems also cannot be scrutinised, given the closed nature of code and infrastructure. Even if the ERTMS platform could be  proven to be safe, secure and immune to a majority of threats, flaws in vendor-specific systems could still compromise this foundation.
 
 Digitising systems in any industry, especially industrial control systems, means that attack vectors which were not previously possible may now be attainable and, given that ERTMS is still considered to be relatively new and emerging, it requires close scrutiny to ensure it is both safe and secure, not only from `script kiddies' but also sophisticated attackers.
 
@@ -343,7 +343,7 @@ Once a train has successfully moved into the next block, it is considered to occ
 
 Another method to identify whether a track is occupied is established through the use of axle counters. These devices are attached to a rail, and count the number of axles passing over them. The concept behind axle counters is that when a train moves into a new managed block, the number of axles that enter the block are counted in, and upon exiting this block, they are counted out. If the number of axles counted in $\equiv$ the number of axles counted out, then the block is considered to be no longer occupied and another train may safely enter it. Track Circuit devices are simply a means of confirming that a block is occupied or not, and are complimentary to axle counters.
 \subsubsection{Communications}
-Maintaining a communications link between train and trackside is safety-critical to ensure a driver is advised of an issue on the line, or to report issues to signallers, so that appropriate action can be taken. 
+Maintaining a communications link between train and trackside is safety-critical to ensure a driver is advised of an issue on the line, or to report issues to signallers, so that appropriate action can be taken.
 
 In the UK, GSM-R has been deployed by Network Rail as part of a project to replace the ageing `National Rail Network' (NRN) with a proven system that offers capacity growth. GSM-R uses the same technology as GSM, which was the basis for mobile communications until recently, before 3G and LTE had gained traction in the sector. Using GSM as a base communications system, GSM-R was ratified for use following the success of the EIRENE Project, conducted by Union Internationale de Chemins de Fer (UIC), the International Union of Railways.
 
@@ -440,7 +440,7 @@ The Cambrian Line is fitted with ERTMS Level 2, with Class 158 Diesel Multiple U
 \subsection{Vendor-specific Elements}
 Successful ERTMS implementations have also been completed with one supplier responsible for the deployment, for example Siemens, Bombardier, Alstom or Ansaldo STS \citep{UNIFE15a}. Whilst ERTMS is a largely open standard, vendors may implement their own solutions to the specification. Trains may also be fitted with other vendor-supplied components, which will operate as specified under ERTMS systems interoperability, where the `back-end' makes an ERTMS implementation a Siemens or Alstom ERTMS deployment for example. The RBCs, interlocking and other constituent elements may use their own proprietary logic, to meet advertised capacity benefits and to maintain a commercial `edge'. These systems will communicate using open standards to the ERTMS `front-end' but again, from a security perspective, if there is a flaw in the implementation of the back-end, it may have unpredictable consequences as it could compromise the integrity of any security offered by systems which rely on the trust relationship.
 
-There are no known open-source ERTMS implementations which are available for close scrutiny. However, the OpenETCS project is currently gaining interest in the open-source community for implementation, which is funded by the German Federal, French, Belgian and Spanish Governments. It is also commercially supported by SNCF, Lloyd's Register, Alstom and the UK ATOC members \citep{openETCS15a}. 
+There are no known open-source ERTMS implementations which are available for close scrutiny. However, the OpenETCS project is currently gaining interest in the open-source community for implementation, which is funded by the German Federal, French, Belgian and Spanish Governments. It is also commercially supported by SNCF, Lloyd's Register, Alstom and the UK ATOC members \citep{openETCS15a}.
 
 As evidenced through recent vulnerabilities exposed in both commercial and open-source products for example, iOS and OpenSSL, open-source is sometimes not necessarily the solution, unless it has commercial backing and full dedication. Using an open-source approach would make the platform more transparent, reducing implementation costs and encourage collaboration.
 
@@ -525,7 +525,7 @@ Calle-Sanchez et al look at the challenges of implementing LTE for the railway a
 \clearpage
 
 \section{EuroRadio}
-GSM-R is the base layer of the ERTMS stack, which is used to communicate between train and track-side. To process data arriving and present it in a format accessible to the application, an additional layer is required. Within the ERTMS `stack', below, the EuroRadio layer is situated immediately between the (open) communications layer, GSM-R, and the Application Layer. 
+GSM-R is the base layer of the ERTMS stack, which is used to communicate between train and track-side. To process data arriving and present it in a format accessible to the application, an additional layer is required. Within the ERTMS `stack', below, the EuroRadio layer is situated immediately between the (open) communications layer, GSM-R, and the Application Layer.
 
 This section examines the protocol used within the EuroRadio connection process, the cryptographic properties it holds, and a formal analysis of both.
 \begin{center}
@@ -534,7 +534,7 @@ Figure 6.1: \textit{Train-side ERTMS `Stack' with appropriate fields used}
 \end{center}
 
 \subsection{The EuroRadio Protocol}
-The EuroRadio protocol is designed to be a means to secure communications between ERTMS entities over an otherwise open communications link (GSM-R). EuroRadio provides a way to authenticate and verify the integrity of data between these entities, to prevent forgery of messages in addition to forming a trust relationship to ensure messages conversed are genuine. The EuroRadio protocol is used to meet a number of requirements in order to be compliant with EN50159 (Safety-related communications in transmission systems), utilised in both train $\leftrightarrow$ trackside and RBC $\leftrightarrow$ RBC communications. 
+The EuroRadio protocol is designed to be a means to secure communications between ERTMS entities over an otherwise open communications link (GSM-R). EuroRadio provides a way to authenticate and verify the integrity of data between these entities, to prevent forgery of messages in addition to forming a trust relationship to ensure messages conversed are genuine. The EuroRadio protocol is used to meet a number of requirements in order to be compliant with EN50159 (Safety-related communications in transmission systems), utilised in both train $\leftrightarrow$ trackside and RBC $\leftrightarrow$ RBC communications.
 
 The EuroRadio layer sits immediately between the open communication (GSM-R) and Application Layer, where data received is verified and passed to the Application Layer. As part of the header, a definition of what the data held within this `packet' is specified, whether it is an authentication message or data\footnote{This message is sent following a successful Identification and Authentication challenge and the EuroRadio connection is established.}. When data is being sent by an ERTMS entity, it generates a cryptographic  Message Authentication Code (MAC) which is then part of the EuroRadio data `frame' which is passed to the GSM-R layer for transmission. Upon receipt by the receiving entity, the MAC is verified to ensure that it has arrived in a correct state. This MAC can only be generated and verified when both parties have a shared key.
 
@@ -610,9 +610,9 @@ M: Message to CBC-MAC, where $M_1,M_2,...,M_q \in M$ are 64-bit blocks\\
 \label{MAC Algorithm}
 \begin{algorithmic}[1]
 \STATE Let $H_0$ be 64-bits of zeros.
-\FOR {($i=1, i < q$)} 
+\FOR {($i=1, i < q$)}
 	\STATE $H_i$ = E$_{K1}$($H_{i-1} \bigoplus X_i$)
-\ENDFOR 
+\ENDFOR
 \STATE $H_q$ =  E$_{K3}$(E$^{-1}_{K2}$,(E$_{K1}$,($H_{q-1} \bigoplus X_q$)))
 \STATE CBC-MAC(M) = $H_q$
 \end{algorithmic}
@@ -643,36 +643,10 @@ Under EN50159, adequate protection against the following threats must be provide
 \item Masquerade, where a forged message is accepted as being authentic with the attacker impersonating a valid entity participating in the connection
 \end{itemize}
 
-EuroRadio, as it stands in the specification, only fulfils a few of the requirements set down by the EN50159 standard, relying on the upper Application Layer level to provide the appropriate protection for which it is not designed. These assumptions and levels of protection offered by the Application Layer will be discussed fully in Section 7.2.1. Outside of the specification, the keys are fresh as they are generated at time of connection, meaning that the lifetime of the keys is relatively short, given that, at the time of the handover between the two RBCs, the active connection is torn down \citep[Section 3.15.1.3]{SUBSET-026-3} and a new connection is set up specific to the accepting RBC. 
+EuroRadio, as it stands in the specification, only fulfils a few of the requirements set down by the EN50159 standard, relying on the upper Application Layer level to provide the appropriate protection for which it is not designed. These assumptions and levels of protection offered by the Application Layer will be discussed fully in Section 7.2.1. Outside of the specification, the keys are fresh as they are generated at time of connection, meaning that the lifetime of the keys is relatively short, given that, at the time of the handover between the two RBCs, the active connection is torn down \citep[Section 3.15.1.3]{SUBSET-026-3} and a new connection is set up specific to the accepting RBC.
 
 For EuroRadio, the threat/defence matrix for EN50159 compliance was compiled:
-\begin{center}
-\begin{longtable}{|c|c|}
 
-\hline \multicolumn{1}{|c|}{\textbf{Threat}} & \multicolumn{1}{c|}{\textbf{EuroRadio}} \\ \hline \hline
-\endfirsthead
-
-\multicolumn{2}{c}%
-{{\bfseries Threat/Defence Matrix -- continued from previous page}} \\
-\hline \multicolumn{1}{|c|}{\textbf{Threat}} & \multicolumn{1}{c|}{\textbf{EuroRadio}} \\ \hline \hline
-\endhead
-
-\multicolumn{2}{|r|}{{Continued on next page}} \\ \hline
-\endfoot
-
-\hline \hline
-\endlastfoot
-
-Repetition & $\times$ \\ \hline
-Deletion & $\times$ \\ \hline
-Insertion & \checkmark \\ \hline
-Re-sequencing & $\times$ \\ \hline
-Corruption & \checkmark \\ \hline
-Delay & $\times$ \\ \hline
-Masquerade & \checkmark \\% \hline
-
-\end{longtable}
-\end{center}
 \begin{center}
 \vspace{-1.0cm}
 Table 6.4: \textit{Threat/Defence Matrix for EuroRadio, marked against EN50159}
@@ -693,7 +667,7 @@ The protocol also uses a number of predefined variable values, such as the messa
 
 Proverif also allows local binding to the entity, including, in the case of the EuroRadio model, the generation of the session key, such that an attacker cannot explicitly see a value. During implementation of this model, sanity checks were added to ensure that a full run-through was possible, by adding queries to identify if an attacker was able to see an event firing, which signified the end of the protocol and connection establishment succeeding.
 
-Data transferred between entities are represented with \texttt{in} or \texttt{out} clauses, which indicate dataflow. These use a fixed channel, \texttt{c}, which is defined as a free open channel, and removes any ambiguity of protection offered by the lowermost GSM-R communications layer. This model therefore focusses purely on the EuroRadio protocol and nothing else. 
+Data transferred between entities are represented with \texttt{in} or \texttt{out} clauses, which indicate dataflow. These use a fixed channel, \texttt{c}, which is defined as a free open channel, and removes any ambiguity of protection offered by the lowermost GSM-R communications layer. This model therefore focusses purely on the EuroRadio protocol and nothing else.
 
 MAC validation also required skills in the application of how OCaml uses handles tuples to generate a MAC and compare and match those to verify a genuine MAC. Once this was completed, the protocol modelled in Proverif was validated against the EuroRadio specification to ensure that it was accurate and implemented the protocol correctly. As Proverif does not have a notion of bits in this model, the padding added as part of the MAC to make it into an appropriate multiple of the key length, was omitted.
 
@@ -805,7 +779,7 @@ As demonstrated in the diagram above, when a high-priority message is sent, the 
 As discussed in Section 6.7.1, only two messages \citep[Section 8.5.3]{SUBSET-026-8} may be sent as high-priority SaPDUs:
 \begin{itemize}[nolistsep]
 \item Conditional Emergency Stop -- this contains ``the information of a new stop location, referred to the LRBG" \citep[Section 3.10.2]{SUBSET-026-3}. If the train has already passed the location specified in the emergency stop\footnote{Namely if the end of the train has already been noted as passing the balise group specified}, then it shall proceed, and reject the message from the RBC. If it has not passed the location already, then the ERTMS system will accept the emergency stop, which (if the LRBG referred to in the message is before the end of Authority) will terminate authority at the given location. If the original end of authority in the Movement Authority was set before the location in the emergency stop, the End of Authority (the location where the train must stop) holds.
-\item Unconditional Emergency Stop -- when this message is received, the train will `trip immediately', coming to a safe stop. Like conditional emergency stops, a unique identifier to the message is set and only when a revocation of the emergency stop is issued by the RBC, is the train able to enter full supervision mode again, and request a Movement Authority. 
+\item Unconditional Emergency Stop -- when this message is received, the train will `trip immediately', coming to a safe stop. Like conditional emergency stops, a unique identifier to the message is set and only when a revocation of the emergency stop is issued by the RBC, is the train able to enter full supervision mode again, and request a Movement Authority.
 \end{itemize}
 For both of these messages, any subsequent messages (provided they are not revocations of the standing emergency stop) will be rejected by the train. This includes messages sent by the RBC including Movement Authorities. This means that if an errant emergency stop was issued (possibly for the wrong train), but then a Movement Authority was given, the train must reject that Movement Authority and await instructions from the RBC to restore operational control.
 
@@ -826,7 +800,7 @@ At the heart of EuroRadio is the MAC. This authenticates and guarantees to the r
 
 Feix and Thiebauld \citep{MACAlgo3SideChannel} presented a side-channel attack which was able to recover one key used as part of the MAC process. In order to fulfil this attack, the first $n - 1$ blocks are fixed for every MAC produced, where block $n$ is given sufficiently high entropy. For every intermediate ciphertext produced from the DES operation on these $n - 1$ blocks, two guesses are required which can be retrieved using side-channel analysis due to the fact that the resultant $n - 1$ block is XORed with the final block, $n$. Once an attacker has obtained the intermediate state ciphertext and it is known, the first key, K$_1$ may be either guessed or brute-forced, as the attacker has the corresponding plain text and cipher text representations of all blocks up to block $n - 1$. For every guess of the ciphertext, this process would need to be completed twice, once for each bit guessed (0 or 1). The ISO9797-defined MAC algorithm makes use of only two DES operations in the final transformation, with the search space reduced to two guesses, with a further two brute-force attacks on the DES key to retrieve both of the keys used as part of the MAC computation. In EuroRadio, however, three keys are used as part of the DES operations, in encrypt-decrypt-encrypt mode, meaning that this attack presented by Feix and Thiebauld may not be used verbatim as an attack to the MAC algorithm used by EuroRadio.
 
-This attack, however, may still be applied in the context of the $n - 1$ transformations, where we know the plaintext being sent and can produce a MAC forgery as the input to the final 3DES transformation. However, this requires 56 bits of sufficiently random data to be set by the attacker, where the output bits for the MAC would need to be brute-forced to match a genuine MAC following a 3DES operation. 
+This attack, however, may still be applied in the context of the $n - 1$ transformations, where we know the plaintext being sent and can produce a MAC forgery as the input to the final 3DES transformation. However, this requires 56 bits of sufficiently random data to be set by the attacker, where the output bits for the MAC would need to be brute-forced to match a genuine MAC following a 3DES operation.
 
 In 1998, Deep Crack, produced by the EFF was able to crack a single-DES key in 56 hours. Today, RIVYERA, the successor to COPACOBANA, a single-DES cracker, is now able to crack DES within a day. Using this premise, an attacker could then establish K$_1$ and create their own MACs in the hope that one may be accepted through a collision attack. This also gives way to identifying the first key used as part of the train key, so future KS$_{MAC_1}$s may be predicted in future communications, if they are able to crack the triple-DES operation using the nonces. With the advances in hardware crackers, this time will continue to reduce.
 
@@ -957,7 +931,7 @@ Table 7.1: \textit{Threat/Defence Matrix for EuroRadio and the Application Layer
 The Application Layer does not just provide additional measures for security - it should be considered as an interface to the train API for EuroRadio. It is this layer which interfaces with the local ERTMS application, and from which data is first transmitted and finally received.
 
 \subsubsection{Assumptions Placed on the Application Layer}
-As shown above, what EuroRadio does not defend against must be prevented by the Application Layer. Given that authentication and integrity has been `guaranteed' by the EuroRadio layer, cryptography is unsuitable for these checks, as it does not provide any additional defences. Instead, the Application Layer uses a time-stamp relative to the train time, occupying 32 bits, with 10ms precision. To achieve a wraparound to a zero value would take approximately 497 days \citep[Section 7.5.1.154]{SUBSET-026-7}. The time-stamp, therefore, is simply a virtual reference to time from some artificial zero-point, and not say, the Unix time. In an analysis by Gradowski et al \citep{Gradowski14a}, when a RBC needs to send a message, it is required to ``measure the time... which has passed since the last received message from the train" to send a valid time-stamp. These time-stamps are used solely for the purpose of detecting whether a message has arrived out of sequence or replayed, as the time-stamp of the message received must be greater than the time-stamp of the last received message \citep{Ansaldo05a}. 
+As shown above, what EuroRadio does not defend against must be prevented by the Application Layer. Given that authentication and integrity has been `guaranteed' by the EuroRadio layer, cryptography is unsuitable for these checks, as it does not provide any additional defences. Instead, the Application Layer uses a time-stamp relative to the train time, occupying 32 bits, with 10ms precision. To achieve a wraparound to a zero value would take approximately 497 days \citep[Section 7.5.1.154]{SUBSET-026-7}. The time-stamp, therefore, is simply a virtual reference to time from some artificial zero-point, and not say, the Unix time. In an analysis by Gradowski et al \citep{Gradowski14a}, when a RBC needs to send a message, it is required to ``measure the time... which has passed since the last received message from the train" to send a valid time-stamp. These time-stamps are used solely for the purpose of detecting whether a message has arrived out of sequence or replayed, as the time-stamp of the message received must be greater than the time-stamp of the last received message \citep{Ansaldo05a}.
 
 To cope with possible issues of time delay, the train and RBC calculate an acceptable amount of time before messages should time out, prior to assuming they have not been received and resending them. The specifications also stipulate what should happen after a period of inactivity. However, these are specified as national values by the operating countries, and may be one of three values - one which trips the emergency stop on a train, one which applies the train brakes and the other has no reaction whatsoever \citep{RSSB12a}. Whilst this applies only to a timeout in the general sense where ``no safe message has been received from the track" \citep[p. 81]{SUBSET-026-7}, this timeout may be set between 0 and 254 seconds. Similarly, it is also possible to set all bits in the 1 byte block to zero, indicating an infinite amount of time (i.e. there is no timeout).
 \subsubsection{Key Messages}
@@ -1002,18 +976,18 @@ Train Accepted messages are sent following a request by a train to be supervised
 RBCs and trackside elements are not required to acknowledge messages sent to it by a train with an explicit `acknowledgement' message. The `API' instead is designed in a way that when a message is sent by a train to a track-side element, it receives a response with a corresponding message, which may be interpreted as an acknowledgement.
 
 \subsection{Safe Application Interface (SAI) Sublayer}
-Within the definition of RBC $\leftrightarrow$ RBC Handover of a train, there is another intermediate layer between EuroRadio and the Application Layer. This has its own protection which meets the requirements of EN50159, where the Application Layer may be implemented differently to Train $\leftrightarrow$ Track communications. This is understandable, given RBC entities are connected by fixed network, resulting in a more reliable and predictable network connection. 
+Within the definition of RBC $\leftrightarrow$ RBC Handover of a train, there is another intermediate layer between EuroRadio and the Application Layer. This has its own protection which meets the requirements of EN50159, where the Application Layer may be implemented differently to Train $\leftrightarrow$ Track communications. This is understandable, given RBC entities are connected by fixed network, resulting in a more reliable and predictable network connection.
 
 \subsubsection{Defences Offered by the SAI Sublayer}
 The SAI layer adds a header to Application Data before being passed to the EuroRadio layer. The EuroRadio layer remains unchanged when compared to the train-borne counterpart. This layer offers protection against repetition, deletion and resequencing through the use of a 2 byte sequence number \citep[p. 21]{SUBSET-098}, with a ``delay defence technique" \citep[p. 15]{SUBSET-098} which comes in the form of either a triple time-stamp or an execution cycle counter.
 
-The technique of using sequence numbers is similar to the process used in the TCP protocol, where each party participating in the connection sets its own random value $r \in 0 \leq r \leq 65536$. Although the first sequence number sent is not checked, any message subsequently received is verified against this value. When the maximum value allowed is reached, the sequence number will wrap around to be zero. If there is a `gap' between sequence number values, it should be considered that a fault occurred. The SAI maintains a count of how many of these errors are allowed, either due to repetition, deletion or re-sequencing. If it reaches a certain set threshold, the connection will be released. This value is set nationally as T$_{succ\_err}$ \citep[Section 5.4.10]{SUBSET-098}. 
+The technique of using sequence numbers is similar to the process used in the TCP protocol, where each party participating in the connection sets its own random value $r \in 0 \leq r \leq 65536$. Although the first sequence number sent is not checked, any message subsequently received is verified against this value. When the maximum value allowed is reached, the sequence number will wrap around to be zero. If there is a `gap' between sequence number values, it should be considered that a fault occurred. The SAI maintains a count of how many of these errors are allowed, either due to repetition, deletion or re-sequencing. If it reaches a certain set threshold, the connection will be released. This value is set nationally as T$_{succ\_err}$ \citep[Section 5.4.10]{SUBSET-098}.
 
 Immediately after the EuroRadio connection protocol completes, the triple time-stamp or execution cycle counters are initialised. A triple time-stamp and execution cycle counter is used to detect delays in transmission. However, the sequence counter is only able to detect sequencing errors, including deletion and replay.
 
 A triple time-stamp (TTT) is formed of three 4 byte values (approximately 497 days, measured in a resolution of 10ms), with execution cycle counters also 4 bytes. Triple time-stamps are defined by the clock-offset computations between sender and receiver. In order to agree on the time-stamp (as times are based on the train clock), an initialisation procedure is followed to allow a suitable offset to be estimated. Each time-stamp serves a unique purpose, namely the first contains the sender time-stamp at time of transmission, with the second being the time-stamp of the last message sent to recipient by the current sender. The final time-stamp is the time-stamp of the last message sent by the current sender. These together not only help identify `jitter' in the communications, but if implemented, could also identify whether a message has been replayed at a later time or injected, because both parties have a direct relationship for communications and a means of proving when messages were sent. Triple time-stamping makes no assumptions regarding transmission and compute cycles, where the second and third time-stamps are used to perform a `rolling update' of the offsets, with the first being used to compute validity and identify potential delays. A regular procedure to recalculate offsets is also required.
 
-This method of defence requires five messages to be sent prior to data being sent, where the first and second messages allow the time-stamps to be synchronised between parties. These are accepted regardless of their values but in the third step, the offset is established.  When the recipient receives a message, it validates the sender time-stamp, and applies a formula to allow some offset and extra delay, again a rolling process. If a delay is detected, the message is discarded, and error handling is left to the system implementer. 
+This method of defence requires five messages to be sent prior to data being sent, where the first and second messages allow the time-stamps to be synchronised between parties. These are accepted regardless of their values but in the third step, the offset is established.  When the recipient receives a message, it validates the sender time-stamp, and applies a formula to allow some offset and extra delay, again a rolling process. If a delay is detected, the message is discarded, and error handling is left to the system implementer.
 
 Execution Cycles (EC) work differently to the triple time-stamp, where in the SAI header, the time-stamps are set to zero, and appended with a 4 byte counter. In this method, each party has an expected value as time progresses. Each party has an independent counter, where, upon receipt of an EC value, validates whether it is a value which was expected. Compared to triple time-stamping, the initialisation process has fewer steps, where a period is specified as part of the initialisation, with a resolution of 1ms. At each cycle of the receiver, the expected EC value used is updated with some ratio defined using the period and an offset. If no message is received in a set EC, then the receiver computes this delta value, otherwise if more than one message is received in a cycle, the most recent value is used.
 
@@ -1027,7 +1001,7 @@ This method of protection should ideally be employed on Train $\leftrightarrow$ 
 ERTMS has a strong reliance on cryptography, which uses secret keys to protect data. These keys are unique to the ERTMS entity, where each country will have its own Key Management System (KMS). At any one point, no KMS may act as the Key Management Centre (KMC) for more than one country. At the start of the project, whilst looking at ERTMS as an entire platform, this area was investigated further to establish how keys are used.
 
 \subsubsection{ERTMS Key Management Hierarchy}
-In ERTMS, the Key Management Centre is core to the operation of the entire platform, where entities need to communicate using secret keys as part of the proof of integrity in messages. Key Management Centres may be connected to other centres, say the UK KMC may be operated by the Infrastructure Manager responsible for the UK, and may be contactable by the KMC for Germany. This allows seamless interoperability throughout these rail networks. However, a KMC which is not in the home domain cannot issue keys to other KMCs -- these KMCs must make requests only to the home KMC. 
+In ERTMS, the Key Management Centre is core to the operation of the entire platform, where entities need to communicate using secret keys as part of the proof of integrity in messages. Key Management Centres may be connected to other centres, say the UK KMC may be operated by the Infrastructure Manager responsible for the UK, and may be contactable by the KMC for Germany. This allows seamless interoperability throughout these rail networks. However, a KMC which is not in the home domain cannot issue keys to other KMCs -- these KMCs must make requests only to the home KMC.
 
 Within this hierarchy, the KMC is formed of servers and clients, with ETCS entities as an external user. Servers organise the overall key management process, generating and validating keys, which are stored securely for both home and foreign managed entities. In addition, these servers are responsible for key distribution and maintaining their state, initiating key management tasks, for example, updating the validity of a key where required. When this takes place, requests to ETCS entities are generated to either update, install or delete the keys and liaising with foreign KMCs where required. When a key is issued, it monitors the installation and confirmations to track if the key has been installed. As seen in typical servers, the KMC server maintains archives of keys, as well as logs for the purposes of auditing \citep{KPMG13a}.
 
@@ -1074,7 +1048,7 @@ Table 8.1: \textit{Threat/Defence Matrix for EuroRadio and the Application Layer
 \end{center}
 
 \subsubsection{Inserting Keys on ERTMS Entities}
-When a train is first produced, a KMC generates a key for the train, which is signed and encrypted before being given to the train. The train and KMC share a unique key which is used to validate the key being transferred and another key to encrypt the payload, to ensure full secrecy. If the media that was used to transport the keys were to be compromised, then the keys remains secure. 
+When a train is first produced, a KMC generates a key for the train, which is signed and encrypted before being given to the train. The train and KMC share a unique key which is used to validate the key being transferred and another key to encrypt the payload, to ensure full secrecy. If the media that was used to transport the keys were to be compromised, then the keys remains secure.
 
 This is crucial to ensure that the safety and integrity of ERTMS remains intact, as the keys for KMCs and potentially RBCs may be valid for a number of years. Manufacturers such as Siemens and Alstom should install new keys as per maintenance schedules.
 
@@ -1141,7 +1115,7 @@ Different approaches are used to provide a formal analysis and proof of security
 
 Franekova et al presented a safety analysis of the cryptographic mechanisms used in {GSM-R} in 2011, using the UML methodology to demonstrate a birthday attack on the DES encryption algorithm \citep{Franekova11a}. References are made to the ERTMS model being implemented as an OSI-style stack, with the addition of the EuroRadio layer between the Communications and Application Layers.
 
-It was this paper which exposed EuroRadio to me for the first time in my analysis of the overall security of ERTMS and gave an outline of some of the ERTMS components. The reference structure of a message was, however, confusing, as a train does not have the Adaptation or SAI layers in the stack, rather it is only for RBC to RBC communication. 
+It was this paper which exposed EuroRadio to me for the first time in my analysis of the overall security of ERTMS and gave an outline of some of the ERTMS components. The reference structure of a message was, however, confusing, as a train does not have the Adaptation or SAI layers in the stack, rather it is only for RBC to RBC communication.
 
 Of particular interest from this paper is the use of UML to implement a model of the attack, where $2\cdot2^{28}$ memory allocations would be required with the same amount of encryptions to find the possible keys in use. Their attack used a fairly low-powered computer by modern standards, with approximately $^{1}/_{4}$ of the normative power today. The results claim the average time taken in the worst case as 2$^{15}$ realisations in just one second.\\
 The proposals from Franekova touch on some the recommendations drawn from this project paper, such as where a more cryptographically secure cipher such as AES could be deployed, however, the required changes are very different. In their research paper, the changes simply increase the block size to 128 bits, and retain the 192 3DES key, but use 128 bits of that key for the AES encrypt operations. This reduces the need to reissue keys, however it does leave 64 bits of key not being used. This is understandable in the context of interoperability, where another country may use the modified MAC algorithm as the safety option. However, this notion of mismatched key length and cipher length should be phased out, where the key length must match the cipher length \citep{Garcia13}. An alternative proposal, however, changes the mode of the final transformation from EDE to EED. Given 3DES is only approved by NIST for use through to 2030, this would only be another short-term solution to a long-term problem.
@@ -1157,7 +1131,7 @@ An alternative form of analysis through Petri Net was devised by Hongjie et al d
 None of these papers, however, highlight the potential areas vulnerable to attack identified by this specific research project, whereby an attacker is able to successfully forge emergency stop messages and, using modern apparatus, is also able to establish K$_1$. In addition, there is no mention of existing threats to the A5/1 cipher being applied to ERTMS, which allows an attacker to be far more damaging.
 
 \subsection{Key Management}
-As identified previously in this paper, Key Management will be a major operational issue following the successful national introduction of ERTMS. Management of keys will become a challenging task, especially when coupled with the concept of interoperability, where the KMS will also have to deal with keys generated by a foreign organisation. The solution to this is to employ online key management, where a patent on a `Method for ETCS Online Key Management' on behalf of Siemens was granted in Germany \citep{SiemensPatent}. 
+As identified previously in this paper, Key Management will be a major operational issue following the successful national introduction of ERTMS. Management of keys will become a challenging task, especially when coupled with the concept of interoperability, where the KMS will also have to deal with keys generated by a foreign organisation. The solution to this is to employ online key management, where a patent on a `Method for ETCS Online Key Management' on behalf of Siemens was granted in Germany \citep{SiemensPatent}.
 
 This patent allows RBCs to retrieve keys from the KMC via `a data link' rather than being given the keys in advance, where the train may instead enter a RBC area of responsibility it has not previously entered. At present, the only online element for Key Management is foreign key handover, where one KMC may request a particular key from another and vice versa to ensure interoperability. This may also be performed offline, however, this restricts the potential interoperability of the rail network. The patent awarded to Siemens does include a `Personalization Key' which allows transport of train keys by the manufacturer on their systems using proprietary means. This limits the freedom that current ERTMS key management offers and introduces a possible attack vector, where the vendor may suffer a security breach and the key is divulged.
 
@@ -1170,7 +1144,7 @@ In 2004, Handschuh and Preneel wrote an article, aptly named `Minding Your MAC A
 
 In a stark contrast, the third recommendation `don't use single DES or short keys' is not precisely followed by the EuroRadio MAC, where the first $n - 1$ blocks are encrypted using single DES in CBC mode. The authors note, ten years ago, the use of single DES would have been sufficient. By today's standards, however, it is simply not enough, and should be designed to be future-proof.
 
-Whilst the typical EuroRadio safety feature uses the modified MAC Algorithm 3, there is evidence of CRC being employed instead, as identified earlier in this project paper. The use of CRC is considered to be a weak method of proving data integrity and authenticity, as the linear feedback shift register can simply be rolled back to the initial state. EuroRadio, however, meets a number of requirements which add additional security, although, as the authors recommend, the use of a HMAC, where $MAC_K(M) = h((K \bigoplus opad) || (h((K \bigoplus ipad) || M))$, is an alternative which can be used for validation. The use of AES, however, as identified in the recommendations of this project would provide a more secure platform for the future. 
+Whilst the typical EuroRadio safety feature uses the modified MAC Algorithm 3, there is evidence of CRC being employed instead, as identified earlier in this project paper. The use of CRC is considered to be a weak method of proving data integrity and authenticity, as the linear feedback shift register can simply be rolled back to the initial state. EuroRadio, however, meets a number of requirements which add additional security, although, as the authors recommend, the use of a HMAC, where $MAC_K(M) = h((K \bigoplus opad) || (h((K \bigoplus ipad) || M))$, is an alternative which can be used for validation. The use of AES, however, as identified in the recommendations of this project would provide a more secure platform for the future.
 
 This paper, in particular the recommendations made in sections 5 and 6, do not support the use of the CRC concept for integrity validation.
 
@@ -1195,13 +1169,13 @@ At the start of the project, I had no prior experience using the Proverif verifi
 Implementing queries in Proverif required a considerable amount of thought and time to ensure that the model was able to divulge as much as possible about key questions which would otherwise affect the security and stability of the protocol. As part of this, attempting to test replay attacks was a challenging step. Originally, the Proverif model had the following lines:
 \begin{verbatim}
 Train:
-!(new trainData; !(event trainSendData(trainData); 
+!(new trainData; !(event trainSendData(trainData);
 out(c,(trainData,mac(train_ks, trainData))))).
 
 RBC:
-(* receive all the data coming from the train and verify the data -- 
+(* receive all the data coming from the train and verify the data --
 if this is correct, then we trigger the event *)
-!(in(c,(trainRecvData, recvDataMac)); if recvDataMac = 
+!(in(c,(trainRecvData, recvDataMac)); if recvDataMac =
 mac(rbc_ks, trainRecvData) then event rbcAcceptsData(trainRecvData)).
 
 (* querying if it's possible for a RBC to have accepted data from a train
@@ -1215,11 +1189,11 @@ One of the issues in this representation was that an attack was found, when the 
 
 A new approach was needed -- instead of getting a RBC to try and accept an infinite number of messages, it would instead accept only two messages:
 \begin{verbatim}
-(* receive all the data coming from the train and verify the data -- 
+(* receive all the data coming from the train and verify the data --
 if this is correct, then we trigger the event *)
-in(c,((=DT,trainRecvData), recvDataMac)); if recvDataMac = 
+in(c,((=DT,trainRecvData), recvDataMac)); if recvDataMac =
 	mac(rbc_ks, (DT,trainRecvData)) then
-in(c,((=DT,trainRecvData), recvDataMac)); if recvDataMac = 
+in(c,((=DT,trainRecvData), recvDataMac)); if recvDataMac =
 	mac(rbc_ks, (DT,trainRecvData)) then event rbcAcceptsData((DT, trainRecvData)).
 \end{verbatim}
 In the state model of EuroRadio, this would represent valid transitions as continuous data input, but make it more explicit that we were looking for a replay attack. An attack trace using this method was successfully found, as identified in Section 6.6.5.
@@ -1246,7 +1220,7 @@ I also had the support of the Rail Group to take the proposed concepts and find 
 If more time had been available following completion of the initial project, its results and the redefined focus, there are other specific areas which I would have liked to further analyse.
 
 \subsubsection{RBC to RBC Communications}
-When a train leaves the area of responsibility held by a RBC, the train must be handed over seamlessly to the next RBC to ensure the property of full supervision within ERTMS is maintained. This process uses its own protocol to `advertise' a handover to the train, negotiate handover with the next RBC on the line, and then inform the train to connect to the next RBC. One question remains however -- how the relatively short lifetime of the keys in EuroRadio contribute to the strength of the MAC, and what happens to this key during handover? Bearing this in mind, when a train switches from one RBC to another RBC, the specification stipulates that the EuroRadio connection be safely disconnected from the handing over RBC and a new session established with the accepting RBC. 
+When a train leaves the area of responsibility held by a RBC, the train must be handed over seamlessly to the next RBC to ensure the property of full supervision within ERTMS is maintained. This process uses its own protocol to `advertise' a handover to the train, negotiate handover with the next RBC on the line, and then inform the train to connect to the next RBC. One question remains however -- how the relatively short lifetime of the keys in EuroRadio contribute to the strength of the MAC, and what happens to this key during handover? Bearing this in mind, when a train switches from one RBC to another RBC, the specification stipulates that the EuroRadio connection be safely disconnected from the handing over RBC and a new session established with the accepting RBC.
 
 This, however, may not necessarily be the case, as key establishment adds latency to the connection process, so may be ignored, where the handing over RBC, simply as part of the handover process, transfers the session key in use to the accepting RBC.\\
 Another area for investigation is why RBC $\leftrightarrow$ RBC communications have an intermediate layer between the EuroRadio and Application Layers, and not for Train $\leftrightarrow$ RBC communications. This layer provides additional security properties for message timeliness, and reduces the requirement of the Application Layer to perform these EN50159 compliance requirements.
@@ -1270,7 +1244,7 @@ Today's trains work in a similar way to modern-day motor vehicles, where they ha
 It has been established that, for example, in motor vehicles, very lightweight or no authentication is present, and given that standards exist on how equivalent buses should operate, do they specify if authentication is present, and moreover, is it possible to transpose some of the motor vehicle-based attacks onto a train?
 
 \subsubsection{Eurobalises}
-Eurobalises are the only trusted way for a train to receive location, speed and track profile information. With a vehicle potentially travelling in excess of 300km/h, GPS cannot be trusted, especially if a train is travelling through tunnels. GPS therefore is not a suitable way of location detection, especially on proposed UK rail lines, including the CrossRail and Thameslink lines, where parts are underground for a number of miles. 
+Eurobalises are the only trusted way for a train to receive location, speed and track profile information. With a vehicle potentially travelling in excess of 300km/h, GPS cannot be trusted, especially if a train is travelling through tunnels. GPS therefore is not a suitable way of location detection, especially on proposed UK rail lines, including the CrossRail and Thameslink lines, where parts are underground for a number of miles.
 
 As discussed in the ERTMS Components section, Eurobalises leverage RFID technology to relay this data to the train, which is then used as part of the supervision and for reporting where the train is located. In ERTMS/ETCS Levels 2 and 3, these balises contain only static data. Is it therefore possible for an attacker to walk up to a Eurobalise and modify the data held, either in a way that the train reports an incorrect location and the RBC assumes a block is clear, when it is in fact not? Is it also possible for the data on the Eurobalise to be modified to report a higher permitted linespeed, which could result in an accident similar to the one that occurred near Madrid in 2014?
 
@@ -1333,7 +1307,7 @@ Clearly, the issues identified through this paper could be considered to feature
 \lhead{}\chead{MSc. Project Report :: \nouppercase{\leftmark}}\rhead{}
 \phantomsection
 \addcontentsline{toc}{section}{References}
-\bibliographystyle{agsm} 
+\bibliographystyle{agsm}
 \bibliography{mybib}
 
 \clearpage
