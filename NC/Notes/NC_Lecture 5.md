@@ -19,7 +19,7 @@ We describe machine learning models using computation graphs where
 
 #### 1.2 Structure and notations
 
-| <img src="/Users/kevinxu95/ACS/NC/Notes/NC_Lecture 5.assets/Screenshot 2020-05-08 at 02.12.23.png" style="zoom:40%;" /> |
+| <img src="./NC_Lecture 5.assets/Screenshot 2020-05-08 at 02.12.23.png" style="zoom:40%;" /> |
 | :----------------------------------------------------------: |
 | **Fig 5.1** A representation of multi-layer feedforward neural network |
 
@@ -48,7 +48,7 @@ $$
 
 
 
-| <img src="/Users/kevinxu95/ACS/NC/Notes/NC_Lecture 5.assets/Screenshot 2020-05-08 at 02.46.54.png" style="zoom:50%;" /> |
+| <img src="./NC_Lecture 5.assets/Screenshot 2020-05-08 at 02.46.54.png" style="zoom:50%;" /> |
 | :----------------------------------------------------------: |
 |          **Fig 5.2** Activation on a single neuron           |
 

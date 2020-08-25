@@ -10,7 +10,7 @@
 
 ### 1. Linear regression
 
-- Consider a problem with one one independent variable x and one dependent variable y.
+- Consider a problem with one one independent variable `x` and one dependent variable `y`.
 - Dataset $\mathcal D = \{(x_0,y_0),..., (x_{N-1}, y_{N-1})\}=\{(x_i,y_i\}_{i=0}^{N-1}$.
 - Model the relationship between x and y as a mathematical function $f(\mathbf w, x)$.
 - Predict $y_i\approx f(\mathbf w, x_i)$ with unknown parameters $\mathbf w$.
