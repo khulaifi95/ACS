@@ -28,7 +28,7 @@ $$
 
 ### 2. Motivation
 
-| <img src="/Users/kevinxu95/ACS/IDA/Notes/IDA_Lecture 5.assets/Screenshot 2020-05-27 at 20.29.49.png" style="zoom:75%;" /> |
+| <img src="IDA_Lecture 5.assets/Screenshot 2020-05-27 at 20.29.49.png" style="zoom:75%;" /> |
 | :----------------------------------------------------------: |
 |         **Fig 1.** Finding the red coordinate system         |
 
