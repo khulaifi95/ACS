@@ -1,31 +1,94 @@
-# Playing Curling with Deep Reinforcement Learning
+# Curling with Deep Reinforcement Learning
 
 
 
-## Abstract
+## Abstract .2k
 
 This project 
 
 
 
-## 1. Introduction
+## Introduction 1k
 
-#### 
-
-### 
-
-### 1.1 What is RL?
-
-
-
-### 
-
-### 1.2 The task of play
+- Problem description
+- Background information
+- Statement of aims
+- Overview of the structure
 
 
 
-### 1.3 The task of curling
+## Theory 2k
+
+- Preliminaries
+- Previous work
 
 
 
-1.4 
+## Method 2k
+
+- **Problem formulation**
+- Analysis of SOTA
+- **Contributions**
+- Structure of algorithms
+
+
+
+## Implementation 1.5k
+
+- Structure of software
+- **Design decisions**
+- Parameter specification
+- Auxiliary libraries
+
+
+
+## Experiment 2k
+
+- Evaluation metrics
+- Testing strategy
+- **Hypothesis testing**
+
+
+
+## Results .5k
+
+- Evaluation
+- Baseline comparison
+- Robustness and performance
+
+
+
+## Project Management .5k
+
+- Project management
+- Code writing
+
+
+
+## Discussion 1k
+
+- Achievements
+- Deficiences
+- Future work
+
+
+
+## Conclusion .3k
+
+- Summary
+
+
+
+## References 1k
+
+- Harvard recommended
+
+
+
+## Appendices
+
+- Code structure
+- Code instruction
+- Proposal
+- Experimental data
+- Testing strategy
