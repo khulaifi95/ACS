@@ -93,6 +93,8 @@ Here $R_{t+1}+\gamma V(S_{t+1})$ is the TD target, $\alpha$ is the step paramete
 
 It is essential for the agent to improve the policy starting from an initial action. Basically, the agent first needs to evaluate the policy, then updates it iteratively towards the best policy. For any Markov decision process, there always exist one or multiple policy $\pi^*$ that is no worse than any other policies. In general policy iteration processes, the optimal policies are guaranteed to achieve the optimal action-value.
 
+q-**learning**
+
 
 
 #### 2.4 Policy Gradient
@@ -149,7 +151,7 @@ ddpg
 
 td3
 
-
+exploration
 
 action:  speed, direction, rotation
 
