@@ -22,7 +22,7 @@ The task of curling considered in the project is simplified to be a single round
 
 Recent advances in deep neural network makes it possible to learn the control policy directly from sensory inputs, such as high-dimensional visual data. Deep multi-layer perceptrons are capable of extracting high-level representations of the original data, which make hand-picked features obsolete. In order to learn end-to-end, we need to make use of the agent's observations of the environment to discover the optimal policy. However, reinforcement learning takes the try-and-error approach, which may incur unrecoverable repercussions in physical experiments. On the other hand, the captured vision or speech is often too noisy to use for learning task. We avoid these obstacles by using a simulated environment in PyBullet, where all the physics are handled with by the engine and visuals are rendered as the final output. Most parts of the software will be implemented in this ecosystem.
 
-<Need editing>
+We incorporate the learning process into the conduction of project. The first phase of this project is devoted to learn  
 
 This project is intended to solve the problem of curling game play using deep reinforcement learning. This report first establishes the theoretical ground of using such technique, and concludes the previous related work for comprehensive insights. Then, we formulate the state-of-the-art solution for similar problems and show that practical improvements are required for this specific task. The implementation of the whole architecture is discussed in detail. We later present the experiments of the proposed algorithms and compare it with existing variants. We finally evaluate the results in depth and validate the proposed methods. The software developed so far in this project is able to visualise the process of training and simulations. The performance of the algorithm is proved to be stable and outperform the average human player.
 
@@ -69,27 +69,23 @@ $$
 
 
 
-#### 2.3 Q-learning
+#### 2.3 Value Functions
 
 Recall that the purpose of an agent in reinforcement learning is to maximise the expected value of the total reward. We can formulate the state-value function of a state $s$ under a policy $\pi$ as the expected return starting from the current state, following policy $\pi$:
 $$
-v_\pi(s) = \mathbb E_\pi[G_t|S_t=t]
+V_\pi(s) = \mathbb E_\pi[G_t|S_t=t]
 $$
 The action-value further incorporates the value of actions into the value of current state, which is often preferred in reinforcement learning problems because it is solely dependent on the environment. Similarly, it describes the value of taking action $a$ given a state $s$, following a policy $\pi$ in next steps:
 $$
-q_\pi(s,a) = \mathbb E_\pi[G_t|S_t = t, A_t = a]
+Q_\pi(s,a) = \mathbb E_\pi[G_t|S_t = t, A_t = a]
 $$
 Due to the recursive property of the return, we can decompose the return at time-step $t$ into an immediate reward and the expected value of successor states. This one-step look-ahead can be used as the update rule of action-values, which enables the recursive evaluation of current policy. This is known as the Bellman equation:
 $$
-q_\pi(s_t,a_t) = \mathbb E_\pi[R_{t+1} + \gamma\mathbb E_\pi [q_\pi(s_{t+1}, a_{t+1})]]
+Q_\pi(s_t,a_t) = \mathbb E_\pi[R_{t+1} + \gamma\mathbb E_\pi [Q_\pi(s_{t+1}, a_{t+1})]]
 $$
 Here the expectation of the action-value given the current state-action pair is the backup of the complete transition, where every successor state is used in a sweep recursively until the end of episode. Although the Bellman update makes use of dynamic programming to reduce space complexity, it still causes huge cost of unnecessary memory. This requires a full backup of the entire process, including the knowledge of complete transitions and rewards. In practice, it is hardly known to the agent. Instead, the agent needs to learn from episodes of its experience. 
 
-It is essential for the agent to improve the policy starting from an initial action. Basically, the agent first needs to evaluate the policy, then updates it iteratively towards the best policy. For any Markov decision process, there always exist one or multiple policy $\pi^*$ that is no worse than any other policies. In general policy iteration processes, the optimal policies are guaranteed to achieve the optimal action-value.
-
-
-
-Temporal-difference learning is a policy evaluation method that can learn from incomplete sequences without the model of Markov decision process. It explores the Markov property of states using bootstrapping and sampling simultaneously. Like the Monte Carlo method, TD learning uses sampled episodes instead of an exhaustive search to approximate the expectation term in the equation, in which a full process is explored until the terminal state. TD learning is also bootstrapping, which enables it to learn from incomplete episodes even without the final outcome. The main idea is to update the functions towards another belief of the state. Consider the simplest variant TD(0), the algorithm updates the value function $v(s_t)$ online towards an estimated return at the next time-step:
+Temporal-difference learning is a policy evaluation method that can learn from incomplete sequences without the model of Markov decision process. It explores the Markov property of states using bootstrapping and sampling simultaneously. Like the Monte Carlo method, TD learning uses sampled episodes instead of an exhaustive search to approximate the expectation term in the equation, in which a full process is explored until the terminal state. TD learning is also bootstrapping, which enables it to learn from incomplete episodes even without the final outcome. The main idea is to update the functions towards another belief of the state. Consider the simplest variant TD(0), the algorithm updates the value function $V(s_t)$ online towards an estimated return at the next time-step:
 $$
 V(S_t)\larr V(S_t)+\alpha(R_{t+1}+\gamma V(S_{t+1})-V(S_t))
 $$
@@ -97,13 +93,21 @@ Here $R_{t+1}+\gamma V(S_{t+1})$ is the TD target, $\alpha$ is the step paramete
 
 
 
+#### 2.4 Q-learning
+
+It is essential for the agent to improve the policy starting from an initial action. Basically, the agent first needs to evaluate the policy, then updates it iteratively towards the best policy. For any Markov decision process, there always exist one or multiple policy $\pi^*$ that is no worse than any other policies. In general policy iteration processes, the optimal policies are guaranteed to achieve the optimal action-value. This gives us the description of optimal action-value function in Bellman equation:
+$$
+Q^*(s,a) = \mathbb E[r(s,a) + \gamma\max_{a'} Q^*(s',a')]
+$$
+If we can solve $Q^*(s,a)$, we can solve the optimal policy by directly assigning the optimal action $a^*(s)$ as:
+$$
+a^*(s) = \arg\max_aQ^*(s,a)
+$$
+Off-policy learning method promises usage of data collected at any time step during training for update. One of the most famous algorithm in this family is Q-learning or Sarsa-max. Basically, the aim is to learn an approximated optimal action-value function $Q_\theta(s,a)\approx Q^*(s,a)$, which is able to generalise to unseen states. It uses an objective function based on mean squared Bellman equation error. In a TD learning update, the Q-learning target is simply to be the next action that maximises the action-value in next states: $r(s,a) + \max_a'\gamma $
 
 
-q-**learning**
 
-
-
-#### 2.4 Policy Gradient
+#### 2.5 Policy Gradient
 
 Last section concludes the modelling of a tabular representation of reinforcement learning problems. The whole process is stored as pairs of state and action, where the value of each state is calculated individually. Recent development in sensory data processing requires an efficient architecture for large-scale problem solving. It is common to approximate the functions with parameters, such as linear functions and neural networks, to generalise the problem from known states to unseen states.   
 
@@ -125,13 +129,11 @@ Here $Q^{\pi_\theta}(s,a)$ is a long-term value for the policy. Policy gradient 
 
 
 
-#### 2.5 Actor-Critic
+#### 2.6 Actor-Critic
 
 
 
-#### 2.6 Deep reinforcement learning
-
-mlp
+#### 2.7 Deep Q-network
 
 Cnn
 
@@ -139,13 +141,13 @@ Cnn
 
 ### 3. Method 2k
 
-We next formulate the curling play problem and improve the learning approach with further reasearch into the objective.
+We next formulate the curling play problem and improve the learning approach with further research into the objective.
 
 
 
 #### 3.1 Problem Formulation
 
-The problem of curling gameplay generally deals with the task of sliding a cue stone towards a target area in a controlled manner. The stone is initially stationed at the centre of a house. The goal of the task is to achieve the highest score in another house on the sheet of ice. Curling is a game played by two teams of players, which involves competition and cooperation consistently. We here simplify the case where only one throw is considered. The agent is aimed to learn the control policy for sliding the cue stone such that after the release, the trajectory of stone leads to a better score given the current scenario on the ice. The scoring rules stipulate that the score of the winning team in each round is the number of stones closer to the centre of house than the opponent's closest stone. Since the score on the court is determined before the throw, the goal of the agent is equivalent to achieving the most score after one throw. Each team takes turn to play 8 stones in a round. Thus there are no more than 15 stones on the sheet for the agent. When the team with the closest stone wins, the other team scores 0. However, we can still differentiate the result with the advantage in scores over the opposite team. The goal is thus to maximise the advantage of scores in a round after the throw. Suppose the distance from every friendly stone $m_i$ and opposite stone $n_i$ to the centre of house $c$ is denoted as *dist(~,c)*, the score is determined by the number of stones that satisfy:
+The problem of curling game play generally deals with the task of sliding a cue stone towards a target area in a controlled manner. The stone is initially stationed at the centre of a house. The goal of the task is to achieve the highest score in another house on the sheet of ice. Curling is a game played by two teams of players, which involves competition and cooperation consistently. We here simplify the case where only one throw is considered. The agent is aimed to learn the control policy for sliding the cue stone such that after the release, the trajectory of stone leads to a better score given the current scenario on the ice. The scoring rules stipulate that the score of the winning team in each round is the number of stones closer to the centre of house than the opponent's closest stone. Since the score on the court is determined before the throw, the goal of the agent is equivalent to achieving the most score after one throw. Each team takes turn to play 8 stones in a round. Thus there are no more than 15 stones on the sheet for the agent. When the team with the closest stone wins, the other team scores 0. However, we can still differentiate the result with the advantage and loss in scores over the opposite team. The goal is thus to maximise the difference of scores in a round after the throw. Suppose the distance from every friendly stone $m_i$ and opposite stone $n_i$ to the centre of house $c$ is denoted as *dist(~,c)*, the reward $R_t\in[-8,8]$ is determined by the number of stones that satisfy:
 $$
 dist(m_i, c) \in (\min_i dist(n_i, c), \min_j dist(m_j, c)]
 $$
@@ -153,13 +155,19 @@ The agent is trained to finish a task where different situations exist. For inst
 
 The agent is faced with a fully observed environment where the observation $O_t$ is a sufficient statistic for the state $S_t$. We consider the state of environment in a planar setting, while the physics is simulated completely. The observation space is totally defined by the rendered view of the state after a throw, which is a RGB matrix: $s_t \in \mathbb R^2$. We define the actions as choosing the initial force on the direction of both orthogonal axes: $a_t\in \mathbb R^2$. The Newton's law describes the correlation between acceleration and an external force as $F=ma$. In this special case, we assume that the duration of acceleration exerted on the stone is a constant $T$ throughout all the games. This process is constrained by the hog line, where the stone must be released.
 
-
-
-#### 3.2 Deterministic policy gradient
+Learning of such policy requires a deep representation of the visual input, and a continuous update in the action space. Given a processed input $\phi(s_t)$, we look for the optimal parameterised policy $\mu_\theta(\phi(s_t))$ that selects an action over a continuous space, which maximises the one-step reward $R_t$.
 
 
 
-#### 3.2 Related work
+#### 3.2 Deep deterministic policy gradient
+
+Such control problem on a continuous space requires policy gradient methods to learn a deterministic policy that leads to convergence. Several defects make the vanilla Q-learning approach not applicable for this problem. First, the output of 
+
+
+
+
+
+#### 3.2 Related Work
 
 deterministic policy gradient
 
@@ -225,7 +233,11 @@ The *render* function generates the RGB visual output of the current state.
 
 ### 5. Experiment 1k
 
+keep vs repositioning
 
+one round vs competition
+
+td3 vs sac
 
 
 
