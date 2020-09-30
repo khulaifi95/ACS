@@ -85,13 +85,19 @@ q_\pi(s_t,a_t) = \mathbb E_\pi[R_{t+1} + \gamma\mathbb E_\pi [q_\pi(s_{t+1}, a_{
 $$
 Here the expectation of the action-value given the current state-action pair is the backup of the complete transition, where every successor state is used in a sweep recursively until the end of episode. Although the Bellman update makes use of dynamic programming to reduce space complexity, it still causes huge cost of unnecessary memory. This requires a full backup of the entire process, including the knowledge of complete transitions and rewards. In practice, it is hardly known to the agent. Instead, the agent needs to learn from episodes of its experience. 
 
+It is essential for the agent to improve the policy starting from an initial action. Basically, the agent first needs to evaluate the policy, then updates it iteratively towards the best policy. For any Markov decision process, there always exist one or multiple policy $\pi^*$ that is no worse than any other policies. In general policy iteration processes, the optimal policies are guaranteed to achieve the optimal action-value.
+
+
+
 Temporal-difference learning is a policy evaluation method that can learn from incomplete sequences without the model of Markov decision process. It explores the Markov property of states using bootstrapping and sampling simultaneously. Like the Monte Carlo method, TD learning uses sampled episodes instead of an exhaustive search to approximate the expectation term in the equation, in which a full process is explored until the terminal state. TD learning is also bootstrapping, which enables it to learn from incomplete episodes even without the final outcome. The main idea is to update the functions towards another belief of the state. Consider the simplest variant TD(0), the algorithm updates the value function $v(s_t)$ online towards an estimated return at the next time-step:
 $$
 V(S_t)\larr V(S_t)+\alpha(R_{t+1}+\gamma V(S_{t+1})-V(S_t))
 $$
 Here $R_{t+1}+\gamma V(S_{t+1})$ is the TD target, $\alpha$ is the step parameter, which ensures continuous update towards the TD target. It can be proved that TD(0) converges to solution of maximum likelihood estimate of Markov model that best fit the data. Temporal-difference learning introduces bias to the estimate but lowers the total variance, because the TD target only depends on one state transition and reward. It is also a much cheaper online update scheme in large scale problems.
 
-It is essential for the agent to improve the policy starting from an initial action. Basically, the agent first needs to evaluate the policy, then updates it iteratively towards the best policy. For any Markov decision process, there always exist one or multiple policy $\pi^*$ that is no worse than any other policies. In general policy iteration processes, the optimal policies are guaranteed to achieve the optimal action-value.
+
+
+
 
 q-**learning**
 
@@ -123,27 +129,37 @@ Here $Q^{\pi_\theta}(s,a)$ is a long-term value for the policy. Policy gradient 
 
 
 
-
-
-#### 2.6 related work
-
-
-
-### 3. Method
-
-#### 3.1 formulation
-
-full information game 
-
-action space 
-
-observation space
-
-#### 3.2 Deep Learning
+#### 2.6 Deep reinforcement learning
 
 mlp
 
-cnn
+Cnn
+
+
+
+### 3. Method 2k
+
+We next formulate the curling play problem and improve the learning approach with further reasearch into the objective.
+
+
+
+#### 3.1 Problem Formulation
+
+The problem of curling gameplay generally deals with the task of sliding a cue stone towards a target area in a controlled manner. The stone is initially stationed at the centre of a house. The goal of the task is to achieve the highest score in another house on the sheet of ice. Curling is a game played by two teams of players, which involves competition and cooperation consistently. We here simplify the case where only one throw is considered. The agent is aimed to learn the control policy for sliding the cue stone such that after the release, the trajectory of stone leads to a better score given the current scenario on the ice. The scoring rules stipulate that the score of the winning team in each round is the number of stones closer to the centre of house than the opponent's closest stone. Since the score on the court is determined before the throw, the goal of the agent is equivalent to achieving the most score after one throw. Each team takes turn to play 8 stones in a round. Thus there are no more than 15 stones on the sheet for the agent. When the team with the closest stone wins, the other team scores 0. However, we can still differentiate the result with the advantage in scores over the opposite team. The goal is thus to maximise the advantage of scores in a round after the throw. Suppose the distance from every friendly stone $m_i$ and opposite stone $n_i$ to the centre of house $c$ is denoted as *dist(~,c)*, the score is determined by the number of stones that satisfy:
+$$
+dist(m_i, c) \in (\min_i dist(n_i, c), \min_j dist(m_j, c)]
+$$
+The agent is trained to finish a task where different situations exist. For instance, when the agent is the lead, i.e. the first to play in a round, the goal of this task is essentially to learn the control of how to slide the stone to the house centre. When no opposite stone exists, the ideal strategy is to maximise the total score of all friendly stones. The priority changes if at least one opposite stone is closer to the centre, because the only way to win the round is to kick off the closest opposite first. Other strategies emerge with more stones on the sheet, where either approach gains advantage over the opposite. The learnt policy should deal with a generalised set of situations discussed.
+
+The agent is faced with a fully observed environment where the observation $O_t$ is a sufficient statistic for the state $S_t$. We consider the state of environment in a planar setting, while the physics is simulated completely. The observation space is totally defined by the rendered view of the state after a throw, which is a RGB matrix: $s_t \in \mathbb R^2$. We define the actions as choosing the initial force on the direction of both orthogonal axes: $a_t\in \mathbb R^2$. The Newton's law describes the correlation between acceleration and an external force as $F=ma$. In this special case, we assume that the duration of acceleration exerted on the stone is a constant $T$ throughout all the games. This process is constrained by the hog line, where the stone must be released.
+
+
+
+#### 3.2 Deterministic policy gradient
+
+
+
+#### 3.2 Related work
 
 deterministic policy gradient
 
@@ -167,7 +183,7 @@ observation:
 
 
 
-### 4. Implementation
+### 4. Implementation 1.5k
 
 This section introduces the overall architecture of implemented software and considerations in the development. The problem and algorithms used are well discussed in the last section, whose parameters will be discussed below.
 
@@ -181,7 +197,7 @@ We consider the environment to be consisted of three main objects: the self-cont
 
 The stones used by both teams are in the same form except colours. Geometrically, the stone is a short cylinder with rounded edges. The flat running surface at the bottom is about 3/4 of the outer diameter. We ignore the handle on real stones to build it in a regular shape. To improve the effectiveness of visual input, the friendly and opposite stones are painted with black and 50% grey materials which can be easily distinguished in the white background of the ice sheet. The weight of each stone is set to be about 18 kg. 
 
-The interactions between stones and environment are also confined within the simulator. The cue stone is programmed to be exerted with an initial push and a slight spin in each round. Due to the limitation of exact rotation simulation, we treat the spin as a random noise that out of the control of an agent. Thus the action space only considers initial velocity on the direction of orthogonal axis as a controllable task. The state of environment is rendered visually by the internal Bullet engine. We use a bird view camera to observe the entire curling court. The rendered image is then pre-processed as the 2-dimensional visual input of the model. 
+The interactions between stones and environment are also confined within the simulator. The cue stone is programmed to be exerted with an initial push and a slight spin in each round. Due to the limitation of exact rotation simulation, we treat the spin as a random noise that out of the control of an agent. Thus the action space only considers initial velocity on the direction of orthogonal axes as a controllable task. The state of environment is rendered visually by the internal Bullet engine. We use a bird view camera to observe the entire curling court. The rendered image is then pre-processed as the 2-dimensional visual input of the model. 
 
 Other standing stones are randomly positioned on the path to the house behind the hog line, i.e. the legitimate scoring zone. The number of stones on the sheet vary from 0 to 10, indicating different states that a player might face in the game. A clear curling sheet means the goal is simply to figure out how to throw the stone to the centre of house. A more complex scenario with stones from both sides incurs strategies of a single throw. The stone can be used to *promote* another friendly stone or knock out the enemies. Notice that common strategies in real-world curling include playing guardian stones that can protect scoring stones in the house from opposites. Such adversarial move is a result of continuous competitive game, which is ignored in the single round curling play. 
 
@@ -189,9 +205,40 @@ Other standing stones are randomly positioned on the path to the house behind th
 
 #### 4.2 Gym Environment
 
-Such simulation environment requires an interface with the control algorithm. Gym is a Python toolkit with a collection of standardised open environments that are suitable for comparing and developing reinforcement learning algorithms. It also provides a unified API for customised environments, which enables testing and building of a specified environment with PyBullet. We build the curling environment following the standard architecture of Gym. The models 
+Such simulation environment requires an interface with the control algorithm. Gym is a Python toolkit with a collection of standardised open environments that are suitable for comparing and developing reinforcement learning algorithms. It also provides a unified API for customised environments, which enables testing and building of a specified environment with PyBullet. We build the curling environment following the standard architecture of Gym. The model files are integrated into the module first. Apart from builder function, additional functions including *step*, *reset* and *render* are required in the Gym API. 
+
+We first initialise the environment by connecting to the PyBullet engine. Current software does not require a GUI for connection, where all the settings are available through scripts. Then we adjust the camera view of the environment. The default camera is fixed above the origin in the coordinate system with a straight down angle. The distance to the surface is fine tweaked so that the whole environment can be approximated as a 2-dimensional input. 
+
+Every environment comes with an action space and an observation space. They describe the format of valid actions and observations at each step. In a continuous control reinforcement learning environment, we define the n-dimensional box as an invariant attribute to the problem space. 
 
 
 
-### 5. Experiment
+The *step* function controls all the interactions at each step.
 
+
+
+The *render* function generates the RGB visual output of the current state.
+
+
+
+
+
+### 5. Experiment 1k
+
+
+
+
+
+### 6. Discussion 1k
+
+
+
+
+
+### 7. Conclusion .3k
+
+
+
+
+
+### 0. References
