@@ -2,13 +2,15 @@
 
 
 
-## Abstract .2k
+## Abstract 220
 
-The problem that this project aims to solve is one of the task completion for intelligent agents in a tabletop environment. In the context of a practical setting, the agent learns to play curling on the surface with an improved control policy when observing the environment. Works in the project is intended to explore the application of various theoretical approaches in the field of reinforcement learning. The method proposed here takes in the rendered observation of environment directly as pixel input, and learn through deep neural networks end-to-end with returned policies. To simulate physics and conduct the experiments, we uses PyBullet engine as an simulated environment with models of objects. Curling game play involves continuous control over the agent. The algorithm used for the task needs to update agent's deterministic policy for the given scenarios to improve convergence. During the training process, the agent is enabled to learn from past experiences of play to update current policies using a memory buffer. We propose a model with an *actor-critic* architecture, integrating the deep deterministic policy gradient method with a memory layer. We show that our model can be successfully applied on the curling game play task and other classic reinforcement learning tasks. Comparing with existing state-of-the-art methods, the result indicates the improvement in stability and generalisation due to the proposed modification.
+The problem that this project aims to solve is one of the task completion for intelligent agents in a tabletop environment. In the context of a practical setting, the agent learns to play curling on the surface with an improved control policy when observing the environment. Works in the project is intended to explore the application of various theoretical approaches in the field of reinforcement learning. The method proposed here takes in the rendered observation of environment directly as pixel input, and learn through deep neural networks end-to-end with returned policies. To simulate physics and conduct the experiments, we uses PyBullet engine as an simulated environment with models of objects. Curling game play involves continuous control over the agent. The algorithm used for the task needs to update agent's deterministic policy for the given scenarios to improve convergence. During the training process, the agent is enabled to learn from past experiences of play to update current policies using a memory buffer. We propose an application with an *actor-critic* architecture, integrating the deep deterministic policy gradient method with substantial improvements over existing issues. We show that our model can be successfully applied on the curling game play task like other classic reinforcement learning tasks. Comparing with existing state-of-the-art methods, the result indicates the improvement in stability and generalisation due to the proposed modification.
+
+####
 
 
 
-## Introduction 1k
+## 1. Introduction 936
 
 The problem of agent control often involves the interaction with the environment. The goal here is to make good sequential decisions of actions given arbitrary situation of the environment. It is natural to consider both the agent and the environment where it locates when control problem is to be solved. However, from the agent's perspective, the mechanics behind the world is often not known or incomplete, which makes it inapplicable for planning and prediction tasks. Instead, the agent needs a *try-and-error* approach to learn from interactions with the environment, improving its own knowledge of the environment and how to choose actions next time. It is proved that agent is guaranteed to improve the control through learning.
 
@@ -22,19 +24,19 @@ The task of curling considered in the project is simplified to be a single round
 
 Recent advances in deep neural network makes it possible to learn the control policy directly from sensory inputs, such as high-dimensional visual data. Deep multi-layer perceptrons are capable of extracting high-level representations of the original data, which make hand-picked features obsolete. In order to learn end-to-end, we need to make use of the agent's observations of the environment to discover the optimal policy. However, reinforcement learning takes the try-and-error approach, which may incur unrecoverable repercussions in physical experiments. On the other hand, the captured vision or speech is often too noisy to use for learning task. We avoid these obstacles by using a simulated environment in PyBullet, where all the physics are handled with by the engine and visuals are rendered as the final output. Most parts of the software will be implemented in this ecosystem.
 
-We incorporate the learning process into the conduction of project. The first phase of this project is devoted to learn  
-
 This project is intended to solve the problem of curling game play using deep reinforcement learning. This report first establishes the theoretical ground of using such technique, and concludes the previous related work for comprehensive insights. Then, we formulate the state-of-the-art solution for similar problems and show that practical improvements are required for this specific task. The implementation of the whole architecture is discussed in detail. We later present the experiments of the proposed algorithms and compare it with existing variants. We finally evaluate the results in depth and validate the proposed methods. The software developed so far in this project is able to visualise the process of training and simulations. The performance of the algorithm is proved to be stable and outperform the average human player.
 
 
 
-## Theory 2k
+
+
+## 2. Preliminaries 1940
 
 In this section, we introduce the preliminaries needed to formulate both the problem and solutions in reinforcement learning.
 
 
 
-#### 2.1 Reinforcement Learning
+### 2.1 Reinforcement Learning
 
 In a reinforcement learning paradigm, we consider the control task of the cue stone interacting with the environment of a curling court. The agent can be thought as a self-controllable intelligent stone or an external robotic arm that exerts an initial push on it. In either case, at each time step $t$, the agent selects an action from the space of all legit actions $a_t \in\mathcal A$, given the current state $s_t \in \mathcal S$. Since the internal state of the environment is not known to the agent, we treat the observation of the simulated environment $\mathcal O$, which is rendered from a stationary point of view, as a full representation of the state. As a response to the agent, the emulator then emits a reward $R_t$ and the new state $s_{t+1}$ after receiving the action-state pair. A basic representation of reinforcement learning can be given as a tuple:
 $$
@@ -48,7 +50,7 @@ Here $\gamma$ is a discount parameter applied to every consequent reward in the 
 
 
 
-#### 2.2 Markov Decision Process
+### 2.2 Markov Decision Process
 
 We next formulate the environment of reinforcement learning with Markov decision process. A state is considered Markov if and only if the current state captures all relevant information from the history. It means that given the current state, to predict the future states, all the previous history can be thrown away. In the form of a conditional probability, the next state is independent of past history:
 $$
@@ -69,7 +71,7 @@ $$
 
 
 
-#### 2.3 Value Functions
+### 2.3 Value Functions
 
 Recall that the purpose of an agent in reinforcement learning is to maximise the expected value of the total reward. We can formulate the state-value function of a state $s$ under a policy $\pi$ as the expected return starting from the current state, following policy $\pi$:
 $$
@@ -87,15 +89,15 @@ Here the expectation of the action-value given the current state-action pair is 
 
 Temporal-difference learning is a policy evaluation method that can learn from incomplete sequences without the model of Markov decision process. It explores the Markov property of states using bootstrapping and sampling simultaneously. Like the Monte Carlo method, TD learning uses sampled episodes instead of an exhaustive search to approximate the expectation term in the equation, in which a full process is explored until the terminal state. TD learning is also bootstrapping, which enables it to learn from incomplete episodes even without the final outcome. The main idea is to update the functions towards another belief of the state. Consider the simplest variant TD(0), the algorithm updates the value function $V(s_t)$ online towards an estimated return at the next time-step:
 $$
-V(S_t)\larr V(S_t)+\alpha(R_{t+1}+\gamma V(S_{t+1})-V(S_t))
+V(s_t)\larr V(s_t)+\alpha(R_{t+1}+\gamma V(s_{t+1})-V(s_t))
 $$
-Here $R_{t+1}+\gamma V(S_{t+1})$ is the TD target, $\alpha$ is the step parameter, which ensures continuous update towards the TD target. It can be proved that TD(0) converges to solution of maximum likelihood estimate of Markov model that best fit the data. Temporal-difference learning introduces bias to the estimate but lowers the total variance, because the TD target only depends on one state transition and reward. It is also a much cheaper online update scheme in large scale problems.
+Here $R_{t+1}+\gamma V(S_{t+1})$ is the TD target, $\alpha$ is the step parameter, which ensures continuous update towards the TD target. It can be proved that TD(0) converges to solution of maximum likelihood estimate of Markov model that best fit the data. Temporal-difference learning introduces bias to the estimate but lowers the total variance, because the TD target only depends on one state transition and reward, which can be a result of poor state representation. It is also a much cheaper online update scheme in large scale problems. TD learning accelerates the process of learning by exploiting the state property of a Markov decision process.
 
 
 
-#### 2.4 Q-learning
+### 2.4 Q-learning
 
-It is essential for the agent to improve the policy starting from an initial action. Basically, the agent first needs to evaluate the policy, then updates it iteratively towards the best policy. For any Markov decision process, there always exist one or multiple policy $\pi^*$ that is no worse than any other policies. In general policy iteration processes, the optimal policies are guaranteed to achieve the optimal action-value. This gives us the description of optimal action-value function in Bellman equation:
+It is essential for the agent to improve the policy starting from an initial action. It is necessary for the agent first to evaluate the policy, then updates it iteratively towards the best policy. For any Markov decision process, there always exist one or multiple policy $\pi^*$ that is no worse than any other policies. In general policy iteration processes, the optimal policies are guaranteed to achieve the optimal action-value. This gives us the description of optimal action-value function in Bellman equation:
 $$
 Q^*(s,a) = \mathbb E[r(s,a) + \gamma\max_{a'} Q^*(s',a')]
 $$
@@ -103,13 +105,15 @@ If we can solve $Q^*(s,a)$, we can solve the optimal policy by directly assignin
 $$
 a^*(s) = \arg\max_aQ^*(s,a)
 $$
-Off-policy learning method promises usage of data collected at any time step during training for update. One of the most famous algorithm in this family is Q-learning or Sarsa-max. Basically, the aim is to learn an approximated optimal action-value function $Q_\theta(s,a)\approx Q^*(s,a)$, which is able to generalise to unseen states. It uses an objective function based on mean squared Bellman equation error. In a TD learning update, the Q-learning target is simply to be the next action that maximises the action-value in next states: $r(s,a) + \max_a'\gamma $
+Off-policy learning method promises usage of data collected at any time step during training for update. One of the most famous algorithm in this family is Q-learning or Sarsa-max. Basically, the aim is to learn an approximated optimal action-value function $Q_\theta(s,a)\approx Q^*(s,a)$, which is able to generalise to unseen states. It uses an objective function based on mean squared Bellman equation error. In a TD learning update, the Q-learning target is simply to be the next action that maximises the action-value in next states: $r(s,a) + \gamma\max_{a'} Q^*(s',a')$. The TD control of Q-learning is thus a fixed step update to the target:
+$$
+Q(s,a) = Q(s,a) +\alpha[r(s,a)+\gamma\max_a Q(s',a) - Q(s,a)]
+$$
+Q-learning directly learns the optimal approximated action-value function independent of the policy it followed. This property enables faster convergence of the process. Here the maximisation over an estimate is considered equivalent to an estimate of the maximum value. We show in later sections that this introduces a positive bias in many cases and causes an systematic over-estimation of the action value.
 
 
 
-#### 2.5 Policy Gradient
-
-Last section concludes the modelling of a tabular representation of reinforcement learning problems. The whole process is stored as pairs of state and action, where the value of each state is calculated individually. Recent development in sensory data processing requires an efficient architecture for large-scale problem solving. It is common to approximate the functions with parameters, such as linear functions and neural networks, to generalise the problem from known states to unseen states.   
+### 2.5 Policy Gradient
 
 Value-based policy iteration improves the policy by acting with respect to the value function. Alternatively, we can directly learn the parameterised policy. In many occasions, value-based policy iteration approaches are unstable to converge to the optimal policy due to the sparse value distribution. The values are not reliable to learn the target policy when stochastic decision making is needed. Moreover, value-based policy improvement cannot effectively model actions in high-dimensional or continuous spaces. Policy-based reinforcement learning promises an optimisation problem over the whole action space. On the other hand, the evaluation of policy is often inefficient and introduces high variance in the process.
 
@@ -129,23 +133,15 @@ Here $Q^{\pi_\theta}(s,a)$ is a long-term value for the policy. Policy gradient 
 
 
 
-#### 2.6 Actor-Critic
+
+
+## 3. Method 2k
+
+We next formulate the curling play problem and iterate over the learning approach with further exploration into state-of-the-art algorithms towards the objective.
 
 
 
-#### 2.7 Deep Q-network
-
-Cnn
-
-
-
-### 3. Method 2k
-
-We next formulate the curling play problem and improve the learning approach with further research into the objective.
-
-
-
-#### 3.1 Problem Formulation
+### 3.1 Problem Formulation
 
 The problem of curling game play generally deals with the task of sliding a cue stone towards a target area in a controlled manner. The stone is initially stationed at the centre of a house. The goal of the task is to achieve the highest score in another house on the sheet of ice. Curling is a game played by two teams of players, which involves competition and cooperation consistently. We here simplify the case where only one throw is considered. The agent is aimed to learn the control policy for sliding the cue stone such that after the release, the trajectory of stone leads to a better score given the current scenario on the ice. The scoring rules stipulate that the score of the winning team in each round is the number of stones closer to the centre of house than the opponent's closest stone. Since the score on the court is determined before the throw, the goal of the agent is equivalent to achieving the most score after one throw. Each team takes turn to play 8 stones in a round. Thus there are no more than 15 stones on the sheet for the agent. When the team with the closest stone wins, the other team scores 0. However, we can still differentiate the result with the advantage and loss in scores over the opposite team. The goal is thus to maximise the difference of scores in a round after the throw. Suppose the distance from every friendly stone $m_i$ and opposite stone $n_i$ to the centre of house $c$ is denoted as *dist(~,c)*, the reward $R_t\in[-8,8]$ is determined by the number of stones that satisfy:
 $$
@@ -155,19 +151,11 @@ The agent is trained to finish a task where different situations exist. For inst
 
 The agent is faced with a fully observed environment where the observation $O_t$ is a sufficient statistic for the state $S_t$. We consider the state of environment in a planar setting, while the physics is simulated completely. The observation space is totally defined by the rendered view of the state after a throw, which is a RGB matrix: $s_t \in \mathbb R^2$. We define the actions as choosing the initial force on the direction of both orthogonal axes: $a_t\in \mathbb R^2$. The Newton's law describes the correlation between acceleration and an external force as $F=ma$. In this special case, we assume that the duration of acceleration exerted on the stone is a constant $T$ throughout all the games. This process is constrained by the hog line, where the stone must be released.
 
-Learning of such policy requires a deep representation of the visual input, and a continuous update in the action space. Given a processed input $\phi(s_t)$, we look for the optimal parameterised policy $\mu_\theta(\phi(s_t))$ that selects an action over a continuous space, which maximises the one-step reward $R_t$.
+Learning of such policy requires a deep representation of the visual input, and an effective convergence in the continuous action space. Given a processed input $\phi(s_t)$, we look for the optimal parameterised policy $\mu_\theta(\phi(s_t))$ that selects an action over a continuous space, which maximises the total return $G_t$.
 
 
 
-#### 3.2 Deep deterministic policy gradient
-
-Such control problem on a continuous space requires policy gradient methods to learn a deterministic policy that leads to convergence. Several defects make the vanilla Q-learning approach not applicable for this problem. First, the output of 
-
-
-
-
-
-#### 3.2 Related Work
+### 3.2 Related Work
 
 deterministic policy gradient
 
@@ -177,27 +165,64 @@ td3
 
 exploration
 
-action:  speed, direction, rotation
-
-time
-
-observation: 
+delayed frame
 
 
 
 
 
+### 3.3 Actor-Critic
+
+In section 2.4 and 2.5, two families of model-free reinforcement learning algorithms are introduced. They are used to deal with situations where the agent has no access to or the internal model of the environment, which is often the case in practice. Instead, the agent itself learns to improve the action selection with respect to the feedbacks received. Q-learning control methods learn to act according to action-value functions, which are often performed off-policy. Policy gradient methods directly optimise the policy it acts on. Optimisation of policy gradient requires an on-policy update, which only makes use of data collected under the most recent policy. 
+
+We must consider the trade-offs between Q-learning and policy optimisation paradigms. Agents following a Q-learning approach indirectly optimise the performance based on the comparisons of interpreted values. It causes failures or instability in many models, but learning off-policy is essential in many problems because it allows learning of different target policies, even those from other agents' experiences. Policy optimisation methods make use of the gradient of policy to directly improve the final output. This optimisation approach is widely used in the paradigm of supervised machine learning  and proved to be reliable in most cases. It is opportune to inherit both the sample efficiency from Q-learning and stability from policy optimisation methods.
+
+Actor-critic algorithm is an framework that integrates value-based evaluation to policy gradient methods. At the first step, we represent the policy $\pi(a|s,\theta)$ as a differeentiable parameterised distribution of action-state pairs. To address the variance in policy gradient optimisation, we can also estimate the action-value function under parameterised policy $\pi_\theta$ using a critic: $Q_w(s,a)\approx Q^{\pi_\theta}(s,a)$. A critic is the supervisor that review the performance of a modelled task. It is responsible of the job to update the parameters of action-value function $\mathbf w$ with respect to the TD target $\delta$ following the value-based approach. We then define an actor that updates the parameters of our policy in the direction suggested by the critic. This follows one step of gradient ascent as in policy-based methods. Two general update rules of an actor-critic architecture over two parameters $\mathbf w, \mathbf \theta$ are given below:
+$$
+\delta = r + \gamma Q(s',a') - Q(s,a)\\ \theta \larr \theta +\alpha\nabla_\theta\log\pi_\theta(s,a)\delta \\ w\larr w+\beta\delta Q_w(s,a)
+$$
+Here $\alpha, \beta$ are the step size for two updates, respectively. Actor-critic follows an approximated policy gradient in the form of an expectation, which allows stochastic gradient methods and efficient sampling. The difference in policy parameters is proportional to the error term suggested by the critic. In many cases, the action-value function can be replaced by a baseline function. Actor-critic provides a better approach for the convergence of optimisation. 
+
+
+
+### 3.4 Deep Reinforcement Learning
+
+Last sections conclude the modelling of a tabular representation of reinforcement learning problems. The whole process is stored as pairs of state and action, where the value of each state is calculated individually. Recent development in sensory data processing requires an efficient architecture for large-scale problem solving. It is common to approximate the functions with parameters, such as linear functions and neural networks, to generalise the problem from known states to unseen states.
+
+Recent development in deep neural network introduces new approaches to reinforcement learning. In this project, we use MLP as a non-linear function approximator of state-value function. A feedforward neural network was first proved to be an universal approximator by Cybenko in 1989. It means that a multi-layer perceptron with at least one hidden layer is able to represent any mapping from the input data to an output. This is achieved by introducing non-linear transformation with an activation function. The value of a neuron is the weighted sum of the values in previous layer with a local bias. The output is then activated and used for further feedforward update. A multi-layer perceptron (MLP) with activation function $\phi$ can be represented by weight matrices $W_h, W_o$ and arrays of bias $b_h, b_o$ of the hidden layer and output layer, respectively:
+$$
+\mathbf {H = \phi(XW_h + b_h) \\
+O = HW_o+b_o}
+$$
+The goal of this project is to solve the reinforcement learning problem end-to-end. We connect the processing of input data and the reinforcement learning algorithm together, which returns the optimised policy after episodes of training. Inspired by computer vision, the RGB rendered image is filtered through a convolutional network as the pixel input. Convolutional filters slide over all spatial locations of an visual input and returns multiple activation maps. It is able to extract the local correlation of the image and keep a representation of details. The ConvNet architecture consists of a 2d convolutional layer, a rectified linear unit (ReLU) activation and a fully-connected layer. The ReLU activation removes negative values in pixels by replacing it with $max(0, w_hx_i+b_h)$, which solves the problem of vanishing gradient. The input is then fed into the policy network for optimisation. Learning end-to-end requires no hand-picked features or iteration of inference structure. It drastically accelerates the development and inference of a reinforcement learning model.
+
+Deep Q-learning is one of the most famous application of such architecture in an Atari game environment. It reads the input directly from frames of screen and preprocesses the state representation for optimisation. A deep Q-network is used to represent the action-value function $Q_\theta$. DQN proposes a novel memory replay mechanic to improve the data efficiency. In every episode, a state transition $s\rarr s'$ is stored into a memory buffer $\mathcal D$ once finished in simulation, represented by a quadruple $[s_t,a_t,r_t,s_{t+1}]$. At each iteration, we apply the Q-learning update using samples of experience stored in the memory. At every time-step, the action is selected with respect to the Bellman optimality equation. Exploration in deep Q-learning is maintained by an epsilon-greedy policy, where with a small probability $\epsilon$, a random action is chosen over the optimal one. In non-terminal states, the objective is calculated as the Bellman error: $r+\gamma\max_{a'}Q_\theta(s',a')-Q_\theta(s,a)$. The variance introduced by the up-to-date parameters at each step may impair the stability of the architecture. Instead, DQN implements a target network with delayed but fixed parameters $\theta_{targ}$, which the target is then updated to. For every $\tau$ steps, parameters on the Q-network are copied onto the target network periodically. The final action-value of each discrete action is yielded seperately after a single forward pass.
+
+
+
+### 3.5 Deep Deterministic Policy Gradient
+
+Deep Q-learning proposes the 
+
+We consider deep deterministic policy gradient algorithm to solve the problem. 
+
+Spinup 
+
+
+
+### 3.5 Twin Delayed DDPG
 
 
 
 
-### 4. Implementation 1.5k
+
+## 4. Implementation 1.5k
 
 This section introduces the overall architecture of implemented software and considerations in the development. The problem and algorithms used are well discussed in the last section, whose parameters will be discussed below.
 
 
 
-#### 4.1 PyBullet Simulation
+### 4.1 PyBullet Simulation
 
 We first present the construction of a reinforcement learning environment in PyBullet. Bullet is a physics simulation engine which is widely used for games, robotics and reinforcement learning. Newest version of the engine provides a simplified API in Python. The engine plays a key role in simulation and rendering in this project. No graphical user interface is supported in the control of software developed in this project.
 
@@ -211,7 +236,7 @@ Other standing stones are randomly positioned on the path to the house behind th
 
  
 
-#### 4.2 Gym Environment
+### 4.2 Gym Environment
 
 Such simulation environment requires an interface with the control algorithm. Gym is a Python toolkit with a collection of standardised open environments that are suitable for comparing and developing reinforcement learning algorithms. It also provides a unified API for customised environments, which enables testing and building of a specified environment with PyBullet. We build the curling environment following the standard architecture of Gym. The model files are integrated into the module first. Apart from builder function, additional functions including *step*, *reset* and *render* are required in the Gym API. 
 
@@ -229,9 +254,11 @@ The *render* function generates the RGB visual output of the current state.
 
 
 
+Preprocessing
 
 
-### 5. Experiment 1k
+
+## 5. Experiment 1k
 
 keep vs repositioning
 
@@ -241,16 +268,22 @@ td3 vs sac
 
 
 
-### 6. Discussion 1k
+## 6. Discussion 1k
+
+normal method
+
+Deadly triad
+
+Memory
+
+Self-play
+
+
+
+## 7. Conclusion .3k
 
 
 
 
 
-### 7. Conclusion .3k
-
-
-
-
-
-### 0. References
+## 0. References
