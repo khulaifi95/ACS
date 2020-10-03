@@ -2,7 +2,7 @@
 
 
 
-## Abstract 220
+## Abstract
 
 The problem that this project aims to solve is one of the task completion for intelligent agents in a tabletop environment. In the context of a practical setting, the agent learns to play curling on the surface with an improved control policy when observing the environment. Works in the project is intended to explore the application of various theoretical approaches in the field of reinforcement learning. The method proposed here takes in the rendered observation of environment directly as pixel input, and learn through deep neural networks end-to-end with returned policies. To simulate physics and conduct the experiments, we uses PyBullet engine as an simulated environment with models of objects. Curling game play involves continuous control over the agent. The algorithm used for the task needs to update agent's deterministic policy for the given scenarios to improve convergence. During the training process, the agent is enabled to learn from past experiences of play to update current policies using a memory buffer. We propose an application with an *actor-critic* architecture, integrating the deep deterministic policy gradient method with substantial improvements over existing issues. We show that our model can be successfully applied on the curling game play task like other classic reinforcement learning tasks. Comparing with existing state-of-the-art methods, the result indicates the improvement in stability and generalisation due to the proposed modification.
 
@@ -10,7 +10,7 @@ The problem that this project aims to solve is one of the task completion for in
 
 
 
-## 1. Introduction 936
+## 1. Introduction
 
 The problem of agent control often involves the interaction with the environment. The goal here is to make good sequential decisions of actions given arbitrary situation of the environment. It is natural to consider both the agent and the environment where it locates when control problem is to be solved. However, from the agent's perspective, the mechanics behind the world is often not known or incomplete, which makes it inapplicable for planning and prediction tasks. Instead, the agent needs a *try-and-error* approach to learn from interactions with the environment, improving its own knowledge of the environment and how to choose actions next time. It is proved that agent is guaranteed to improve the control through learning.
 
@@ -30,7 +30,7 @@ This project is intended to solve the problem of curling game play using deep re
 
 
 
-## 2. Preliminaries 1940
+## 2. Preliminaries
 
 In this section, we introduce the preliminaries needed to formulate both the problem and solutions in reinforcement learning.
 
@@ -135,7 +135,7 @@ Here $Q^{\pi_\theta}(s,a)$ is a long-term value for the policy. Policy gradient 
 
 
 
-## 3. Method 2.5k
+## 3. Method
 
 We next formulate the curling play problem and iterate over the learning approach with further exploration into state-of-the-art algorithms towards the objective.
 
@@ -157,19 +157,15 @@ Learning of such policy requires a deep representation of the visual input, and 
 
 ### 3.2 Related Work
 
-see paper
+The temporal-difference learning method with function approximation is one of the most important development in reinforcement learning. With a linear function approximator, the TD learning is proved to converge over the horizon of a Markov process. Policy gradient method proposed by Sutton sets down the ground for families of modern RL algorithms, especially in continuous action space. Actor-critic methods follow a generalised policy iteration. The architecture evolves with different definition of actor and critic.
 
-deterministic policy gradient
+The use of convolutional neural network to extract information from images is a great breakthrough in the domain of deep learning. A ConvNet structure is commonly used in computer vision and voice recognition problems, consisted of a convolutional filter, a ReLU activation and a fully-connected layer. The first deep Q-learning method is applied in an Atari game environment. Such artefact has low resolution visual output, which is easy to learn an approximator using neural network. 
 
-ddpg
+A recent work applies the deep Q-learning method to improve the striking accuracy in air hockey. The control task of strike follows a customised reward based on properties of the hit puck. It discretises the action space using a sampled 2-dimensional grid to follow the DQN scheme. 
 
-td3
+The Q-learning algorithm uses a greedy maximisation step to select the action. It is widely known to over-estimate the action values in many situations. Many previous work address the systematic problem arised in their environments. Further investigation proves that it exists in deep Q-learning and actor-critic algorithms. 
 
-exploration
-
-delayed frame
-
-
+Recent researches incorporate the evolution strategies into the RL problem. They enable a parallelised learning process over different targets. The development of GPU computation makes it a suitable optimisation scheme for large-scale problems.
 
 
 
@@ -254,7 +250,7 @@ The pseudocode of TD3 algorithm used in the experiment is listed below:
 
 
 
-## 4. Implementation 1.5k
+## 4. Implementation 1289
 
 This section introduces the overall architecture of implemented software and considerations in the development. The problem and algorithms used are well discussed in the last section, whose parameters will be discussed below.
 
@@ -300,21 +296,23 @@ We construct the DDPG and TD3 algorithms using PyTorch architecture. It provides
 
 
 
-## 5. Experiment .5k
+## 5. Experiment
 
-keep vs repositioning
+In this section, we evaluate the proposed algorithm and present valuable results of design decisions.
 
-one round vs competition
+We first compare the performance of TD3 algorithm against DDPG and other state-of-the-art policy gradient algorithms in different environments. The benchmark environments used in the experiment are included in the default collections of the gym environment. Among them, Swimmer is a continuous task to teach a 2-dimensional robot to swim, while Walker2d-v2 is to make a 2-dimensional robot walk. Ohter policy-based approaches include a baseline policy gradient, proximal policy optimisation, soft actor-critic and trust region policy optimisation. All of them are popular variants to policy gradient in recent years and can be applied to continuous control problems. 
 
-td3 vs ddpg
+All the algorithms are tested in both environments with fixed random seeds for 10 rounds in 3 million time-steps. As shown in the figure, the averaged value is represented as coloured solid lines, while the standard deviation is represented as the shaded area. For the off-policy algorithms, we just run the deterministic policy directly with no noise for 10 episodes. The score performance of on-policy algorithms is the averaged total return on a trajectory across epoches of training. We unify the architectures of networks used in these algorithms. Suggested by the hyperparameters provided in papers, the networks of on-policy algorithms are of size (64,32), which is activated by *tanh* units. The off-policy algorithms use networks in a size of (256, 256) with ReLU activation. All the other hyperparameters follow the implementation in *spinup* module, including a batch size of 4000 steps.
 
-Paper ddpg td3
+In the Walker2d-v2 environment, the performance following the deterministic policy learnt by TD3 is much better than other algorithms except for soft actor-critic. The possible reason could be the sparse reward requires more efficient exploration over the entire space. However in the Swimmer environment, the score of TD3 is much less than DDPG method. We assume it is because the trade-off for stability at the cost of performance.
+
+We now apply the algorithm to the customised curling game play environment. One operation in the first implementation is to reset the current environment and reinitialise objects on the ice sheet. This original setting makes states independent to the each other, which may cause generalisation problems to the learnt policy. We test the performance of proposed approach with and without this step. The hyper-parameters and the architecture of networks remain the same in both groups, where only one group applies state reset. This comparison utilises the same evaluation metrics as in the algorithm competitors test. The values in table 2 suggest that learning on correlated states are beneficial to policy optimisation. The experience memory is capable of breaking the correlation while making use of the Markov property by mini-batch sampling.
+
+The results of these experiments show that the applied TD3 algorithm for curling game play is of good stability and generalisation performance. 
 
 
 
-
-
-## 6. Discussion 693
+## 6. Discussion
 
 We reflect on the conduction of this project in this section and discuss potential future developments to the current implementation.
 
@@ -328,7 +326,7 @@ An ideal formulation of curling game play should consider the competition betwee
 
 
 
-## 7. Conclusion 244
+## 7. Conclusion
 
 This project solves a task for the controllable agent to play curling in a simulated tabletop environment. We formulate the problem in a deep reinforcement learning model with variants in different settings. The agent progressively learns the control policy of the curling stone in the face of countless scenarios on the ice sheet. This project is aimed to explore the enormous research field of deep reinforcement learning for continuous control tasks. The proposed method applies twin delayed deep deterministic policy gradient method to a customised environment built in PyBullet simulator. The whole research process is established from the basis of reinforcement learning to state-of-the-art algorithms. Several modifications are conducted to suit the special case of this environment. The agent is able to learn end-to-end from the input rendered image for the purpose of maximisation of expected return. The internal model defined by the environment is in line with the rules of curling game, where rewards for the resulting states after collision are the difference in scores of both teams'. The results of experiments show that this approach is capable to generalise to variants of the formulated problems. This project is conducted with respect to a 12 weeks schedule. Although being interrupted by multiple accidents, it is considered to successfully complete the default objective. There is much room for improvement in the deep reinforcement learning researches. Future work is intended to explore the application of evolutionary strategy and meta learning in a RL setting.
 
@@ -337,3 +335,13 @@ This project solves a task for the controllable agent to play curling in a simul
 
 
 ## 0. References
+
+image
+
+table
+
+reference
+
+code
+
+Appendix
