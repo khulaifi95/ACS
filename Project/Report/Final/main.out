@@ -1,11 +1,25 @@
 \BOOKMARK [1][-]{section.1}{Abstract}{}% 1
 \BOOKMARK [1][-]{section.2}{Introduction}{}% 2
-\BOOKMARK [1][-]{section.3}{Theory}{}% 3
-\BOOKMARK [1][-]{section.4}{Method}{}% 4
-\BOOKMARK [1][-]{section.5}{Implementation}{}% 5
-\BOOKMARK [1][-]{section.6}{Experiment}{}% 6
-\BOOKMARK [1][-]{section.7}{Discussion}{}% 7
-\BOOKMARK [1][-]{section.8}{Conclusion}{}% 8
-\BOOKMARK [1][-]{section*.2}{References}{}% 9
-\BOOKMARK [1][-]{section.9}{Appendix}{}% 10
-\BOOKMARK [2][-]{subsection.9.1}{Appendix I.}{section.9}% 11
+\BOOKMARK [1][-]{section.3}{Preliminaries}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Reinforcement Learning}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Markov Decision Process}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.3}{Value Functions}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.4}{Q-learning}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.5}{Policy Gradient}{section.3}% 8
+\BOOKMARK [1][-]{section.4}{Method}{}% 9
+\BOOKMARK [2][-]{subsection.4.1}{Problem Formulation}{section.4}% 10
+\BOOKMARK [2][-]{subsection.4.2}{Related Work}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.3}{Actor-Critic}{section.4}% 12
+\BOOKMARK [2][-]{subsection.4.4}{Deep Reinforcement Learning}{section.4}% 13
+\BOOKMARK [2][-]{subsection.4.5}{Deep Deterministic Policy Gradient}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.6}{Twin Delayed DDPG}{section.4}% 15
+\BOOKMARK [1][-]{section.5}{Implementation}{}% 16
+\BOOKMARK [2][-]{subsection.5.1}{PyBullet Simulation}{section.5}% 17
+\BOOKMARK [2][-]{subsection.5.2}{Gym Environment}{section.5}% 18
+\BOOKMARK [2][-]{subsection.5.3}{Algorithms}{section.5}% 19
+\BOOKMARK [1][-]{section.6}{Experiment}{}% 20
+\BOOKMARK [1][-]{section.7}{Discussion}{}% 21
+\BOOKMARK [1][-]{section.8}{Conclusion}{}% 22
+\BOOKMARK [1][-]{section*.2}{References}{}% 23
+\BOOKMARK [1][-]{section.9}{Appendix}{}% 24
+\BOOKMARK [2][-]{subsection.9.1}{Appendix I.}{section.9}% 25
