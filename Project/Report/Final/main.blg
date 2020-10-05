@@ -3,44 +3,69 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: agsm.bst
 Database file #1: mybib.bib
-You've used 1 entry,
+Repeated entry---line 84 of file mybib.bib
+ : @misc{pg
+ :         ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "pybullet"
+Name 1 in "John N. Tsitsiklis, Member, IEEE, and Benjamin Van Roy" has a comma at the end for entry td
+while executing---line 2443 of file agsm.bst
+Name 1 in "John N. Tsitsiklis, Member, IEEE, and Benjamin Van Roy" has a comma at the end for entry td
+while executing---line 2443 of file agsm.bst
+Name 1 in "John N. Tsitsiklis, Member, IEEE, and Benjamin Van Roy" has a comma at the end for entry td
+while executing---line 2515 of file agsm.bst
+Name 1 in "John N. Tsitsiklis, Member, IEEE, and Benjamin Van Roy" has a comma at the end for entry td
+while executing---line 2523 of file agsm.bst
+Name 1 in "John N. Tsitsiklis, Member, IEEE, and Benjamin Van Roy" has a comma at the end for entry td
+while executing---line 2587 of file agsm.bst
+Name 1 in "John N. Tsitsiklis, Member, IEEE, and Benjamin Van Roy" has a comma at the end for entry td
+while executing---line 2587 of file agsm.bst
+Name 1 in "John N. Tsitsiklis, Member, IEEE, and Benjamin Van Roy" has a comma at the end for entry td
+while executing---line 2653 of file agsm.bst
+Warning--empty publisher in pytorch
+Name 1 in "John N. Tsitsiklis, Member, IEEE, and Benjamin Van Roy" has a comma at the end for entry td
+while executing---line 2691 of file agsm.bst
+Name 1 in "John N. Tsitsiklis, Member, IEEE, and Benjamin Van Roy" has a comma at the end for entry td
+while executing---line 2691 of file agsm.bst
+You've used 36 entries,
             2909 wiz_defined-function locations,
-            645 strings with 4988 characters,
-and the built_in function-call counts, 4635 in all, are:
-= -- 784
-> -- 24
+            752 strings with 8123 characters,
+and the built_in function-call counts, 134270 in all, are:
+= -- 21744
+> -- 1929
 < -- 0
-+ -- 371
-- -- 7
-* -- 386
-:= -- 935
-add.period$ -- 2
-call.type$ -- 1
-change.case$ -- 14
-chr.to.int$ -- 1
-cite$ -- 1
-duplicate$ -- 11
-empty$ -- 27
-format.name$ -- 9
-if$ -- 826
-int.to.chr$ -- 5
++ -- 10442
+- -- 591
+* -- 11347
+:= -- 27408
+add.period$ -- 36
+call.type$ -- 36
+change.case$ -- 503
+chr.to.int$ -- 31
+cite$ -- 37
+duplicate$ -- 407
+empty$ -- 946
+format.name$ -- 694
+if$ -- 23975
+int.to.chr$ -- 10
 int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 7
-num.names$ -- 10
-pop$ -- 8
+missing$ -- 2
+newline$ -- 111
+num.names$ -- 369
+pop$ -- 306
 preamble$ -- 1
-purify$ -- 15
+purify$ -- 540
 quote$ -- 0
-skip$ -- 11
+skip$ -- 413
 stack$ -- 0
-substring$ -- 1123
-swap$ -- 1
-text.length$ -- 14
+substring$ -- 30523
+swap$ -- 44
+text.length$ -- 504
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 4
-warning$ -- 0
-while$ -- 21
+type$ -- 144
+warning$ -- 1
+while$ -- 758
 width$ -- 0
-write$ -- 16
+write$ -- 418
+(There were 10 error messages)

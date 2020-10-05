@@ -1,9 +1,166 @@
 \begin{thebibliography}{xx}
 
-\harvarditem{{Department for Transport}}{2014}{RailExecutive14a}
-{Department for Transport}  \harvardyearleft 2014\harvardyearright , `{Rail
-  Trends, Great Britain 2013/14}', {Available:\\
-  \url{https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/363718/rail-trends-factsheet-2014.pdf}}.
-\newblock Online; accessed 10 July 2015.
+\harvarditem{Achiam}{2018}{spinup}
+Achiam, J.  \harvardyearleft 2018\harvardyearright , `{Spinning Up in Deep
+  Reinforcement Learning}'.
+
+\harvarditem{Antonsusi}{2010}{curlingmap}
+Antonsusi  \harvardyearleft 2010\harvardyearright , `Curlingsheet flip',
+  https://commons.wikimedia.org/w/index.php?curid=9968677.
+
+\harvarditem{authors}{2019}{dopa}
+authors, A.  \harvardyearleft 2019\harvardyearright , `Dopamine : A research
+  framework for deep reinforcement learning'.
+
+\harvarditem[Brockman et~al.]{Brockman, Cheung, Pettersson, Schneider,
+  Schulman, Tang \harvardand\ Zaremba}{2016}{gym}
+Brockman, G., Cheung, V., Pettersson, L., Schneider, J., Schulman, J., Tang, J.
+  \harvardand\ Zaremba, W.  \harvardyearleft 2016\harvardyearright , `Openai
+  gym'.
+
+\harvarditem{Cybenko}{1989}{ap}
+Cybenko  \harvardyearleft 1989\harvardyearright , `Approximation by
+  superpositions of a sigmoidal function'.
+
+\harvarditem{DeepMind}{2016}{cts}
+DeepMind  \harvardyearleft 2016\harvardyearright , `Unifying count-based
+  exploration and intrinsic motivation'.
+
+\harvarditem{DeepMind}{2017{\em a}}{meta}
+DeepMind  \harvardyearleft 2017{\em a}\harvardyearright , `L earning to
+  reinforcement learn'.
+
+\harvarditem{DeepMind}{2017{\em b}}{alphago}
+DeepMind  \harvardyearleft 2017{\em b}\harvardyearright , `Mastering chess and
+  shogi by self-play with a general reinforcement learning algorithm'.
+
+\harvarditem{DeepMind}{2017{\em c}}{rainbow}
+DeepMind  \harvardyearleft 2017{\em c}\harvardyearright , `Rainbow: Combining
+  improvements in deep reinforcement learning'.
+
+\harvarditem{DeepMind}{2017{\em d}}{acer}
+DeepMind  \harvardyearleft 2017{\em d}\harvardyearright , `Sample efficient
+  actor -critic with experience replay'.
+
+\harvarditem{dev}{2019}{pytorch}
+dev, P.  \harvardyearleft 2019\harvardyearright , Pytorch: An imperative style,
+  high-performance deep learning library, {\em in} `Advances in Neural
+  Information Processing Systems 32'.
+
+\harvarditem[Fujimoto et~al.]{Fujimoto, van Hoof \harvardand\ Meger}{2018}{td3}
+Fujimoto, S., van Hoof, H. \harvardand\ Meger, D.  \harvardyearleft
+  2018\harvardyearright , `Addressing function approximation error in
+  actor-critic methods'.
+
+\harvarditem[Haarnoja et~al.]{Haarnoja, Zhou, Abbeel \harvardand\
+  Levine}{2018}{sac}
+Haarnoja, T., Zhou, A., Abbeel, P. \harvardand\ Levine, S.  \harvardyearleft
+  2018\harvardyearright , `Soft actor-critic: Off-policy maximum entropy deep
+  reinforcement learning with a stochastic actor'.
+
+\harvarditem{Hausknecht \harvardand\ Stone}{2017}{drqn}
+Hausknecht, M. \harvardand\ Stone, P.  \harvardyearleft 2017\harvardyearright ,
+  `Deep recurrent q-learning for partially observable mdps'.
+
+\harvarditem{John N.~Tsitsiklis \harvardand\ Roy}{1997}{td}
+John N.~Tsitsiklis, Member, I. \harvardand\ Roy, B.~V.  \harvardyearleft
+  1997\harvardyearright , `An analysis of temporal-difference learning with
+  function approximation'.
+
+\harvarditem{Konda \harvardand\ Tsitsiklis}{2000}{ac}
+Konda, V.~R. \harvardand\ Tsitsiklis, J.~N.  \harvardyearleft
+  2000\harvardyearright , `Actor-critic algorithms'.
+
+\harvarditem[Lillicrap et~al.]{Lillicrap, Hunt, Pritzel, Heess, Erez, Tassa,
+  Silver \harvardand\ Wierstra}{2016}{ddpg}
+Lillicrap, T.~P., Hunt, J.~J., Pritzel, A., Heess, N., Erez, T., Tassa, Y.,
+  Silver, D. \harvardand\ Wierstra, D.  \harvardyearleft 2016\harvardyearright
+  , `Continuous control with deep reinforcement learning'.
+
+\harvarditem[Matheron et~al.]{Matheron, Perrin \harvardand\
+  Sigaud}{2019}{ddpgprob}
+Matheron, G., Perrin, N. \harvardand\ Sigaud, O.  \harvardyearleft
+  2019\harvardyearright , `The problem with ddpg: understanding failures in
+  deterministic environments with sparse rewards'.
+
+\harvarditem{Mnih}{2015}{atari}
+Mnih, V.  \harvardyearleft 2015\harvardyearright , `Playing atari with deep
+  reinforcement learning'.
+
+\harvarditem{Mnih}{2016}{a3c}
+Mnih, V.  \harvardyearleft 2016\harvardyearright , `Asynchronous methods for
+  deep reinforcement learning'.
+
+\harvarditem{OpenAI}{2017{\em a}}{es}
+OpenAI  \harvardyearleft 2017{\em a}\harvardyearright , `Evolution strategies
+  as a scalable alternative to reinforcement learning'.
+
+\harvarditem{OpenAI}{2017{\em b}}{vime}
+OpenAI  \harvardyearleft 2017{\em b}\harvardyearright , `Vime: Variational
+  information maximizing exploration'.
+
+\harvarditem{OpenAI}{2018{\em a}}{her}
+OpenAI  \harvardyearleft 2018{\em a}\harvardyearright , `Hindsight experience
+  replay'.
+
+\harvarditem{OpenAI}{2018{\em b}}{cdl}
+OpenAI  \harvardyearleft 2018{\em b}\harvardyearright , `Large-scale study of
+  curiosity-driven learning'.
+
+\harvarditem[Pathak et~al.]{Pathak, Agrawal, Efros \harvardand\
+  Darrell}{2017}{icm}
+Pathak, D., Agrawal, P., Efros, A.~A. \harvardand\ Darrell, T.
+  \harvardyearleft 2017\harvardyearright , `Curiosity-driven exploration by
+  self-supervised prediction'.
+
+\harvarditem[Schaul et~al.]{Schaul, Quan, Antonoglou \harvardand\
+  Silver}{2016}{per}
+Schaul, T., Quan, J., Antonoglou, I. \harvardand\ Silver, D.  \harvardyearleft
+  2016\harvardyearright , `P rioritized e xperience r eplay'.
+
+\harvarditem{Schulman, Levine, Moritz, Jordan \harvardand\ Abbeel}{2017}{trpo}
+Schulman, J., Levine, S., Moritz, P., Jordan, M. \harvardand\ Abbeel, P.
+  \harvardyearleft 2017\harvardyearright , `Trust region policy optimization'.
+
+\harvarditem{Schulman, Wolski, Dhariwal, Radford \harvardand\
+  Klimov}{2017}{ppo}
+Schulman, J., Wolski, F., Dhariwal, P., Radford, A. \harvardand\ Klimov, O.
+  \harvardyearleft 2017\harvardyearright , `Proximal policy optimization
+  algorithms'.
+
+\harvarditem{Silver}{2015}{ds}
+Silver, D.  \harvardyearleft 2015\harvardyearright , `Ucl reinforcement
+  learning lectures'.
+
+\harvarditem[Silver et~al.]{Silver, Lever, Heess, Degris, Wierstra \harvardand\
+  Riedmiller}{2014}{dpg}
+Silver, D., Lever, G., Heess, N., Degris, T., Wierstra, D. \harvardand\
+  Riedmiller, M.  \harvardyearleft 2014\harvardyearright , `Deterministic
+  policy gradient algorithms'.
+
+\harvarditem{Sutton \harvardand\ Mcallester}{2000}{pg}
+Sutton, R. \harvardand\ Mcallester, D.  \harvardyearleft 2000\harvardyearright
+  , `Policy gradient methods for reinforcement learning with function
+  approximation', {\em Adv. Neural Inf. Process. Syst} .
+
+\harvarditem{Sutton \harvardand\ Barto}{2018}{rl}
+Sutton, R.~R. \harvardand\ Barto, A.~G.  \harvardyearleft 2018\harvardyearright
+  , `Introduction to reinforcement learning'.
+
+\harvarditem{Szepesvári}{2009}{algorl}
+Szepesvaari, C.  \harvardyearleft 2009\harvardyearright , `Algorithms for
+  reinforcement learning'.
+
+\harvarditem{Taitler \harvardand\ Shimkin}{2017}{puck}
+Taitler, A. \harvardand\ Shimkin, N.  \harvardyearleft 2017\harvardyearright .
+
+\harvarditem[van Hasselt et~al.]{van Hasselt, Guez \harvardand\
+  Silver}{2015}{doubledqn}
+van Hasselt, H., Guez, A. \harvardand\ Silver, D.  \harvardyearleft
+  2015\harvardyearright , `Deep reinforcement learning with double q-learning'.
+
+\harvarditem{Wang}{2016}{dueldqn}
+Wang, Z.  \harvardyearleft 2016\harvardyearright , `Dueling network
+  architectures for deep reinforcement learning'.
 
 \end{thebibliography}

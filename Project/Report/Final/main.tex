@@ -140,23 +140,16 @@ Student ID: \bhamid\\
 \clearpage
 \phantomsection
 
-% Image
-%\begin{center}
-%    \includegraphics[scale=.25]{Signals-eps-converted-to.pdf}\\
-%    Figure 4.1: \textit{Reference Driver Machine Interface \citep{RailExecutive14a}}
-%\end{center}
-
-
 
 
 \section{Abstract}
 
-The problem that this project aims to solve is one of the task completion for intelligent agents in a tabletop environment. In the context of a practical setting, the agent learns to play curling on the surface with an improved control policy when observing the environment. Works in the project is intended to explore the application of various theoretical approaches in the field of reinforcement learning. The method proposed here takes in the rendered observation of environment directly as pixel input, and learn through deep neural networks end-to-end with returned policies. To simulate physics and conduct the experiments, we uses PyBullet engine as an simulated environment with models of objects. Curling game play involves continuous control over the agent. The algorithm used for the task needs to update agent's deterministic policy for the given scenarios to improve convergence. During the training process, the agent is enabled to learn from past experiences of play to update current policies using a memory buffer. We propose an application with an \textit{actor-critic} architecture, integrating the deep deterministic policy gradient method with substantial improvements over existing issues. We show that our model can be successfully applied on the curling game play task like other classic reinforcement learning tasks. Comparing with existing state-of-the-art methods, the result indicates the improvement in stability and generalisation due to the proposed modification.
+The problem that this project aims to solve is one of the task completion for intelligent agents in a tabletop environment. In the context of a practical setting, the agent learns to play curling on the surface with an improved control policy when observing the environment. Works in the project is intended to explore the application of various theoretical approaches in the field of reinforcement learning. The method proposed here takes in the rendered observation of environment directly as pixel input, and learn through deep neural networks end-to-end with returned policies. To simulate physics and conduct the experiments, we uses PyBullet \cite{pybullet} engine as an simulated environment with models of objects. Curling game play involves continuous control over the agent. The algorithm used for the task needs to update agent's deterministic policy for the given scenarios to improve convergence. During the training process, the agent is enabled to learn from past experiences of play to update current policies using a memory buffer. We propose an application with an \textit{actor-critic} architecture, integrating the deep deterministic policy gradient method with substantial improvements over existing issues. We show that our model can be successfully applied on the curling game play task like other classic reinforcement learning tasks. Comparing with existing state-of-the-art methods, the result indicates the improvement in stability and generalisation due to the proposed modification.
 \vspace{0.5cm}
 
 \section{Introduction}
 
-The problem of agent control often involves the interaction with the environment. The goal here is to make good sequential decisions of actions given arbitrary situation of the environment. It is natural to consider both the agent and the environment where it locates when control problem is to be solved. However, from the agent's perspective, the mechanics behind the world is often not known or incomplete, which makes it inapplicable for planning and prediction tasks. Instead, the agent needs a \textit{try-and-error} approach to learn from interactions with the environment, improving its own knowledge of the environment and how to choose actions next time. It is proved that agent is guaranteed to improve the control through learning.
+The problem of agent control often involves the interaction with the environment. The goal here is to make good sequential decisions of actions given arbitrary situation of the environment. It is natural to consider both the agent and the environment it locates when control problem is to be solved. However, from the agent's perspective, the mechanics behind the world is often not known or incomplete, which makes it inapplicable for planning and prediction tasks. Instead, the agent needs a \textit{try-and-error} approach to learn from interactions with the environment, improving its own knowledge of the environment and how to choose actions next time. It is proved that agent is always able to improve the control through learning.
 \newline
 \newline
 \noindent
@@ -181,6 +174,11 @@ Recent advances in deep neural network makes it possible to learn the control po
 \newline
 \noindent
 This project is intended to solve the problem of curling game play using deep reinforcement learning. This report first establishes the theoretical ground of using such technique, and concludes the previous related work for comprehensive insights. Then, we formulate the state-of-the-art solution for similar problems and show that practical improvements are required for this specific task. The implementation of the whole architecture is discussed in detail. We later present the experiments of the proposed algorithms and compare it with existing variants. We finally evaluate the results in depth and validate the proposed methods. The software developed so far in this project is able to visualise the process of training and simulations. The performance of the algorithm is proved to be stable and outperform the average human player.
+\vspace{2cm}
+\begin{center}
+    \includegraphics[scale=.15]{curling.png}\\
+    Figure 1: Curling sheet \cite{curlingmap}
+\end{center}
 
 \newpage
 \section{Preliminaries}
@@ -195,7 +193,7 @@ The reward $r_t$ is a feedback signal which indicates how well the agent is doin
 $$
 G_t = R_{t+1} + \gamma R_{t+2}, +\gamma^2 R_{t+3}+... = \sum_{k=0}^\infty\gamma^kR_{t+k+1}
 $$
-Here $\gamma$ is a discount parameter applied to every consequent reward in the future, where each component represents the present value of future rewards. We use the discounted version of the total reward for several reasons. First, it correctly models the uncertainty about the future in the process. It also incorporates the common preference of immediate reward over delayed ones. Lastly, it can avoid infinite returns for cyclic process.
+Here $\gamma$ is a discount parameter applied to every consequent reward in the future, where each component represents the present value of future rewards. We use the discounted version of the total reward for several reasons. First, it correctly models the uncertainty about the future in the process. It also incorporates the common preference of immediate reward over delayed ones. Lastly, it can avoid infinite returns for cyclic process. \cite{ds}
 \newline
 \newline
 \noindent
@@ -231,9 +229,9 @@ $$
 Q_\pi(s_t,a_t) = \mathbb E_\pi[R_{t+1} + \gamma\mathbb E_\pi [Q_\pi(s_{t+1}, a_{t+1})]]
 $$
 Here the expectation of the action-value given the current state-action pair is the backup of the complete transition, where every successor state is used in a sweep recursively until the end of episode. Although the Bellman update makes use of dynamic programming to reduce space complexity, it still causes huge cost of unnecessary memory. This requires a full backup of the entire process, including the knowledge of complete transitions and rewards. In practice, it is hardly known to the agent. Instead, the agent needs to learn from episodes of its experience.
-
+\vspace{0.25cm}
 \noindent
-Temporal-difference learning is a policy evaluation method that can learn from incomplete sequences without the model of Markov decision process. It explores the Markov property of states using bootstrapping and sampling simultaneously. Like the Monte Carlo method, TD learning uses sampled episodes instead of an exhaustive search to approximate the expectation term in the equation, in which a full process is explored until the terminal state. TD learning is also bootstrapping, which enables it to learn from incomplete episodes even without the final outcome. The main idea is to update the functions towards another belief of the state. Consider the simplest variant TD(0), the algorithm updates the value function $V(s_t)$ online towards an estimated return at the next time-step:
+Temporal-difference learning is a policy evaluation method that can learn from incomplete sequences without the model of Markov decision process. \cite{td} It explores the Markov property of states using bootstrapping and sampling simultaneously. Like the Monte Carlo method, TD learning uses sampled episodes instead of an exhaustive search to approximate the expectation term in the equation, in which a full process is explored until the terminal state. TD learning is also bootstrapping, which enables it to learn from incomplete episodes even without the final outcome. The main idea is to update the functions towards another belief of the state. Consider the simplest variant TD(0), the algorithm updates the value function $V(s_t)$ online towards an estimated return at the next time-step:
 $$
 V(s_t)\leftarrow V(s_t)+\alpha(R_{t+1}+\gamma V(s_{t+1})-V(s_t))
 $$
@@ -262,7 +260,7 @@ Q-learning directly learns the optimal approximated action-value function indepe
 Value-based policy iteration improves the policy by acting with respect to the value function. Alternatively, we can directly learn the parameterised policy. In many occasions, value-based policy iteration approaches are unstable to converge to the optimal policy due to the sparse value distribution. The values are not reliable to learn the target policy when stochastic decision making is needed. Moreover, value-based policy improvement cannot effectively model actions in high-dimensional or continuous spaces. Policy-based reinforcement learning promises an optimisation problem over the whole action space. On the other hand, the evaluation of policy is often inefficient and introduces high variance in the process.
 
 \noindent
-The key aspect of policy gradient is to essentially increase the probabilities of choosing actions leading to higher return, while lowering down the probabilities of choosing inferior actions. Policy gradient algorithms can be formed as an optimisation problem searching for a local maximum of a policy objective function. The quality of policy, or the scale of objective, is often related to the rewards in one episode. The gradient describes the direction and the magnitude of most effective ascent of one step update. Policy is updated online using gradient ascent with respect to the parameters. For an approximated policy $\pi_\theta$, with a fixed step size $\alpha$, the updated value of parameters $\Delta \theta$ is given as:
+The key aspect of policy gradient is to essentially increase the probabilities of choosing actions leading to higher return, while lowering down the probabilities of choosing inferior actions. Policy gradient algorithms can be formed as an optimisation problem searching for a local maximum of a policy objective function. \cite{pg} The quality of policy, or the scale of objective, is often related to the rewards in one episode. The gradient describes the direction and the magnitude of most effective ascent of one step update. Policy is updated online using gradient ascent with respect to the parameters. For an approximated policy $\pi_\theta$, with a fixed step size $\alpha$, the updated value of parameters $\Delta \theta$ is given as:
 $$
 \Delta\theta=\alpha\nabla_\theta J(\theta)
 $$
@@ -308,15 +306,15 @@ The use of convolutional neural network to extract information from images is a 
 \newline
 \newline
 \noindent
-A recent work applies the deep Q-learning method to improve the striking accuracy in air hockey. The control task of strike follows a customised reward based on properties of the hit puck. It discretises the action space using a sampled 2-dimensional grid to follow the DQN scheme.
+A recent work applies the deep Q-learning method to improve the striking accuracy in air hockey. \cite{puck} The control task of strike follows a customised reward based on properties of the hit puck. It discretises the action space using a sampled 2-dimensional grid to follow the DQN scheme.\cite{atari}
 \newline
 \newline
 \noindent
-The Q-learning algorithm uses a greedy maximisation step to select the action. It is widely known to over-estimate the action values in many situations. Many previous work address the systematic problem found in their environments. Further investigation proves that it exists in deep Q-learning and actor-critic algorithms.
+The Q-learning algorithm uses a greedy maximisation step to select the action. It is widely known to over-estimate the action values in many situations. Many previous work address the systematic problem found in their environments. Further investigation proves that it exists in deep Q-learning and actor-critic algorithms. \cite{ac}
 \newline
 \newline
 \noindent
-Recent researches incorporate the evolution strategies into the RL problem. They enable a parallelised learning process over different targets. The development of GPU computation makes it a suitable optimisation scheme for large-scale problems.
+Recent researches incorporate the evolution strategies \cite{es}into the RL problem. They enable a parallelised learning process over different targets. The development of GPU computation makes it a suitable optimisation scheme for large-scale problems.
 \newline
 \newline
 \noindent
@@ -351,7 +349,7 @@ The goal of this project is to solve the reinforcement learning problem end-to-e
 \newline
 \newline
 \noindent
-Deep Q-learning is one of the most famous application of such architecture in an Atari game environment. It reads the input directly from frames of screen and pre-processes the state representation for optimisation. A deep Q-network is used to represent the action-value function $Q_\theta$. DQN proposes a novel memory replay mechanic to improve the data efficiency. In every episode, a state transition $s\rightarrow s'$ is stored into a memory buffer $\mathcal D$ once finished in simulation, represented by a quadruple $[s_t,a_t,r_t,s_{t+1}]$. At each iteration, we apply the Q-learning update using samples of experience stored in the memory. At every time-step, the action is selected with respect to the Bellman optimality equation. Exploration in deep Q-learning is maintained by an epsilon-greedy policy, where with a small probability $\epsilon$, a random action is chosen over the optimal one. In non-terminal states, the objective is calculated as the Bellman error: $r+\gamma\max_{a'}Q_\theta(s',a')-Q_\theta(s,a)$. The variance introduced by the up-to-date parameters at each step may impair the stability of the architecture. Instead, DQN implements a target network with delayed but fixed parameters $\theta_{targ}$, which the target is then updated to. For every $\tau$ steps, parameters on the Q-network are copied onto the target network periodically. The final action-value of each discrete action is yielded separately after a single forward pass.
+Deep Q-learning is one of the most famous application of such architecture in an Atari game environment. \cite{atari} It reads the input directly from frames of screen and pre-processes the state representation for optimisation. A deep Q-network is used to represent the action-value function $Q_\theta$. DQN proposes a novel memory replay mechanic to improve the data efficiency. In every episode, a state transition $s\rightarrow s'$ is stored into a memory buffer $\mathcal D$ once finished in simulation, represented by a quadruple $[s_t,a_t,r_t,s_{t+1}]$. At each iteration, we apply the Q-learning update using samples of experience stored in the memory. At every time-step, the action is selected with respect to the Bellman optimality equation. Exploration in deep Q-learning is maintained by an epsilon-greedy policy, where with a small probability $\epsilon$, a random action is chosen over the optimal one. In non-terminal states, the objective is calculated as the Bellman error: $r+\gamma\max_{a'}Q_\theta(s',a')-Q_\theta(s,a)$. The variance introduced by the up-to-date parameters at each step may impair the stability of the architecture. Instead, DQN implements a target network with delayed but fixed parameters $\theta_{targ}$, which the target is then updated to. For every $\tau$ steps, parameters on the Q-network are copied onto the target network periodically. The final action-value of each discrete action is yielded separately after a single forward pass.
 \newline
 \newline
 \noindent
@@ -360,7 +358,7 @@ Deep Q-learning proposes an efficient architecture for the learning of value fun
 \newline
 \newline
 \noindent
-We consider deep deterministic policy gradient algorithm to solve the problem. DDPG is an algorithm that follows the DQN approach but applies an actor-critic architecture to a continuous action space. It updates the Q-network and a policy in an off-policy way. At every time step, the action is selected based on a deterministic parameterised policy $\mu_\theta(s)$. Following a deterministic policy can easily lead to a local optimum with insufficient exploration of the space. We add a random Gaussian noise $\epsilon \in \mathcal N(0)$ sampled at every iteration to the policy. It is a simple modification enabled by the continuous action space, which provides intrinsic stochasticity on all dimensions. The scale of this noise term remains fixed throughout the learning process.
+We consider deep deterministic policy gradient algorithm to solve the problem. \cite{ddpg}DDPG is an algorithm that follows the DQN approach but applies an actor-critic architecture to a continuous action space. It updates the Q-network and a policy in an off-policy way. At every time step, the action is selected based on a deterministic parameterised policy $\mu_\theta(s)$. Following a deterministic policy can easily lead to a local optimum with insufficient exploration of the space. We add a random Gaussian noise $\epsilon \in \mathcal N(0)$ sampled at every iteration to the policy. It is a simple modification enabled by the continuous action space, which provides intrinsic stochasticity on all dimensions. The scale of this noise term remains fixed throughout the learning process.
 \newline
 \newline
 \noindent
@@ -380,7 +378,7 @@ $$
 \newline
 \noindent
 \subsection{Twin Delayed DDPG}
-We explore deeper to improve the generalised performance and stability of DDPG with further detailed modification using Twin Delayed DDPG (TD3).
+We explore deeper to improve the generalised performance and stability of DDPG with further detailed modification using Twin Delayed DDPG (TD3). \cite{td3}
 \newline
 \newline
 \noindent
@@ -402,27 +400,60 @@ y(r,s',d) = r+\gamma(1-d) \min_{i=1,2}Q_{\phi_{i,targ}(s',a'(s'))}
 $$
 Both actors are optimised with respect to the clipped target:
 $$
-L(\phi_1,\mathcal D) = \mathbb E_{(s,a,r,s',d)\sim \mathcal D}[(Q_{\phi_1}(s,a) - y(r,s',d))^2] \\ L(\phi_2,\mathcal D) = \mathbb E_{(s,a,r,s',d)\sim \mathcal D}[(Q_{\phi_2}(s,a) - y(r,s',d))^2]
+L(\phi_1,\mathcal D) = \mathbb E_{(s,a,r,s',d)\sim \mathcal D}[(Q_{\phi_1}(s,a) - y(r,s',d))^2] $$
+$$L(\phi_2,\mathcal D) = \mathbb E_{(s,a,r,s',d)\sim \mathcal D}[(Q_{\phi_2}(s,a) - y(r,s',d))^2]
 $$
-TD3 also proposes a less frequent update procedure for the policy than the action-value function. It shows that a delayed update can reduce the error raised by function approximation for the target networks, which is backed by empirical results in other papers. We modify the usage of the memory buffer $\mathcal D$ in TD3 by adding a lower bound of the number of samples for valid update. It means that at the starting steps, the agent is following a uniformly random policy over valid action space. The experience replay mechanic then takes over for later exploration.
+TD3 also proposes a less frequent update procedure for the policy than the action-value function. It shows that a delayed update can reduce the error raised by function approximation for the target networks, which is backed by empirical results in other papers. We modify the usage of the memory buffer $\mathcal D$ in TD3 by adding a lower bound of the number of samples for valid update. It means that at the starting steps, the agent is following a uniformly random policy over valid action space. The experience replay mechanic then takes over for later exploration. The pseudo-code of TD3 algorithm used in the experiment is listed below.
 \newline
 \newline
 \noindent
-The pseudo-code of TD3 algorithm used in the experiment is listed below:
+
 \begin{algorithm}[H]
-    \floatname{algorithm}{EuroRadio Protocol}
+    \floatname{algorithm}{Algorithm I}
     \renewcommand{\thealgorithm}{}
-    \caption{Steps that an ERTMS Entity would undertake to establish a connection}
-    T: Train, R: Radio Block Centre, $K_{MAC}$: Train Key, $KS_{MAC}$: Session Key
-    \label{EuroRadio Protocol}
+    \caption{Twin Delayed Deep Deterministic Policy Gradient}
     \begin{algorithmic}[1]
-        \STATE $T\rightarrow{R}$ : \{\texttt{ETY},\texttt{MTI}$\gets$AU1, \texttt{DF}$\gets$0, Sender ETCS ID, Safety Feature, R$_T$\}.
-        \texttt{DF}, Padding))\}
+        \STATE Initialise policy parameters $\theta$, Q-function parameters $\phi_1, \phi_2$, replay buffer $\mathcal D$.
+        \STATE Record target parameters equal to current parameters $\theta_{targ} \leftarrow \theta, \phi_{targ,1} \leftarrow \phi_1, \phi_{targ,2} \leftarrow \phi_2$
+        \STATE \textbf{Repeat}
+        \STATE \hspace{0.5cm} Observe state $s$ and execute action $a=clip(\mu_\theta(s)+\epsilon, a_{Low}, a_{High})$, where noise $\epsilon \sim \mathcal N$.
+        \STATE \hspace{0.5cm} Observe next state $s'$, reward $r$, terminal indicator $d$.
+        \STATE \hspace{0.5cm} Store $(s,a,r,s',d)$ into the replay buffer $\mathcal D$.
+        \STATE \hspace{0.5cm} If $s'$ is terminal, \textit{reset} environment $\mathcal E$.
+        \STATE \hspace{0.5cm} \textbf{for} $t=1$ to $T$ \textbf{do}
+        \STATE \hspace{1cm} Sample a random mini-batch of transitions $B = \{(s,a,r,s',d)\}_N$ from $\mathcal D$.
+        \STATE \hspace{1cm} Compute target actions
+        \begin{center}
+            $a'(s') = clip(\mu_{\theta_{targ}}(s')+clip(\epsilon, -c, c),a_{Low}, a_{High}), \ \epsilon \sim \mathcal N (0,\sigma)$
+        \end{center}
+        \STATE \hspace{1cm} Compute the target
+        \begin{center}
+            $y = r+\gamma(1-d)\min_{i=1,2}Q_{\phi_{targ,i}}(s',a'(s'))$
+        \end{center}
+        \STATE \hspace{1cm} Update Q-functions by gradient descent for $i=1,2$
+        \begin{center}
+            $\nabla_{\phi_i} N^{-1}\sum\limits_{(s,a,r,s',d)\in\mathcal B}(Q_{\phi_i}(s,a) -y)^2$
+        \end{center}
+        \STATE \hspace{1cm} \textbf{If} $t \mod delay$ \textbf{then}
+        \STATE \hspace{1.5cm} Update policy $\phi$ using deterministic policy gradient
+        \begin{center}
+            $\nabla_\theta N^{-1}\sum\limits_{s\in\mathcal b}Q_{\phi_1}(s,\mu_\theta(s))$
+        \end{center}
+        \STATE \hspace{1.5cm} Update target networks with Polyak $\rho$ for $i=1,2$
+        \begin{center}
+            $\phi_{targ,i}\leftarrow \rho\phi_{targ,i} + (1-\rho)\phi_i$
+        \end{center}
+        \begin{center}
+            $\theta_{targ}\leftarrow \rho\theta_{targ} + (1-\rho)\theta$
+        \end{center}
+        \STATE \hspace{1cm} \textbf{end if}
+        \STATE \hspace{0.5cm} \textbf{end for}
+        \STATE \textbf{until} convergence
+
     \end{algorithmic}
 \end{algorithm}
+\vspace{0.5cm}
 
-
-\newpage
 \section{Implementation}
 This section introduces the overall architecture of implemented software and considerations in the development. The problem and algorithms used are well discussed in the last section, whose parameters will be discussed below.
 
@@ -474,35 +505,26 @@ Another helper function \textit{reset} is responsible for the repositioning of s
 \noindent
 \subsection{Algorithms}
 We construct the DDPG and TD3 algorithms using PyTorch architecture. It provides high-performance automatic differentiation functions with a modular neural network constructor. The fundamental classes used in these algorithms include the memory buffer, Q-network, policy-network and actor-critic network. In TD3 implementation, two groups of neural networks are trained separately. The setting of hyper parameters follow the suggested data in the original TD3 paper. The algorithms used for performance comparison are imported from the \textit{spinup }Python module. Details of the implementation are listed below:
-
+\vspace{1.5cm}
 \begin{center}
-    \begin{longtable}{|c|c|}
-
-        \hline \multicolumn{1}{|c|}{\textbf{Threat}} & \multicolumn{1}{c|}{\textbf{EuroRadio}} \\ \hline \hline
-        \endfirsthead
-
-        \multicolumn{2}{c}%
-        {{\bfseries Threat/Defence Matrix -- continued from previous page}} \\
-        \hline \multicolumn{1}{|c|}{\textbf{Threat}} & \multicolumn{1}{c|}{\textbf{EuroRadio}} \\ \hline \hline
-        \endhead
-
-        \multicolumn{2}{|r|}{{Continued on next page}} \\ \hline
-        \endfoot
-
-        \hline \hline
-        \endlastfoot
-
-        Repetition & $\times$ \\ \hline
-        Deletion & $\times$ \\ \hline
-        Insertion &  \\ \hline
-        Re-sequencing & $\times$ \\ \hline
-        Corruption &  \\ \hline
-        Delay & $\times$ \\ \hline
-        Masquerade &  \\ \hline
-
-    \end{longtable}
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+    steps/epoch & 4000 & action noise & 0.1 \\
+    \hline
+    replay size & 10\^{}6 & target noise & 0.2 \\
+    \hline
+    gamma & 0.99 & noise clip & 0.5 \\
+    \hline
+    polyak & 0.995 & policy delay & 2 \\
+    \hline
+    batch size & 100 & update after & 1000 \\
+    \hline
+    start steps & 10000 & update every & 50 \\
+    \hline
+\end{tabular}
+\vspace{0.5cm}
+\\ Table \textbf{1}: Hyper-parameters of the implementation
 \end{center}
-
 
 \newpage
 \section{Experiment}
@@ -519,16 +541,43 @@ All the algorithms are tested in both environments with fixed random seeds for 1
 \newline
 \noindent
 In the Walker2d-v2 environment, the performance following the deterministic policy learnt by TD3 is much better than other algorithms except for soft actor-critic. The possible reason could be the sparse reward requires more efficient exploration over the entire space. However in the Swimmer environment, the score of TD3 is much less than DDPG method. We assume it is because the trade-off for stability at the cost of performance.
-\newline
-\newline
+
+
+\begin{center}
+    \includegraphics[scale=.2]{pytorch_swimmer_performance.png}\\
+    Figure \textbf{2}: Performance Comparison in Swimmer environment
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+    \includegraphics[scale=.2]{pytorch_walker2d_performance.png}\\
+    Figure \textbf{3}: Performance Comparison in Walker2d environment \cite{spinup}
+\end{center}
+\vspace{0.5cm}
 \noindent
-We now apply the algorithm to the customised curling game play environment. One operation in the first implementation is to reset the current environment and reinitialise objects on the ice sheet. This original setting makes states independent to the each other, which may cause generalisation problems to the learnt policy. We test the performance of proposed approach with and without this step. The hyper-parameters and the architecture of networks remain the same in both groups, where only one group applies state reset. This comparison utilises the same evaluation metrics as in the algorithm competitors test. The values in table 2 suggest that learning on correlated states are beneficial to policy optimisation. The experience memory is capable of breaking the correlation while making use of the Markov property by mini-batch sampling.
+We now apply the algorithm to the customised curling game play environment. One operation in the first implementation is to reset the current environment and reinitialise objects on the ice sheet. This original setting makes states independent to the each other, which may cause generalisation problems to the learnt policy. We test the performance of proposed approach with and without this step. The hyper-parameters and the architecture of networks remain the same in both groups, where only one group applies state reset. This comparison utilises the same evaluation metrics as in the algorithm competitors test. The values in table 2 suggest that learning on correlated states are beneficial to policy optimisation. The experience memory is capable of breaking the correlation while making use of the Markov property by mini-batch sampling. The original DDPG implementation is also compared as a baseline.
 \newline
 \newline
 \noindent
 The results of these experiments show that the applied TD3 algorithm for curling game play is of good stability and generalisation performance.
-
-
+\vspace{1cm}
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline
+    Iteration & 10k & 200k & 400k & 600k & 800k & \textbf{1m} \\
+    \hline
+    DDPG with reinitialised state & 1.57 & 2.33 & 2.51 & 2.57 & 2.84 & \textbf{2.97$\pm$0.39} \\
+    \hline
+    TD3 with reinitialised state & 2.15 & 3.12 & 4.31 & 4.44 & 5.01 & \textbf{5.18$\pm$0.41} \\
+    \hline
+    TD3 with sequential state & 2.05 & 4.47 & 5.41 & 5.89 & 6.22 & \textbf{6.32$\pm$0.23} \\
+    \hline
+    \end{tabular}
+\end{center}
+\begin{center}
+    Table \textbf{2}: The test is run on 1 million time-steps with fixed batch size. \\ It shows  TD3 with sequential state returns a better and more stable policy.
+\end{center}
 
 \newpage
 \section{Discussion}
@@ -555,21 +604,38 @@ An ideal formulation of curling game play should consider the competition betwee
 \newpage
 \section{Conclusion}
 This project solves a task for the controllable agent to play curling in a simulated tabletop environment. We formulate the problem in a deep reinforcement learning model with variants in different settings. The agent progressively learns the control policy of the curling stone in the face of countless scenarios on the ice sheet. This project is aimed to explore the enormous research field of deep reinforcement learning for continuous control tasks. The proposed method applies twin delayed deep deterministic policy gradient method to a customised environment built in PyBullet simulator. The whole research process is established from the basis of reinforcement learning to state-of-the-art algorithms. Several modifications are conducted to suit the special case of this environment. The agent is able to learn end-to-end from the input rendered image for the purpose of maximisation of expected return. The internal model defined by the environment is in line with the rules of curling game, where rewards for the resulting states after collision are the difference in scores of both teams'. The results of experiments show that this approach is capable to generalise to variants of the formulated problems. This project is conducted with respect to a 12 weeks schedule. Although being interrupted by multiple accidents, it is considered to successfully complete the default objective. There is much room for improvement in the deep reinforcement learning researches. Future work is intended to explore the application of evolutionary strategy and meta learning in a RL setting.
+\vspace{1cm}
 
+\section{Appendix}
+\subsection{Git repo}
+The full developed software with algorithms and customised gym-curling environment is available at:
+\\ \url{https://git-teaching.cs.bham.ac.uk/mod-msc-proj-2019/zxx992}
+\vspace{1cm}
+\subsection{Code structure}
+The code structure of whole project is illustrated in the following figure:
+\begin{center}
+    \includegraphics[scale=.4]{Arch.png}\\
+    Figure \textbf{4}: Software architecture
+\end{center}
+
+\vspace{1cm}
+\subsection{Testing}
+To test the performance of algorithms, we need supplementary modules including \textit{Gym}, \textit{PyBullet}, \textit{mujoco}. We simply initiate the customised gym environment with suggested syntax and start testing inside the environment.
 
 
 
 % Bibliography
 \clearpage
-\lhead{}\chead{MSc. Project Report :: \nouppercase{\leftmark}}\rhead{}
+\lhead{}\chead{MSc. Project Report \nouppercase{\leftmark}}\rhead{}
 \phantomsection
 \addcontentsline{toc}{section}{References}
+\nocite{*}
+\bibliography{mybib.bib}
 \bibliographystyle{agsm}
-\bibliography{mybib}
-
 \clearpage
 
-\section{Appendix}
-\subsection{Appendix I.}
 
 \end{document}
+
+
+
